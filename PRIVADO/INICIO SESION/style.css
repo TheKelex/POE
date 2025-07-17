@@ -1,0 +1,28 @@
+body {
+
+    background-image: url(.//Imagenes/Fondo\ Inicio\ De\ Sesion.png);
+    background-size: cover;
+
+}
+
+#boton {
+
+    background-color: #04BF55;
+    color: white;
+    font-weight: bold;
+
+}
+
+#boton_1 {
+
+    border-color: gray;
+    color: #04BF55;
+    font-weight: bold;
+
+}
+
+#fondo {
+
+    background-color: #f2f2f2;
+
+}
