@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="m-0 p-0">
+    
+    <div class="w-100 sticky-top">
+        <img src="./Imagenes/Baner.jpg" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;" >
+    </div>
+
+     <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="margin-top: -160px; padding-top: 180px;">
+
+        <div class="col-md-4 p-4 rounded-4 shadow" id="fondo">
+
+            <center>
+            <h1 style="color: #04BF55; font-weight: bold;">Iniciar Sesion</h1>
+            <p style="color: #02db60; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
+            </center>
+
+            <!--Inicio de formulario-->
+            <form name="formulario" method="post">
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label d-flex"> <span class="material-symbols-outlined">account_circle</span><b> Usuario</b></label>
+                    <input type="text" name="usuario" class="form-control shadow" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Ingrese su nombre de usuario</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label d-flex"> <span class="material-symbols-outlined"> lock</span><b> Contraseña</b></label>
+                    <input type="password" name="contraseña" class="form-control shadow" id="exampleInputPassword1">
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <a href="./Registrar.php" class="btn w-100 d-flex justify-content-center gap-2 rounded-pill px-4 py-2" id="boton_1">Volver</a>
+
+                    </div>
+
+                    <div class="col">
+
+                        <button type="submit" name="login" class="btn w-100 d-flex justify-content-center gap-2 rounded-pill px-4 py-2" id="boton">Iniciar Sesion</button> <br>
+                        
+                    </div>
+
+                </div>
+
+            </form>
+            <!--Fin inicio de formulario-->
+
+        </div>
+        
+    </div>
+
+    <script src="../../bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+</body>
+
+</html>
