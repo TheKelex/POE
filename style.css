@@ -13,6 +13,21 @@
   text-align: left;
 }
 
+.textos_navbar {
+
+  color: white !important;
+  font-size: 25px !important;
+  transition: all 0.4s ease-in-out !important;
+
+}
+
+.textos_navbar:hover {
+
+  color: rgb(120, 255, 94) !important;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
+
+}
+
 .logo-container img {
   width: 100%;
   height: auto;
@@ -64,7 +79,7 @@
 }
 
 .email:hover {
-  box-shadow: 0 0 25px 10px rgba(0, 255, 255, 0.7); /* más glow al pasar el mouse */
+  box-shadow: 0 0 25px 10px rgba(0, 255, 255, 0.7);
 }
 
 .titulo_footer {
