@@ -124,8 +124,9 @@
   background-color: #64d88e;      /* Color verde similar */
   padding: 25px;             /* Espaciado interno */
   border-radius: 25px;            /* Bordes redondeados */
-  margin: 20px ;              /* Centrado y con separación */
-  text-align: center;
+  margin-top: 20px;
+  text-align: start;
+  width: 100%;
 }
 
 
