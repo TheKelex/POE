@@ -1,0 +1,137 @@
+#boton_1 {
+  border-color: gray;
+  color: #04bf55;
+  font-weight: bold;
+}
+
+.logo-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  z-index: 0;
+  text-align: left;
+}
+
+.textos_navbar {
+
+  color: white !important;
+  font-size: 25px !important;
+  transition: all 0.4s ease-in-out !important;
+
+}
+
+.textos_navbar:hover {
+
+  color: rgb(120, 255, 94) !important;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
+
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+}
+
+.titulos {
+  color: #04bf55;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 50px);
+}
+
+.textos {
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 30px);
+  text-align: justify;
+  align-items: center;
+}
+
+.circulos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #04bf55;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.titulo_contacto {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 50px);
+}
+
+.email {
+
+    color: white;
+    padding: 10px 30px;
+    background-color: #1B8C2C;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.email:hover {
+  box-shadow: 0 0 25px 10px rgba(0, 255, 255, 0.7);
+}
+
+.titulo_footer {
+
+    color: #1B8C2C;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.texto_footer {
+
+    color: gray;
+    opacity: 0.40;
+    display: block;
+    margin-bottom: 0.4rem;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.texto_footer:hover {
+
+    color: rgb(0, 0, 0);
+
+}
+
+.lenguage {
+
+    border: 0;
+    background-color: transparent;
+    color: #1B8C2C;
+    font-weight: bold;
+
+}
+
+.dropdown-toggle.lenguage {
+  padding: 1;
+  line-height: 1;        /* igual a h5 */
+  vertical-align: baseline; /* alínealo con el texto */
+}
+
+.cuadro {
+  background-color: #64d88e;      /* Color verde similar */
+  padding: 16px 24px;             /* Espaciado interno */
+  border-radius: 14px;            /* Bordes redondeados */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;               /* Peso intermedio como el de la imagen */
+  font-size: 16px;
+  color: #000;                    /* Texto en negro */
+  text-align: center;
+  max-width: 500px;               /* Para que no se estire demasiado */
+  margin: 20px ;              /* Centrado y con separación */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Opcional: sutil sombra */
+}
+
+
