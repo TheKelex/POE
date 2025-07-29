@@ -119,3 +119,19 @@
   line-height: 1;        /* igual a h5 */
   vertical-align: baseline; /* alínealo con el texto */
 }
+
+.cuadro {
+  background-color: #64d88e;      /* Color verde similar */
+  padding: 16px 24px;             /* Espaciado interno */
+  border-radius: 14px;            /* Bordes redondeados */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;               /* Peso intermedio como el de la imagen */
+  font-size: 16px;
+  color: #000;                    /* Texto en negro */
+  text-align: center;
+  max-width: 500px;               /* Para que no se estire demasiado */
+  margin: 20px ;              /* Centrado y con separación */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Opcional: sutil sombra */
+}
+
+
