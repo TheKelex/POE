@@ -119,3 +119,7 @@
   line-height: 1;        /* igual a h5 */
   vertical-align: baseline; /* alínealo con el texto */
 }
+
+.borde {
+  border-radius: 25px;  
+}
