@@ -1,0 +1,105 @@
+.caja { /*"Caja" mas gris que la del fondo*/
+
+  background-color: #def8f4;
+  padding: 50px;
+
+}
+
+.boton_cajita { /*Estilo para los botones dentro de la caja de filtros*/
+
+  background-color: #ffffff;
+  font-weight: bold;
+  padding: 5px 30px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.boton:hover, .boton_cajita:hover { /*Animacion para los botones dentro de la caja de los filtros*/
+
+  background-color: rgb(192, 255, 192);
+
+}
+ 
+.cajita_opciones { /*Caja verde para los filtros*/
+
+  background-color: #b7e2cc;
+  border: 1px solid black;
+  padding: 20px;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.boton { /*Estilo para los botones de la parte superior*/
+
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid black;
+    font-size: 20px;
+    padding: 7px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.actualizar { /*Estilo para el boton de actualizar de la caja de filtros*/
+
+  color: white;
+  background-color: #57a06b;
+  border: 1px solid black;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-align: center;
+  margin-top: 200px;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.actualizar:hover { /*Efecto para el boton de actualizar*/
+
+  background-color: #04BF55;
+  box-shadow: 0 0 10px 5px rgb(4 191 85);
+
+}
+
+.textos_navbar { /*Estilo para las opciones de navegacion de la NavBar*/
+
+  color: white !important;
+  font-size: 25px !important;
+  transition: all 0.4s ease-in-out !important;
+
+}
+
+.textos_navbar:hover { /*Efecto para las opciones de navegacion de la NavBar*/
+
+  color: rgb(120, 255, 94) !important;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
+
+}
+
+table { /*Estilo para el tamaño de la tabla y la alineacion*/
+
+  width: 100% !important;
+  text-align: center !important
+
+}
+
+.campo { /*Estilo para la informacion de la tabla*/
+
+  border: 1px solid black !important;
+  background-color: white !important;
+  padding: 20px !important;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.ingreso {/*Estilo para el icono de ingreso*/
+
+  background-color: #b7e2cc00 !important;
+  border: 0px solid #57a06a00 !important;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  vertical-align: middle;
+
+}

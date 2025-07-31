@@ -14,7 +14,7 @@
   text-align: left;
 }
 
-.textos_navbar { /*Clase Para Los Textos De La NavBar*/
+.textos_navbar {
 
   color: white !important;
   font-size: 25px !important;
@@ -22,7 +22,7 @@
 
 }
 
-.textos_navbar:hover { /*Clase Para La Animacion De Los Textos De La NavBar*/
+.textos_navbar:hover {
 
   color: rgb(120, 255, 94) !important;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
