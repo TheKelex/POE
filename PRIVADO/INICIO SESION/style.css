@@ -7,17 +7,26 @@ body {
 
 #boton {
 
+    border: 1px solid gray;
     background-color: #04BF55;
     color: white;
     font-weight: bold;
+    transition: all 0.4s ease-in-out;
 
 }
 
 #boton_1 {
 
-    border-color: gray;
+    border: 1px solid gray;
     color: #04BF55;
     font-weight: bold;
+    transition: all 0.4s ease-in-out;
+
+}
+
+#boton:hover {
+
+  box-shadow: 0 0 10px 5px rgb(4 191 85);
 
 }
 
