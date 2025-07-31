@@ -34,7 +34,7 @@
   height: auto;
 }
 
-.titulos {
+.titulo-principal {
   color: #04bf55;
   font-weight: bold;
   font-size: clamp(2rem, 5vw, 50px);
@@ -123,4 +123,35 @@
 
 .borde {
   border-radius: 25px;  
+}
+
+.titulos { /*Clase Para Los Titulos En Una Capsula*/
+
+  color: #000000;
+  background-color: #4dd286;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  padding: 15px;
+  width: 50%;
+  font-weight: bold;
+  border-width: thin;
+  border-style: solid;
+  font-size: clamp(1rem, 4vw, 30px);
+
+}
+
+.cuadro{
+    background-color: #64d88e;      /* Color verde similar */
+  padding: 25px;             /* Espaciado interno */
+  border-radius: 35px;            /* Bordes redondeados */
+  margin: 20px ;              /* Centrado y con separación */
+  text-align: center;
+}
+
+.margen {
+
+  margin-right: 20%; 
+  margin-left: 20%;
+
 }
