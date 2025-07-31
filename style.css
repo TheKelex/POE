@@ -1,10 +1,11 @@
-#boton_1 {
+#boton_1 { /*Clase Para Boton Ancla*/
   border-color: gray;
+  border: 1px solid;
   color: #04bf55;
   font-weight: bold;
 }
 
-.logo-container {
+.logo-container { /*Clase Para El Logo Del Tecnico Del Inicio*/
   position: absolute;
   bottom: 0;
   left: 0;
@@ -13,7 +14,7 @@
   text-align: left;
 }
 
-.textos_navbar {
+.textos_navbar { /*Clase Para Los Textos De La NavBar*/
 
   color: white !important;
   font-size: 25px !important;
@@ -21,32 +22,74 @@
 
 }
 
-.textos_navbar:hover {
+.textos_navbar:hover { /*Clase Para La Animacion De Los Textos De La NavBar*/
 
   color: rgb(120, 255, 94) !important;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
 
 }
 
-.logo-container img {
+.logo-container img { /*Clase Para Las Manos De Mariposa*/
+
   width: 100%;
   height: auto;
+
 }
 
-.titulos {
+.titulo_principal { /*Clase Para El Titulo Principal*/
+
   color: #04bf55;
   font-weight: bold;
   font-size: clamp(2rem, 5vw, 50px);
+
 }
 
-.textos {
+.titulos { /*Clase Para Los Titulos En Una Capsula*/
+
+  color: #000000;
+  background-color: #4dd286;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  padding: 15px;
+  width: 50%;
+  font-weight: bold;
+  border-width: thin;
+  border-style: solid;
+  font-size: clamp(1rem, 4vw, 30px);
+
+}
+
+.textos_divisiones { /*Clase Para El Texto De Las Divisiones*/
+
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 30px;
+  text-align: justify;
+
+}
+
+.texto_que { /*Clase Para El Texto De Abajo De "¿Que Es El POE?"*/
+
+  font-weight: bold;
+  color: #424242;
+  font-size: clamp(1rem, 2vw, 25px);
+  text-align: justify;
+  align-items: center;
+
+}
+
+.textos { /*Clase Para Textos Generales*/
+
   font-weight: bold;
   font-size: clamp(1rem, 3vw, 30px);
   text-align: justify;
   align-items: center;
+
 }
 
-.circulos {
+.circulos { /*Clase Para Los Circulos Que Acompañan El Texto*/
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -57,67 +100,72 @@
   color: #04bf55;
   font-weight: bold;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
 }
 
-.titulo_contacto {
+.titulo_contacto { /*Clase Para El Texto De Contacto De La Psicoorientadora*/
+
   color: #ffffff;
   font-weight: bold;
   font-size: clamp(2rem, 5vw, 50px);
-}
-
-.email {
-
-    color: white;
-    padding: 10px 30px;
-    background-color: #1B8C2C;
-    font-weight: bold;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.5);
-    transition: all 0.3s ease-in-out;
 
 }
 
-.email:hover {
+.email { /*Clase Para El Email De La Psicoorientadora*/
+
+  color: white;
+  padding: 10px 30px;
+  background-color: #1B8C2C;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+
+}
+
+.email:hover { /*Clase Para La Animacion Del Email De La Psicoorientadora*/
   box-shadow: 0 0 25px 10px rgba(0, 255, 255, 0.7);
 }
 
-.titulo_footer {
+.titulo_footer { /*Clase Para Los Titulos Del Footer*/
 
-    color: #1B8C2C;
-    font-weight: bold;
-    margin-bottom: 10px;
-
-}
-
-.texto_footer {
-
-    color: gray;
-    opacity: 0.40;
-    display: block;
-    margin-bottom: 0.4rem;
-    transition: all 0.3s ease-in-out;
+  color: #1B8C2C;
+  font-weight: bold;
+  margin-bottom: 10px;
 
 }
 
-.texto_footer:hover {
+.texto_footer { /*Clase Para Los Textos Del Footer*/
 
-    color: rgb(0, 0, 0);
-
-}
-
-.lenguage {
-
-    border: 0;
-    background-color: transparent;
-    color: #1B8C2C;
-    font-weight: bold;
+  color: gray;
+  opacity: 0.40;
+  display: block;
+  margin-bottom: 0.4rem;
+  transition: all 0.3s ease-in-out;
 
 }
 
-.dropdown-toggle.lenguage {
+.texto_footer:hover { /*Clase Para Animar Los Textos Del Footer*/
+
+  color: rgb(0, 0, 0); 
+
+}
+
+.lenguage { /*Clase Para El DropDown Del Boton Languaje (Footer)*/
+
+  border: 0;
+  background-color: transparent;
+  color: #1B8C2C;
+  font-weight: bold;
+
+}
+
+.dropdown-toggle.lenguage { /*Clase Para Centrar El Boton Language (Footer)*/
+
   padding: 1;
   line-height: 1;        /* igual a h5 */
   vertical-align: baseline; /* alínealo con el texto */
+  
 }
 
 .borde {
