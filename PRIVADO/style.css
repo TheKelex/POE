@@ -8,6 +8,7 @@
 .boton_cajita { /*Estilo para los botones dentro de la caja de filtros*/
 
   background-color: #ffffff;
+  border: 1px solid black;
   font-weight: bold;
   padding: 5px 30px;
   text-align: center;
@@ -25,7 +26,7 @@
 
   background-color: #b7e2cc;
   border: 1px solid black;
-  padding: 20px;
+  padding: 11%;
   transition: all 0.4s ease-in-out;
 
 }

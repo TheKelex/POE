@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+
+</head>
+
+<body>
+
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid"
+            style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <a href="../egresados.html" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+    <div class="caja m-3"> <!--Caja para el fondo blanco de la info-->
+
+        <form class="m-4 p-2" action="" method="POST"> <!--Inicio del formulario-->
+
+
+
+            <div class="row align-items-center m-4"> <!--Primera fila-->
+
+
+                <!--Nombres Y Apellidos-->
+                <div class="col-1">
+
+                    <p class="titulo">EGRESADO</p>
+
+                </div>
+
+                <div class="col-6">
+
+                    <label class="titulo" for="nombre">NOMBRES Y APELLIDOS</label>
+                    <input class="campo form-control rounded-pill" type="text" name="nombre">
+
+                </div>
+
+
+                <!--Fecha De Nacimiento-->                
+                <div class="col-3">
+
+                    <label class="titulo d-block">FECHA DE NACIMIENTO</label>
+
+                    <div class="row">
+
+                        <div class="col">
+
+                            <input class="campo form-control rounded-pill" type="number" name="dia" placeholder="DIA">
+
+                        </div>
+
+                        <div class="col">
+
+                            <input class="campo form-control rounded-pill" type="number" name="mes" placeholder="MES">
+
+                        </div>
+
+                        <div class="col">
+
+                            <input class="campo form-control rounded-pill" type="number" name="anio" placeholder="AÑO">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!--Edad-->
+                <div class="col-2">
+
+                    <label class="titulo d-block">EDAD</label>
+                    <input class="campo form-control rounded-pill" type="text" name="edad">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row align-items-center m-4"> <!--Segunda fila-->
+
+
+                <!--Documento-->
+                <div class="col-1">
+
+                    <p class="titulo">DOCUMENTO</p>
+
+                </div>
+
+
+                <!--Inicio de opciones-->
+                <div class="col-3">
+
+                    <div class="row">
+
+                        <div class="col">
+
+                            <label class="titulo d-block">R.C</label>
+                            <input class="form-check-input opcion" type="radio" name="tipo" value="rc">
+
+                        </div>
+
+                        <div class="col">
+
+                            <label class="titulo d-block">T.I</label>
+                            <input class="form-check-input" type="radio" name="tipo" value="ti">
+
+                        </div>
+
+                        <div class="col">
+
+                            <label class="titulo d-block">C.C</label>
+                            <input class="form-check-input" type="radio" name="tipo" value="cc">
+
+                        </div>
+
+                        <div class="col">
+
+                            <label class="titulo d-block" id="otro">OTRO</label>
+                            <input class="form-check-input" for="otro" type="radio" name="tipo" value="otro">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--Fin de opciones-->
+
+
+                <!--Numero de documento-->
+                <div class="col-4 d-flex align-items-center gap-2">
+
+                    <p class="titulo mb-0">Nro</p>
+                    <input class="campo form-control rounded-pill" type="number" name="nro">
+
+                </div>
+
+
+
+                <!--Grupo sanguineo-->
+
+                <div class="col-4 d-flex align-items-center gap-2">
+
+                    <p class="titulo mb-0">GRUPO SANGUINEO</p>
+                    <input class="campo form-control rounded-pill" type="text" name="grupo_sanguineo">
+                    
+                </div>
+
+            </div>
+
+
+            <!--Tercera linea-->
+            <div class="row align-items-center m-4">
+
+
+                <!--Especialidad-->
+                <div class="col-1">
+
+                    <p class="titulo mb-0">ESPECIALIDAD</p>
+                    
+                </div>
+
+                <div class="col-3">
+
+                    <input class="campo form-control rounded-pill" type="text" name="especialidad">
+
+                </div>
+
+                <!--Correo electronico-->
+                <div class="col-1">
+
+                    <p class="titulo mb-0">CORREO ELECTRONICO</p>
+                    
+                </div>
+
+                <div class="col-7">
+
+                    <input class="campo form-control rounded-pill" type="email" name="correo">
+
+                </div>
+
+
+            </div>
+
+
+            <!--Cuarta linea-->
+            <div class="row align-items-center m-4">
+
+
+                <!--Telefono movil-->
+                <div class="col-1">
+
+                    <p class="titulo mb-0">TELEFONO MOVIL</p>
+                    
+                </div>
+
+                <div class="col-3">
+
+                    <input class="campo form-control rounded-pill" type="number" name="telefono_movil">
+
+                </div>
+
+
+                <!--Ocupacion actual-->
+                <div class="col-1">
+
+                    <p class="titulo mb-0">OCUPACION ACTUAL</p>
+                    
+                </div>
+
+                <div class="col-7">
+
+                    <input class="campo form-control rounded-pill" type="text" name="ocupacion_actual">
+
+                </div>
+
+
+            </div>
+        
+
+            <!--Quinta Linea-->
+            <div class="row align-items-center m-4">
+
+                <div class="col-1">
+
+                    <p class="titulo">ESTUDIOS REALIZADOS</p>
+
+                </div>
+
+                <div class="col-11" style="padding-left: 0 !important;">
+
+                    <textarea class="campo form-control rounded-pill" name="estudios_relizados"></textarea>
+
+                </div>
+
+            </div>
+
+            
+            <!--Sexta linea-->
+            <div class="row align-items-center m-4">
+
+                <div class="col-1">
+
+                    <p class="titulo">INSTITUCION</p>
+
+                </div>
+
+                <div class="col-11">
+
+                    <input class="campo form-control rounded-pill" type="text" name="institucion">
+
+                </div>
+
+            </div>
+
+            <center>
+            <form action="tu_proceso.php" method="post">
+                <button class="volver rounded-pill m-4" type="submit" style="border:0;">
+                    <span class="material-symbols-outlined mx-1">edit</span> 
+                    Actualizar
+                </button>
+            </form>
+
+            </center>
+
+        </form>
+
+    </div>
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

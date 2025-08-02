@@ -1,0 +1,96 @@
+body { /*Estilo para el fondo general de la pagina*/
+
+    background-color: #d9d9d9 !important;
+
+}
+
+.caja { /*Estilo para la caja de la informacion*/
+
+    background-color: white;
+
+}
+
+.volver { /*Estilo para el voton de volver*/
+
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background-color: #4dd286;
+    padding: 10px;
+    width: 15%;
+    max-width: 135px;
+    min-width: 100px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.volver:hover {
+
+    background-color: #77dda3;
+
+}
+
+.titulo {
+
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+
+}
+
+.campo {
+
+    background: #e5e5e5 !important;
+    border: 1px solid black !important;
+    padding: 5px 10px;
+    min-height: 30px;
+    width: 100%;
+    display: inline-flex;
+    display: flex;
+
+}
+
+.fecha {
+
+    flex: 1;
+    min-width: 40px;
+    max-width: 80px;
+
+}
+
+
+.dia, .mes {
+
+    width: 50px;
+
+}
+
+.anio {
+
+    width: 70px;
+
+}
+
+.form-check-input {
+    
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: scale(1.5);
+
+}
+
+.col {
+
+    text-align: center; /* centra todo el contenido horizontalmente */
+
+}
+
+.col .titulo {
+
+    display: block;
+    text-align: center;
+
+}
