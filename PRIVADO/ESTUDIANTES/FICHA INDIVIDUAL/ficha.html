@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <a href="../estudiantes.html" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+    <!--Inicio de la tabla-->
+
+    <form class="m-4" action="">
+
+        <table class="table table-hover">
+
+            <!--Primera linea-->
+            <tr>
+
+                <td>NOMBRE DEL ESTUDIANTE</td>
+                <td colspan="3"><input class="campo form-control" type="text" name="nombre" placeholder="Nombre Del Estudiante"></td>
+
+            </tr>
+
+            <!--Segunda linea-->
+            <tr>
+
+                <td>DOCUMENTO DE IDENTIFICACION</td>
+                <td><input class="campo form-control" type="number" name="documento" placeholder="Documento De Identificacion"></td>
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="sede">SEDE:</label>
+                        <select class="form-select" name="sede" id="sede">
+
+                            <option value="" selected disabled>Seleccione Una Opcion</option>
+                            <option value="tecnico">Tecnico Superior</option>
+                            <option value="florez">Florez Miro Azuero</option>
+                            <option value="elena">Elena Lara De Cuellar</option>
+
+                        </select>
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="jornada">JORNADA:</label>
+                        <select class="form-select" name="jornada" id="jornada">
+
+                            <option value="" selected disabled>Seleccione Una Opcion</option>
+                            <option value="mañana">Mañana</option>
+                            <option value="tarde">Tarde</option>
+
+                        </select>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Tercera Linea-->
+            <tr>
+
+                <td>GRADO</td>
+                <td><input class="campo form-control" type="number" placeholder="Grado"></td>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="especialidad">ESPECIALIDAD:</label>
+                        <input class="campo form-control" type="text" name="especialidad" placeholder="Especialidad">
+
+                    </div>
+                </td>
+
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="docente">DOCENTE:</label>
+                        <input class="campo form-control" type="text" name="docente" placeholder="Docente">
+
+                    </div>
+                </td>
+
+            </tr>
+
+            <!--Cuarta linea-->
+            <tr>
+
+                <td>LUGAR Y FECHA DE NACIMIENTO</td>
+
+                <td colspan="2">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="lugar">LUGAR:</label>
+                        <input class="campo form-control" type="text" name="lugar" placeholder="Lugar">
+
+                        <label for="fecha">FECHA:</label>
+                        <input class="campo form-control" type="date" name="fecha">
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="edad">EDAD:</label>
+                        <input class="campo form-control" type="number" name="edad" placeholder="Edad">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Quinta linea-->
+            <tr>
+
+                <td>DIRECCION</td>
+
+                <td colspan="2"><input class="campo form-control" type="text" name="direccion" placeholder="Direccion"></td>
+
+                <td class="1">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="edad">BARRIO:</label>
+                        <input class="campo form-control" type="text" name="barrio" placeholder="Barrio">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Sexta linea-->
+            <tr>
+
+                <td>REMITENTE</td>
+
+                <td colspan="3"><input class="campo form-control" type="text" name="remitente" placeholder="Remitente"></td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+    <!--Fin de la tabla-->
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

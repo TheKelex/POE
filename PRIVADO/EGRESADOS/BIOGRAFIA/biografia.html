@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <a href="../egresados.html" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+    <form action="">
+
+        <!--Grid para la primera linea (Foto e info)-->
+        <div class="row align-items-center m-4">
+
+            <div class="col-3 d-flex justify-content-center">
+
+                <div class="borde p-2"><img src="./Img/Img_prueba.png" style="width: 100%;"></div>
+
+            </div>
+
+            <div class="col-9">
+
+                <center>
+                <h2 class="titulo rounded-pill">EGRESADO</h2>
+
+                <input class="campo form-control rounded-pill m-4" type="text" placeholder="Nombre">
+                <input class="campo form-control rounded-pill m-4" type="number" placeholder="Edad">
+                <input class="campo form-control rounded-pill m-4" type="text" placeholder="Especialidad en que se graduo">
+                </center>
+
+            </div>
+
+            <div class="col-12">
+
+                <textarea class="area form-control mx-auto" placeholder="Agregar texto..." rows="7"></textarea>
+
+            </div>
+
+            <div class="col-12 d-flex justify-content-end pe-4">
+                
+                <button class="btn-actualizar rounded-pill my-4" type="submit"><span class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
+                
+            </div>
+
+        </div>
+
+    </form>
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

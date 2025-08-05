@@ -26,13 +26,13 @@ body { /*Estilo para el fondo general de la pagina*/
 
 }
 
-.volver:hover {
+.volver:hover { /*Animacion para el boton de volver*/
 
     background-color: #77dda3;
 
 }
 
-.titulo {
+.titulo { /*Estilo para todos los textos del formulario*/
 
     font-size: 0.75rem;
     font-weight: bold;
@@ -40,7 +40,7 @@ body { /*Estilo para el fondo general de la pagina*/
 
 }
 
-.campo {
+.campo { /*Estilo para los inputs (Campos del formulario)*/
 
     background: #e5e5e5 !important;
     border: 1px solid black !important;
@@ -52,7 +52,7 @@ body { /*Estilo para el fondo general de la pagina*/
 
 }
 
-.fecha {
+.fecha { /*Estilo general para los campos de fechas*/
 
     flex: 1;
     min-width: 40px;
@@ -61,19 +61,19 @@ body { /*Estilo para el fondo general de la pagina*/
 }
 
 
-.dia, .mes {
+.dia, .mes { /*Campo de fecha mas pequeño para dia, mes*/
 
     width: 50px;
 
 }
 
-.anio {
+.anio { /*Campo un poco mas grande para el año*/
 
     width: 70px;
 
 }
 
-.form-check-input {
+.form-check-input { /*Estilo para las opciones en el formulario*/
     
     width: 25px;
     height: 25px;
@@ -88,7 +88,7 @@ body { /*Estilo para el fondo general de la pagina*/
 
 }
 
-.col .titulo {
+.col .titulo { /*Estilo para que los textos del formulario queden centrados*/
 
     display: block;
     text-align: center;

@@ -1,0 +1,92 @@
+body { /*Color de fondo*/
+
+    background-color: #f2f2f2;
+
+}
+
+.volver { /*Estilo para el voton de volver*/
+
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 0 solid black;
+    background-color: #4dd286;
+    padding: 10px;
+    width: 15%;
+    max-width: 135px;
+    min-width: 100px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.volver:hover { /*Animacion para el boton de volver*/
+
+    background-color: #77dda3;
+
+}
+
+.borde { /*Borde para la imagen*/
+
+    border: 1px solid black;
+    width: 17rem;
+
+}
+
+.titulo { /*Clase para el titulo de egresado*/
+
+    align-content: center;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: white;
+    padding: 1rem;
+    width: 20%;
+    max-width: 225px;
+    min-width: 200px;
+
+}
+
+.campo { /*Estilo para los inputs (Campos del formulario)*/
+
+    background: #ffffff !important;
+    border: 1px solid black !important;
+    padding: 10px 10px;
+    min-height: 30px;
+    width: 50%;
+    display: flex;
+
+}
+
+.area { /*Clase para el textarea*/
+
+    background: #ffffff !important;
+    width: calc(100% - 2rem);
+    border: 1px solid black !important;
+    display: block;
+    margin: 1rem auto;
+    padding: 10px;
+    min-height: 150px;
+    resize: vertical;
+
+}
+
+.btn-actualizar {
+
+    text-align: center;
+    display: flex;
+    background-color: #4dd286;
+    border: 0;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+/* Hover opcional */
+.btn-actualizar:hover {
+
+    background-color: #77dda3;
+
+}
