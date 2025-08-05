@@ -50,3 +50,31 @@ td { /*Para que quede la animacion suave*/
     background-color: #77dda3;
 
 }
+
+.form-check-input { /*Estilo para las opciones en el formulario*/
+    
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: scale(1.5);
+
+}
+
+.btn-actualizar { /*Estilo para el boton de actualizar*/
+
+    text-align: center;
+    display: flex;
+    background-color: #4dd286;
+    border: 0;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.btn-actualizar:hover { /*Animacion para el boton actualizar*/
+
+    background-color: #77dda3;
+
+}
