@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid"
+            style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <a href="../../estudiantes.html" class="rounded-pill m-4 volver"><span
+            class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+    <!--Grid para la parte superior de la foto y la info general-->
+
+    <form class="m-4" action="">
+
+        <div class="row align-items-center">
+
+            <div class="col">
+
+                <input class="campo_superior m-3 form-control" type="number" name="grupo" placeholder="GRADO">
+
+            </div>
+
+            <div class="col">
+
+                <center>
+                    <img src="./Img/Img_prueba.png" style="width: 8rem;" alt="Imagen Del Estudiante">
+                </center>
+
+            </div>
+
+            <div class="col">
+
+                <input class="campo_superior m-3 form-control" type="number" name="año" placeholder="AÑO">
+                <input class="campo_superior m-3 form-control" type="text" name="sede" placeholder="SEDE">
+                <input class="campo_superior m-3 form-control" type="text" name="jornada" placeholder="JORNADA">
+
+            </div>
+
+        </div>
+
+        <!--1. Identificacion-->
+
+        <div class="row borde m-4 d-flex align-items-center">
+
+            <div class="col-12 d-flex justify-content-center align-items-center"> <!--Separador para el titulo-->
+
+                <p class="titulo">1. IDENTIFICACION</p>
+
+            </div>
+
+            <!--Informacion-->
+
+            <div class="col-12">
+
+                <!--Primera linea de informacion-->
+                <table class="table">
+
+                    <tr>
+                        <td colspan="5">
+
+                            <div class="d-flex justify-content-between gap-3">
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="1er.apellido">1er.APELLIDO</label>
+                                        <input class="campo form-control" type="text" name="1er.apellido">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="2do.apellido">2do.APELLIDO</label>
+                                        <input class="campo form-control" type="text" name="2do.apellido">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="nombre">NOMBRE(S)</label>
+                                        <input class="campo form-control" type="text" name="nombre">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="documento">T.I_N.o</label>
+                                        <input class="campo form-control" type="number" name="documento">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                    <!--Segunda linea de informacion-->
+                    <tr>
+                        <td colspan="5">
+
+                            <div class="d-flex justify-content-between gap-3 flex-wrap">
+
+                                <!-- Fecha de nacimiento -->
+                                <div class="d-flex align-items-center gap-2 w-33 flex-wrap">
+
+                                    <span>FECHA DE NACIMIENTO:</span>
+
+                                    <label for="dia">DIA</label>
+                                    <input class="campo form-control" type="number" name="dia" style="width: 4rem;">
+
+                                    <label for="mes">MES</label>
+                                    <input class="campo form-control" type="number" name="mes" style="width: 4rem;">
+
+                                    <label for="año">AÑO</label>
+                                    <input class="campo form-control" type="number" name="año" style="width: 5rem;">
+
+                                </div>
+
+                                <!-- Lugar -->
+                                <div class="d-flex align-items-center gap-2 w-33">
+
+                                    <label for="lugar">LUGAR</label>
+                                    <input class="campo form-control" type="text" name="lugar">
+
+                                </div>
+
+                                <!-- RH -->
+                                <div class="d-flex align-items-center gap-2 w-33">
+
+                                    <label for="rh">RH</label>
+                                    <input class="campo form-control" type="text" name="rh">
+
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <!--Tercera linea de informacion-->
+                    <tr>
+
+                        <td colspan="5">
+
+                            <div class="d-flex justify-content-between gap-3">
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="direccion">DIRECCION</label>
+                                        <input class="campo form-control" type="text" name="direccion">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <label for="barrio">BARRIO</label>
+                                        <input class="campo form-control" type="text" name="barrio">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <label for="tel">TEL</label>
+                                        <input class="campo form-control" type="number" name="tel">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <label for="cel">CEL</label>
+                                        <input class="campo form-control" type="number" name="cel">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Cuarta linea de informacion-->
+                    <tr>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="comuna">COMUNA</label>
+                                <input class="campo form-control" type="number" name="comuna">
+
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="estrato">ESTRATO</label>
+                                <input class="campo form-control" type="number" name="estrato">
+
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="eps">E.P.S</label>
+                                <input class="campo form-control" type="text" name="eps">
+
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="desplazado">DESPLAZADO</label>
+                                <select class="form-select" name="desplazado">
+
+                                    <option value="" selected disabled>Seleccione Una Opcion</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+
+                                </select>
+
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="indigena">INDIGENA</label>
+                                <select class="form-select" name="indigena">
+
+                                    <option value="" selected disabled>Seleccione Una Opcion</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+
+                                </select>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <!--Quinta linea de informacion-->
+                    <tr>
+                        <td colspan="5">
+
+                            <div class="d-flex justify-content-between gap-3">
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="enfermedad">ENFERMEDAD QUE PADECE</label>
+                                        <input class="campo form-control" type="text" name="enfermedad">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="tiempo">TIEMPO</label>
+                                        <input class="campo form-control" type="text" name="tiempo">
+                                    </div>
+
+                                </div>
+
+                                <div class="w-100">
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="tratamiento">TRATAMIENTO</label>
+                                        <input class="campo form-control" type="text" name="tratamiento">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <!--Sexta linea de informacion-->
+                    <tr>
+
+                        <td>
+
+                            <label for="vision" class="form-label mb-0">PADECE DEFICIENCIA EN:</label>
+
+                        </td>
+
+                        <td>
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                            <label class="btn btn-outline-success" for="btn-check-outlined">VISION</label><br>
+
+                        </td>
+
+                        <td>
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined2" autocomplete="off">
+                            <label class="btn btn-outline-success" for="btn-check-outlined2">AUDICION</label><br>
+
+                        </td>
+
+                        <td>
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined3" autocomplete="off">
+                            <label class="btn btn-outline-success" for="btn-check-outlined3">OTRAS</label><br>
+
+                        </td>
+
+                        <td>
+
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="cuales">CUALES</label>
+                                <input class="campo form-control" type="text" name="cuales">
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

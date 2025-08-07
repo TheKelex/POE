@@ -1,0 +1,81 @@
+body { /*Color de fondo*/
+
+    background-color: #d9d9d9;
+
+}
+
+.volver { /*Estilo para el boton volver*/
+
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background-color: #4dd286;
+    padding: 10px;
+    width: 15%;
+    max-width: 120px;
+    min-width: 100px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.volver:hover { /*Animacion para el boton volver*/
+
+    background-color: #77dda3;
+
+}
+
+.campo_superior { /*Estilo para la informacion de la tabla*/
+
+    border: 1px solid black;
+    background-color: white !important;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.campo { /*Estilo para la informacion de la tabla*/
+
+    border-bottom: 1px solid black !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    background-color: white !important;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.borde { /*Borde formato table para las cajas de info*/
+
+    background-color: white;
+    border: 1px solid black;
+
+}
+
+.titulo { /*Clase Para Los Titulos En Una Capsula*/
+
+    color: #000000;
+    padding: 1rem;
+    margin: 0;
+    font-weight: bold;
+    font-size: clamp(1rem, 4vw, 30px);
+
+}
+
+table { /*Estilo para el tamaño de la tabla y la alineacion*/
+
+    table-layout: fixed;
+    border: none !important;
+    width: 100% !important;
+
+}
+
+td { /*Para que quede la animacion suave*/
+
+    transition: all 0.4s ease-in-out;
+    border: none !important;
+    vertical-align: middle;
+    padding: 1rem !important;
+
+}
