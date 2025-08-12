@@ -4,6 +4,12 @@ body { /*Color de fondo*/
 
 }
 
+label {
+
+    font-weight: ;
+
+}
+
 .volver { /*Estilo para el boton volver*/
 
     text-align: center;
