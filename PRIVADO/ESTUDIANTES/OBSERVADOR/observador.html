@@ -26,11 +26,11 @@
 
     <form class="m-4" action="">
 
-        <div class="row align-items-center">
+        <div class="row m-4 align-items-center">
 
-            <div class="col">
+            <div class="col g-0">
 
-                <input class="campo_superior m-3 form-control" type="number" name="grupo" placeholder="GRADO">
+                <input class="campo_superior form-control" type="number" name="grupo" placeholder="GRADO">
 
             </div>
 
@@ -120,10 +120,10 @@
                     <tr>
                         <td colspan="5">
 
-                            <div class="d-flex justify-content-between gap-3 flex-wrap">
+                            <div class="d-flex justify-content-between gap-3">
 
                                 <!-- Fecha de nacimiento -->
-                                <div class="d-flex align-items-center gap-2 w-33 flex-wrap">
+                                <div class="d-flex align-items-center gap-2 w-100 flex-wrap">
 
                                     <span>FECHA DE NACIMIENTO:</span>
 
@@ -139,7 +139,7 @@
                                 </div>
 
                                 <!-- Lugar -->
-                                <div class="d-flex align-items-center gap-2 w-33">
+                                <div class="d-flex align-items-center gap-2 w-100">
 
                                     <label for="lugar">LUGAR</label>
                                     <input class="campo form-control" type="text" name="lugar">
@@ -147,7 +147,7 @@
                                 </div>
 
                                 <!-- RH -->
-                                <div class="d-flex align-items-center gap-2 w-33">
+                                <div class="d-flex align-items-center gap-2 w-100">
 
                                     <label for="rh">RH</label>
                                     <input class="campo form-control" type="text" name="rh">
@@ -318,39 +318,45 @@
                     <!--Sexta linea de informacion-->
                     <tr>
 
-                        <td>
+                        <td colspan="5">
 
-                            <label for="vision" class="form-label mb-0">PADECE DEFICIENCIA EN:</label>
+                            <div class="d-flex justify-content-between gap-3">
 
-                        </td>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="vision" class="form-label mb-0">PADECE DEFICIENCIA EN:</label>
+                                    </div>
+                                </div>
 
-                        <td>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-success" for="btn-check-outlined">VISION</label><br>
+                                    </div>
+                                </div>
 
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                            <label class="btn btn-outline-success" for="btn-check-outlined">VISION</label><br>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined2" autocomplete="off">
+                                        <label class="btn btn-outline-success" for="btn-check-outlined2">AUDICION</label><br>
+                                    </div>
+                                </div>
 
-                        </td>
+                                
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined3" autocomplete="off">
+                                        <label class="btn btn-outline-success" for="btn-check-outlined3">OTRAS</label><br>
+                                    </div>
+                                </div>
 
-                        <td>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="cuales">CUALES</label>
+                                        <input class="campo form-control" type="text" name="cuales">
+                                    </div>
+                                </div>
 
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined2" autocomplete="off">
-                            <label class="btn btn-outline-success" for="btn-check-outlined2">AUDICION</label><br>
-
-                        </td>
-
-                        <td>
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined3" autocomplete="off">
-                            <label class="btn btn-outline-success" for="btn-check-outlined3">OTRAS</label><br>
-
-                        </td>
-
-                        <td>
-
-                            <div class="d-flex align-items-center gap-2">
-
-                                <label for="cuales">CUALES</label>
-                                <input class="campo form-control" type="text" name="cuales">
 
                             </div>
 
