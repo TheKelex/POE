@@ -33,9 +33,9 @@ if ($resultado->num_rows > 0) {
     // Guardamos los datos en la sesión
     $_SESSION['usuario'] = $fila['usuario']; // Guarda el nombre del usuario
     $_SESSION['grado_autorizado'] = $fila['grado_autorizado']; // Guarda el grado que ese usuario puede ver
-
+    $_SESSION['tipo_usuario'] = $fila['tipo_usuario']; //Guarda el tipo de usuario. (admin, docente, etc)
     // Redirige al panel principal del sistema
-    header("Location: ../estudiantes.html");
+    header("Location: ../estudiantes.php");
     exit; // Siempre se pone para evitar que el script siga corriendo después de redirigir
 
 } else {
