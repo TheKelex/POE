@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,19 +18,37 @@
 </head>
 
 <body class="m-0 p-0">
-    
+
     <div class="w-100 sticky-top">
-        <img src="../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;" >
+        <img src="../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
     </div>
 
-     <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="margin-top: -160px; padding-top: 180px;">
+    <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="margin-top: -160px; padding-top: 180px;">
 
         <div class="col-md-4 p-4 rounded-4 shadow" id="fondo">
 
             <center>
-            <h1 style="color: #04BF55; font-weight: bold;">Iniciar Sesion</h1>
-            <p style="color: #02db60; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
+                <h1 style="color: #04BF55; font-weight: bold;">Iniciar Sesion</h1>
+                <p style="color: #02db60; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
             </center>
+
+            <h3>Login</h3>
+
+            <?php if (isset($_SESSION["error"])): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $_SESSION["error"]; ?>
+                    <?php unset($_SESSION["error"]); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
+
+
+            <?php if (isset($cerrada)): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php echo $cerrada; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
 
             <!--Inicio de formulario-->
             <form action="login.php" name="formulario" method="post">
@@ -53,7 +77,7 @@
                     <div class="col">
 
                         <input class="btn w-100 d-flex justify-content-center gap-2 rounded-pill px-4 py-2" type="submit" name="login" id="boton" value="Iniciar Sesion"> <br>
-                        
+
                     </div>
 
                 </div>
@@ -62,10 +86,10 @@
             <!--Fin inicio de formulario-->
 
         </div>
-        
+
     </div>
 
-    <script src="../../bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

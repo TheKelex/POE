@@ -40,8 +40,8 @@ if ($resultado->num_rows > 0) {
 
 } else {
     // Si no se encontró el usuario o la contraseña no coincide
-    echo "Usuario o contraseña incorrectos. Intenta de nuevo.";
-    header("Location: inicio.html");
+    $_SESSION["error"] = "Usuario O Contraseña Incorrectas";
+    header("Location: inicio.php");
     exit;
 }
 ?>
