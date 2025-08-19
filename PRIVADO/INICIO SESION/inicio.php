@@ -26,6 +26,23 @@
             <p style="color: #02db60; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
             </center>
 
+            <h3>Login</h3>
+
+            <?php if (isset($error)): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?php echo $error; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
+    
+            <?php if (isset($cerrada)): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php echo $cerrada; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
             <!--Inicio de formulario-->
             <form action="login.php" name="formulario" method="post">
 
