@@ -16,7 +16,7 @@ if (isset($_SESSION['ultimo_movimiento'])) {
         // Si el usuario estuvo inactivo más tiempo del permitido, cerrar sesión
         session_unset();    // Limpiar variables de sesión
         session_destroy();  // Destruir la sesión
-        header("Location: ../PRIVADO/INICIO SESION/inicio.html?expirado=1"); // Redirigir al login con mensaje
+        header("Location: ../PRIVADO/INICIO SESION/inicio.php?expirado=1"); // Redirigir al login con mensaje
         exit();
     }
 }
