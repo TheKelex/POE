@@ -34,6 +34,15 @@
 
             <h3>Login</h3>
 
+            <?php if (isset($_SESSION["conexion"])): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $_SESSION["conexion"]; ?>
+                    <?php unset($_SESSION["conexion"]); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
+
+
             <?php if (isset($_SESSION["error"])): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <?= $_SESSION["error"]; ?>

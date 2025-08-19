@@ -19,12 +19,11 @@
             style="width: 100%; max-height: 160px; object-fit: cover;">
     </div>
 
-    <a href="../INFO_INDIVIDUAL.html" class="rounded-pill m-4 volver"><span
-            class="material-symbols-outlined mx-2">logout</span>Volver</a>
-
     <!--Grid para la parte superior de la foto y la info general-->
 
     <form class="m-4" action="">
+
+        <a href="../INFO_INDIVIDUAL.html" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
 
         <div class="row m-4 align-items-center">
 
@@ -625,8 +624,253 @@
 
         </div>
 
-        <div class="w-100 mn-4">
-            <img src="../../../Imagenes/HR.png" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
+        <div class="p-0" style="width: calc(100% + 3rem); margin-left: -1.5rem; margin-right: -1.5rem;">
+            <img src="../../../Imagenes/HR.png" class="img-fluid d-block m-0 p-0">
+        </div>
+        
+        <div class="row borde m-4 d-flex align-items-center g-0">
+
+            <div class="col-12">
+
+                <table class="table">
+
+                    <tr> <!--Encabezado de la parte de la informacion-->
+
+                        <td colspan="4"><center><p class="titulo">REGISTRO, SEGUIMIENTO ACADEMICO Y DISCIPLINARIO DEL ESTUDIANTE</p></center></td>
+                    
+                    </tr>
+
+                    <!--Inicio de la informacion basica-->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="1er.apellido">1er.APELLIDO</label>
+                                    <input class="campo form-control" type="text" name="1er.apellido">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="2do.apellido">2do.APELLIDO</label>
+                                    <input class="campo form-control" type="text" name="2do.apellido">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td colspan="2">
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="nombres">NOMBRES(S)</label>
+                                    <input class="campo form-control" type="text" name="nombres">
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="grupo">GRUPO</label>
+                                    <input class="campo form-control" type="number" name="grupo">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="año">AÑO</label>
+                                    <input class="campo form-control" type="text" name="año">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="jornada">JORNADA</label>
+                                    <input class="campo form-control" type="text" name="jornada">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="folio">FOLIO</label>
+                                    <input class="campo form-control" type="text" name="folio">
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Fin de la informacion basica-->
+
+                    <!--Inicio de los informes por periodo-->
+
+                    <tr>
+
+                        <td colspan="3" style="background-color: #d9d9d9; border: 1px solid black !important; border-left: none !important;">
+                        
+                            <div class="d-flex justify-content-center align-items-center" style="height: 1rem;">
+                                <div><b>INFORME DEL PRIMER PERIODO</b></div>
+                            </div>                              
+
+                        </td>
+                        <td style="background-color: #d9d9d9; border: 1px solid black !important; border-right: none !important;"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="border: 1px solid black !important; border-left: none !important;">
+
+                            <textarea class="campo form-control mx-auto" style="height: 7rem; border: none !important;" name="informe_1"></textarea>
+                        
+                        </td>
+
+                        <td style="border: 1px solid black !important; border-right: none !important;">
+
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="check_informe_1" value="check_informe_1">
+                            </center>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="background-color: #d9d9d9; border: 1px solid black !important; border-left: none !important;">
+                        
+                            <div class="d-flex justify-content-center align-items-center" style="height: 1rem;">
+                                <div><b>INFORME DEL SEGUNDO PERIODO</b></div>
+                            </div>                              
+
+                        </td>
+                        <td style="background-color: #d9d9d9; border: 1px solid black !important; border-right: none !important;"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="border: 1px solid black !important; border-left: none !important;">
+
+                            <textarea class="campo form-control mx-auto" style="height: 7rem; border: none !important;" name="informe_2"></textarea>
+                        
+                        </td>
+
+                        <td style="border: 1px solid black !important; border-right: none !important;">
+
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="check_informe_2" value="check_informe_2">
+                            </center>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="background-color: #d9d9d9; border: 1px solid black !important; border-left: none !important;">
+                        
+                            <div class="d-flex justify-content-center align-items-center" style="height: 1rem;">
+                                <div><b>INFORME DEL TERCER PERIODO</b></div>
+                            </div>                              
+
+                        </td>
+                        <td style="background-color: #d9d9d9; border: 1px solid black !important; border-right: none !important;"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="border: 1px solid black !important; border-left: none !important;">
+
+                            <textarea class="campo form-control mx-auto" style="height: 7rem; border: none !important;" name="informe_3"></textarea>
+                        
+                        </td>
+
+                        <td style="border: 1px solid black !important; border-right: none !important;">
+
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="check_informe_3" value="check_informe_3">
+                            </center>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="background-color: #d9d9d9; border: 1px solid black !important; border-left: none !important;">
+                        
+                            <div class="d-flex justify-content-center align-items-center" style="height: 1rem;">
+                                <div><b>INFORME DEL CUARTO PERIODO</b></div>
+                            </div>                              
+
+                        </td>
+                        <td style="background-color: #d9d9d9; border: 1px solid black !important; border-right: none !important;"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3" style="border: 1px solid black !important; border-left: none !important;">
+
+                            <textarea class="campo form-control mx-auto" style="height: 7rem; border: none !important;" name="informe_4"></textarea>
+                        
+                        </td>
+
+                        <td style="border: 1px solid black !important; border-right: none !important;">
+
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="check_informe_4" value="check_informe_4">
+                            </center>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Fin de los informes por periodo-->
+
+                    <tr>
+
+                        <td colspan="4">
+
+                            <button class="btn-actualizar rounded-pill my-4 m-auto" type="submit" value="actualizar"><span class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
         </div>
 
     </form>

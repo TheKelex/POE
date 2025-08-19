@@ -4,12 +4,6 @@ body { /*Color de fondo*/
 
 }
 
-label {
-
-    font-weight: ;
-
-}
-
 .volver { /*Estilo para el boton volver*/
 
     text-align: center;
@@ -83,5 +77,35 @@ td { /*Para que quede la animacion suave*/
     border: none !important;
     vertical-align: middle;
     padding: 1rem !important;
+
+}
+
+.form-check-input { /*Estilo para las opciones en el formulario*/
+    
+    width: 25px;
+    background-color: #d9d9d9 !important;
+    border: 1px solid black !important;
+    height: 25px;
+    cursor: pointer;
+    transform: scale(1.5);
+
+}
+
+.btn-actualizar { /*Estilo para el boton de actualizar*/
+
+    text-align: center;
+    display: flex;
+    background-color: #4dd286;
+    border: 0;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.btn-actualizar:hover { /*Animacion para el boton actualizar*/
+
+    background-color: #77dda3;
 
 }

@@ -12,7 +12,9 @@ $conn = new mysqli($host, $user, $pass, $db);
 
 // Verificar si hubo error al conectar
 if ($conn->connect_error) {
-    die("Conexión con el host fallida: " . $conn->connect_error); // Si falla, se detiene y muestra el error
+    $_SESSION["conexion"] = "Error al conectar con el servidor: " . $conn->connect_error;
+    header("Location: inicio.php");
+    exit;
 }
 
 // Recibir los datos del formulario (los name del input deben ser "usuario" y "contraseña")
