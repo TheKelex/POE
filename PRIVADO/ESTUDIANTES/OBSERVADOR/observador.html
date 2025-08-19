@@ -56,7 +56,8 @@
 
         <div class="row borde m-4 d-flex align-items-center">
 
-            <div class="col-12 d-flex justify-content-center align-items-center"> <!--Separador para el titulo-->
+            <div class="col-12 d-flex justify-content-center align-items-center"
+                style="border-bottom: 1px solid black;"> <!--Separador para el titulo-->
 
                 <p class="titulo">1. IDENTIFICACION</p>
 
@@ -405,11 +406,227 @@
 
                     </tr>
 
+                    <!--Octava linea de informacion-->
+                    <tr>
+
+                        <td colspan="5">
+
+                            <div class="d-flex justify-content-between gap-3">
+
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <label for="vision" class="form-label mb-0">PADECE DEFICIENCIA EN:</label>
+
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined4"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-success mx-auto"
+                                            for="btn-check-outlined4">PADRES</label><br>
+
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined5"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-success mx-auto"
+                                            for="btn-check-outlined5">MADRE</label><br>
+
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined6"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-success mx-auto"
+                                            for="btn-check-outlined6">ABUELA</label><br>
+
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined7"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-success mx-auto"
+                                            for="btn-check-outlined7">OTROS</label><br>
+
+                                    </div>
+                                </div>
+
+                                <div class="w-100">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <label for="especifique">ESPECIFIQUE</label>
+                                        <input class="campo form-control" type="text" name="especifique">
+                                    </div>
+                                </div>
+                        </td>
+
+                    </tr>
 
                 </table>
 
             </div>
 
+        </div>
+
+        <!--2 ASPECTO FAMILIAR-->
+
+        <div class="row borde m-4 d-flex align-items-center">
+
+            <div class="col-12 d-flex justify-content-center align-items-center"
+                style="border-bottom: 1px solid black;"> <!--Separador para el titulo-->
+
+                <p class="titulo">2 ASPECTO FAMILIAR</p>
+
+            </div>
+
+            <div class="col-12">
+
+                <table class="table">
+
+                    <!--Informacion padre-->
+                    <tr>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="nom_padre">NOMBRE DEL PADRE</label>
+                                    <input class="campo form-control" type="text" name="nom_padre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="cel_padre">CEL</label>
+                                    <input class="campo form-control" type="number" name="cel_padre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="niv_esc_padre">NIVEL DE ESCOLARIDAD</label>
+                                    <input class="campo form-control" type="text" name="niv_esc_padre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="ocup_padre">OCUPACION</label>
+                                    <input class="campo form-control" type="text" name="ocup_padre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Informacion madre-->
+                    <tr>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="nom_madre">NOMBRE DEL MADRE</label>
+                                    <input class="campo form-control" type="text" name="nom_madre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="cel_madre">CEL</label>
+                                    <input class="campo form-control" type="number" name="cel_madre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="niv_esc_madre">NIVEL DE ESCOLARIDAD</label>
+                                    <input class="campo form-control" type="text" name="niv_esc_madre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="ocup_madre">OCUPACION</label>
+                                    <input class="campo form-control" type="text" name="ocup_madre">
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Informacion acudiente-->
+                    <tr>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="nom_acudiente">NOMBRE DEL ACUDIENTE</label>
+                                    <input class="campo form-control" type="text" name="nom_acudiente">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="cel_acudiente">CEL</label>
+                                    <input class="campo form-control" type="number" name="cel_acudiente">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="niv_esc_acudiente">NIVEL DE ESCOLARIDAD</label>
+                                    <input class="campo form-control" type="text" name="niv_esc_acudiente">
+                                </div>
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="w-100">
+                                <div class="d-flex align-items-center gap-2">
+                                    <label for="ocup_acudiente">OCUPACION</label>
+                                    <input class="campo form-control" type="text" name="ocup_acudiente">
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="w-100 mn-4">
+            <img src="../../../Imagenes/HR.png" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
         </div>
 
     </form>
