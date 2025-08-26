@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["id_dato"])) {
+
+    echo "No se recibió el estudiante.";
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -24,6 +24,27 @@ if (isset($_SESSION['ultimo_movimiento'])) {
 // 4. Actualizar la hora del último movimiento
 $_SESSION['ultimo_movimiento'] = time(); // Guardar la hora actual
 
+$servidor = "localhost";
+$usuario = "root";
+$contraseña = "";
+$basededatos = "poe";
+
+$enlace = mysqli_connect($servidor, $usuario, $contraseña, $basededatos);
+
+// --- CONSULTA JOIN ---
+$consulta = "
+    SELECT 
+        de.id_dato,            
+        de.nom_dato,          
+        de.doc_dato,          
+        oe.gradop_observador  
+    FROM dato_estudiante de
+    INNER JOIN observador_estudiante oe
+        ON de.id_dato = oe.id_observador
+";
+
+$resultado = mysqli_query($enlace, $consulta);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,61 +143,26 @@ $_SESSION['ultimo_movimiento'] = time(); // Guardar la hora actual
                         <tr>
 
                             <th class="campo">Nombre:</th>
-                            <th class="campo">Apellido</th>
                             <th class="campo">Documento De Identidad</th>
                             <th class="campo">Grado</th>
 
                         </tr>
 
-                        <tr>
-
-                            <td class="campo">Laura</td>
-                            <td class="campo">Mendez</td>
-                            <td class="campo">10234567</td>
-                            <td class="campo">6°</td>
-                            <td class="ingreso"><a style="color: black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.html"><span class="material-symbols-outlined fs-2">login</span></a></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td class="campo">Andres</td>
-                            <td class="campo">Ramirez</td>
-                            <td class="campo">30897456</td>
-                            <td class="campo">6°</td>
-                            <td class="ingreso"><a style="color: black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.html"><span class="material-symbols-outlined fs-2">login</span></a></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td class="campo">Camila</td>
-                            <td class="campo">Torres</td>
-                            <td class="campo">50673219</td>
-                            <td class="campo">6°</td>
-                            <td class="ingreso"><a style="color: black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.html"><span class="material-symbols-outlined fs-2">login</span></a></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td class="campo">Mateo</td>
-                            <td class="campo">Gomez</td>
-                            <td class="campo">30874215</td>
-                            <td class="campo">6°</td>
-                            <td class="ingreso"><a style="color: black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.html"><span class="material-symbols-outlined fs-2">login</span></a></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td class="campo">Sofia</td>
-                            <td class="campo">Herrera</td>
-                            <td class="campo">15987463</td>
-                            <td class="campo">6°</td>
-                            <td class="ingreso"><a style="color: black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.html"><span class="material-symbols-outlined fs-2">login</span></a></td>
-
-                        </tr>
+                        <?php while ($colum = mysqli_fetch_array($resultado)) { ?>
+                            <tr>
+                                <td class="campo"><?php echo $colum['nom_dato']; ?></td>
+                                <td class="campo"><?php echo $colum['doc_dato']; ?></td>
+                                <td class="campo"><?php echo $colum['gradop_observador'];?></td>
+                                <td class="ingreso">
+                                    <form action="./ESTUDIANTES/INFO_INDIVIDUAL.php" method="POST">
+                                        <input type="hidden" name="id_dato" value="<?php echo $_SESSION['id_dato'] = $colum['id_dato']; ?>">
+                                        <a style="border:none; background:none; color:black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.php">
+                                            <span class="material-symbols-outlined fs-2">login</span>
+                                        </a>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php } ?>
 
                     </table>
 
