@@ -1,11 +1,17 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["id_dato"])) {
-
-    echo "No se recibió el estudiante.";
-    
+// Guardar el id en sesión si viene del formulario
+if (isset($_POST["id_dato"])) {
+    $_SESSION["id_dato"] = $_POST["id_dato"];
 }
+
+// Verificar si existe en sesión
+if (!isset($_SESSION["id_dato"])) {
+    echo "No se recibió el estudiante.";
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

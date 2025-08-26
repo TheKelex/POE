@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION["id_dato"])) {
+
+    unset($_SESSION['id_dato']);
+}
+
 if (!isset($_SESSION['usuario'])) {
     // Si no hay usuario logueado, redirigir al login
     header("Location: ../PRIVADO/INICIO SESION/inicio.html");
@@ -31,17 +37,38 @@ $basededatos = "poe";
 
 $enlace = mysqli_connect($servidor, $usuario, $contraseña, $basededatos);
 
-// --- CONSULTA JOIN ---
+// --- FILTROS ---
+$jornada = $_POST['jornada'] ?? '';
+$sede    = $_POST['sede'] ?? '';
+$curso   = $_POST['curso'] ?? '';
+
+// --- CONSULTA BASE ---
 $consulta = "
     SELECT 
         de.id_dato,            
         de.nom_dato,          
-        de.doc_dato,          
+        de.doc_dato,
+        de.jornada_dato,
+        de.sede_dato,          
         oe.gradop_observador  
     FROM dato_estudiante de
     INNER JOIN observador_estudiante oe
         ON de.id_dato = oe.id_observador
+    WHERE 1=1
 ";
+
+// --- AGREGAR FILTROS DINÁMICAMENTE ---
+if (!empty($jornada)) {
+    $consulta .= " AND de.jornada_dato = '" . mysqli_real_escape_string($enlace, $jornada) . "'";
+}
+
+if (!empty($sede)) {
+    $consulta .= " AND de.sede_dato = '" . mysqli_real_escape_string($enlace, $sede) . "'";
+}
+
+if (!empty($curso)) {
+    $consulta .= " AND oe.gradop_observador = '" . mysqli_real_escape_string($enlace, $curso) . "'";
+}
 
 $resultado = mysqli_query($enlace, $consulta);
 
@@ -109,12 +136,12 @@ $resultado = mysqli_query($enlace, $consulta);
         <!--Inicio Formulario Consulta-->
 
 
-        <form action="">
 
+        <form action="" method="POST">
             <!--Inicio Parte Superior Del Formulario-->
             <center>
-                <button class="boton rounded-pill m-4" name="estudiantes" value="estudiantes">Estudiantes</button>
-                <button class="boton rounded-pill m-4" name="egresados" value="egresados">Egresados</button>
+                <button class="boton rounded-pill m-4" name="persona" value="1">Estudiantes</button>
+                <button class="boton rounded-pill m-4" name="persona" value="2">Egresados</button>
             </center>
             <!--Fin Parte Superior Del Formulario-->
 
@@ -122,11 +149,29 @@ $resultado = mysqli_query($enlace, $consulta);
                 <div class="col-2">
 
                     <!--Inicio de la caja de filtros-->
-                    <div class="cajita_opciones rounded-5 d-grid gap-3"> <!--Cajita Para Las Opciones-->
+                    <div class="cajita_opciones d-flex flex-column rounded-5 d-grid gap-3"> <!--Cajita Para Las Opciones-->
 
-                        <button class="boton_cajita rounded-pill mx-2">Sede</button>
-                        <button class="boton_cajita rounded-pill mx-2">Jornada</button>
-                        <button class="boton_cajita rounded-pill mx-2">Curso</button>
+                        <select name="sede" class="boton_cajita rounded-pill mx-2">
+
+                            <option selected disabled>Sede</option>
+                            <option value="Central">Sede Central</option>
+                            <option value="Los Martires">Los Martires</option>
+                            <option value="Floresmiro">Floresmiro</option>
+                            <option value="Elena Lara">Elena Lara</option>
+
+                        </select>
+
+                        <select name="jornada" class="boton_cajita rounded-pill mx-2">
+
+                            <option selected disabled>Jornada</option>
+                            <option value="Mañana">Mañana</option>
+                            <option value="Tarde">Tarde</option>
+
+                        </select>
+
+                        <input type="text" name="curso" class="boton_cajita rounded-pill mx-2" id="curso" placeholder="Curso">
+
+                        <p class="w-100 text-center" style="font-weight: bold;">Ej: 1002</p>
 
                         <input class="actualizar rounded-pill" type="submit" name="actualizar" value="Enviar"> <!--Boton submit-->
 
@@ -135,44 +180,66 @@ $resultado = mysqli_query($enlace, $consulta);
 
                 </div>
 
-                <!--Inicio de la tabla-->
-                <div class="col-10">
+        </form>
 
-                    <table class="m-4 table table-hover">
+        <!--Inicio de la tabla-->
+        <div class="col-10">
 
-                        <tr>
+            <table class="m-4 table table-hover">
 
-                            <th class="campo">Nombre:</th>
-                            <th class="campo">Documento De Identidad</th>
-                            <th class="campo">Grado</th>
+                <tr>
 
-                        </tr>
+                    <th class="campo">Nombre:</th>
+                    <th class="campo">Documento De Identidad</th>
+                    <th class="campo">Jornada</th>
+                    <th class="campo">Sede</th>
+                    <th class="campo">Curso</th>
 
-                        <?php while ($colum = mysqli_fetch_array($resultado)) { ?>
+                </tr>
+                <?php
+                $persona = $_POST['persona'] ?? '';
+
+                if ($persona === '1') {
+                    // Consulta para estudiantes
+                    if (mysqli_num_rows($resultado) > 0) {
+                        while ($colum = mysqli_fetch_array($resultado)) { ?>
                             <tr>
                                 <td class="campo"><?php echo $colum['nom_dato']; ?></td>
                                 <td class="campo"><?php echo $colum['doc_dato']; ?></td>
-                                <td class="campo"><?php echo $colum['gradop_observador'];?></td>
+                                <td class="campo"><?php echo $colum['jornada_dato']; ?></td>
+                                <td class="campo"><?php echo $colum['sede_dato']; ?></td>
+                                <td class="campo"><?php echo $colum['gradop_observador']; ?></td>
                                 <td class="ingreso">
-                                    <form action="./ESTUDIANTES/INFO_INDIVIDUAL.php" method="POST">
-                                        <input type="hidden" name="id_dato" value="<?php echo $_SESSION['id_dato'] = $colum['id_dato']; ?>">
-                                        <a style="border:none; background:none; color:black;" href="./ESTUDIANTES/INFO_INDIVIDUAL.php">
+                                    <form action="./ESTUDIANTES/INFO_INDIVIDUAL.php" method="POST" style="display:inline;">
+                                        <input type="hidden" name="id_dato" value="<?php echo $colum['id_dato']; ?>">
+                                        <button type="submit" style="border:none; background:none; color:black; cursor:pointer;">
                                             <span class="material-symbols-outlined fs-2">login</span>
-                                        </a>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
-                        <?php } ?>
+                <?php }
+                    } else {
+                        echo "<tr><td colspan='6' class='text-center'>No hay estudiantes registrados</td></tr>";
+                    }
+                } elseif ($persona === '2') {
+                    // Consulta para egresados
+                    echo "<tr><td colspan='6' class='text-center'>No hay egresados registrados</td></tr>";
+                } else {
+                    // Ninguno seleccionado
+                    echo "<tr><td colspan='6' class='text-center'>⚠ Escoge entre estudiantes o egresados</td></tr>";
+                }
+                ?>
 
-                    </table>
 
-                </div>
-                <!--Fin de la tabla-->
-            </div>
 
-        </form>
+            </table>
 
-        <!--Fin Formulario Consulta-->
+        </div>
+        <!--Fin de la tabla-->
+    </div>
+
+    <!--Fin Formulario Consulta-->
 
     </div>
 
