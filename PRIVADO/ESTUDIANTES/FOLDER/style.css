@@ -37,25 +37,54 @@
 }
 
 .icon-wrapper {
-    background-color: #28a745;
-    /* Verde */
-    padding: 20px;
+    background-color: #a0dfbb;
+    padding: 20px 20rem;
     border-radius: 10px;
     display: inline-block;
     transition: background-color 0.3s;
 }
 
 .icon-wrapper:hover {
-    background-color: #218838;
-    /* Verde más oscuro al pasar el mouse */
+    background-color: #c1e6d1;
 }
 
 .file-name {
     margin-top: 10px;
     font-size: 1.3rem;
-    color: #333;
+    color: #000000;
 }
 
 input[type="file"] {
     display: none;
+}
+
+.descarga {
+
+    font-weight: bold;
+    font-size: 1.3rem !important;
+    background-color: #cecece;
+    border: none;
+    height: 3rem;
+    width: 20rem;
+    padding: 1.3rem;
+
+}
+
+.btn-actualizar { /*Estilo para el boton de actualizar*/
+
+    text-align: center;
+    display: flex;
+    background-color: #4dd286;
+    border: 0;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.btn-actualizar:hover { /*Animacion para el boton actualizar*/
+
+    background-color: #77dda3;
+
 }

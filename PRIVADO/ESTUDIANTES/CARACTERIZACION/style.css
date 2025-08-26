@@ -1,0 +1,88 @@
+body {
+
+    background-color: #d9d9d9 !important;
+
+}
+
+.volver { /*Estilo para el boton volver*/
+
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background-color: #4dd286;
+    padding: 10px;
+    width: 15%;
+    max-width: 120px;
+    min-width: 100px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.volver:hover { /*Animacion para el boton volver*/
+
+    background-color: #77dda3;
+
+}
+
+.caja { /*Estilo para la caja de la informacion*/
+
+    background-color: white;
+
+}
+
+.campo { /*Estilo para los inputs (Campos del formulario)*/
+
+    background: #e5e5e5 !important;
+    border: 1px solid black !important;
+    padding: 5px 10px;
+    min-height: 30px;
+    width: 100%;
+    display: inline-flex;
+    display: flex;
+
+}
+
+.fecha { /*Estilo general para los campos de fechas*/
+
+    flex: 1;
+    min-width: 40px;
+    max-width: 80px;
+
+}
+
+
+.dia, .mes { /*Campo de fecha mas pequeño para dia, mes*/
+
+    width: 50px;
+
+}
+
+.anio { /*Campo un poco mas grande para el año*/
+
+    width: 70px;
+
+}
+
+.form-check-input { /*Estilo para las opciones en el formulario*/
+    
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: scale(1.5);
+
+}
+
+.col {
+
+    text-align: center; /* centra todo el contenido horizontalmente */
+
+}
+
+.col .titulo { /*Estilo para que los textos del formulario queden centrados*/
+
+    display: block;
+    text-align: center;
+
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+</head>
+
+<body>
+
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid"
+            style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <!--Inicio barra de navegacion-->
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #04BF55;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4 ms-4" style="font-weight: bold; color: white; font-size: 25px;"
+                href=""><b>POE</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #00ac4a;">
+                    <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../ESCUELA DE PADRES/escuela.html">Escuela
+                            De
+                            Padres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../foro.html">Foro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar"
+                            href="../../TALLERES FORMATIVOS/taller.html">Talleres
+                            Formativos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar"
+                            href="../../../PRIVADO/INICIO SESION/inicio.html">Iniciar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--POE-->
+
+    <div class="container my-5" style="position: relative;">
+        <div class="row align-items-center">
+
+            <!-- Columna de texto -->
+            <div class="col-12 col-md-6 my-5">
+
+                <h1 class="titulos">EDITOR FORO</h1>
+
+                <p class="textos">
+                    “Orientar no es solo guiar caminos, sino despertar conciencias para que cada estudiante descubra,
+                    construya y viva su propio proyecto de vida.”
+                </p>
+
+                <a href="#que_es_el_poe" class="btn rounded-pill px-4 py-2 mt-3 shadow w-30 w-md-auto" id="boton_1">
+                    ¿Qué es el POE?
+                </a>
+
+                <br>
+
+            </div>
+
+            <!-- Columna de imagen de manos con mariposas -->
+            <div class="col-12 col-md-6 text-center" style="width: 50%;">
+
+                <img src="../../../Imagenes/Logo_Mariposas.png" alt="" class="img-fluid w-100">
+
+            </div>
+
+        </div>
+
+        <div class="logo-container text-start my-4">
+            <img src="../../../Imagenes/Logo_Tecnico.png" alt="" class="img-fluid" style="max-width: 200px;">
+        </div>
+
+    </div>
+
+    <!--Fin POE-->
+
+    <br><br><br><br><br>
+
+    <img src="../../../Imagenes/HR.png" class="img-fluid" width="100%">
+
+    <!--Editor de contenido-->
+
+    <form action="">
+
+        <div class="caja_editor m-4 rounded-3">
+
+            <div class="input-container position-relative w-75 mx-auto">
+
+                <input class="buscar rounded-pill w-100 pe-5 text-center" type="text" name="buscador"
+                    placeholder="Buscar...">
+                <span class="material-symbols-outlined search-icon">search</span>
+
+            </div>
+
+            <br>
+
+            <div class="w-50 mx-auto">
+
+                <input class="campo w-100 rounded-pill p-2 text-center" type="text" name="titulo"
+                    placeholder="Agregar Titulo">
+
+            </div>
+
+            <br>
+
+            <div class="w-75 mx-auto">
+
+                <textarea class="campo w-100 rounded-3" name="informaciom" rows="10"
+                    placeholder="Agregar Encabezado"></textarea>
+
+            </div>
+
+            <br>
+
+            <div class="row justify-content-center w-75 mx-auto">
+
+                <div class="col">
+
+                    <div class="upload-container" onclick="document.getElementById('fileInput1').click()">
+                        <div class="icon-wrapper">
+                            <span class="material-symbols-outlined" style="font-size: 10rem;">image</span>
+                        </div>
+                        <div class="file-name" id="fileName1">Ningún archivo seleccionado</div>
+                    </div>
+
+                    <input type="file" id="fileInput1" onchange="updateFileName1()">
+
+                </div>
+
+                <div class="col">
+
+                    <div class="upload-container" onclick="document.getElementById('fileInput2').click()">
+                        <div class="icon-wrapper">
+                            <span class="material-symbols-outlined" style="font-size: 10rem;">image</span>
+                        </div>
+                        <div class="file-name" id="fileName2">Ningún archivo seleccionado</div>
+                    </div>
+
+                    <input type="file" id="fileInput2" onchange="updateFileName2()">
+
+                </div>
+
+                <div class="col">
+
+                    <div class="upload-container" onclick="document.getElementById('fileInput3').click()">
+                        <div class="icon-wrapper">
+                            <span class="material-symbols-outlined" style="font-size: 10rem;">image</span>
+                        </div>
+                        <div class="file-name" id="fileName3">Ningún archivo seleccionado</div>
+                    </div>
+
+                    <input type="file" id="fileInput3" onchange="updateFileName3()">
+
+                </div>
+
+            </div>
+
+            <div class="col-12 d-flex justify-content-end pe-4">
+
+                <button class="btn-actualizar rounded-pill my-4" type="submit"><span
+                        class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <img src="../../../Imagenes/HR.png" class="img-fluid" width="100%">
+
+    <form action="">
+
+        <div class="caja_editor m-4 rounded-3">
+
+            <div class="input-container position-relative w-75 mx-auto">
+
+                <input class="buscar rounded-pill w-100 pe-5 text-center" type="text" name="buscador"
+                    placeholder="Buscar...">
+                <span class="material-symbols-outlined search-icon">search</span>
+
+            </div>
+
+            <br>
+
+            <div class="w-50 mx-auto">
+
+                <input class="campo w-100 rounded-pill p-2 text-center" type="text" name="titulo"
+                    placeholder="Agregar Titulo" value="mi mami.com">
+
+            </div>
+
+            <br>
+
+            <div class="w-75 mx-auto">
+
+                <textarea class="campo w-100 rounded-3" name="informaciom" rows="10" placeholder="Agregar Encabezado">
+It's all over but the crying
+And nobody's crying, but me
+Friends all over know I'm trying
+To forget about how much I care for you
+It's all over but the dreaming
+Poor little dreams that keep trying to come true
+It's all over but the crying
+And I can't get over crying over you
+It's all over but the crying
+And nobody's crying, but me
+Friends all over know I'm trying
+To forget about how much I care for you
+It's all over but the dreaming
+Poor little dreams that keep trying to come true
+It's all over but the crying
+And I can't get over crying over you</textarea>
+
+            </div>
+
+            <br>
+
+            <div class="row justify-content-center w-75 mx-auto">
+
+                <div class="col">
+
+                    <img class="w-100" src="../../../Imagenes/Img_Divisiones.png" alt="">
+
+                </div>
+
+                <div class="col">
+
+                    <img class="w-100" src="../../../Imagenes/Img_Divisiones.png" alt="">
+
+                </div>
+
+                <div class="col">
+
+                    <img class="w-100" src="../../../Imagenes/Img_Divisiones.png" alt="">
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="col-12 d-flex justify-content-end pe-4 gap-2">
+
+                <button class="btn-borrar rounded-pill my-4" type="submit"><span
+                        class="material-symbols-outlined mx-1">delete</span>Borrar</button>
+
+                <button class="btn-actualizar rounded-pill my-4" type="submit"><span
+                        class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <!--Inicio Footer-->
+
+    <footer style="background: url(./Imagenes/footer.png) center center/cover; ">
+        <div class="container py-5 text-start">
+
+            <div class="row g-4">
+
+                <div class="col-md-3 d-flex align-items-center text-start">
+                    <p class="mb-3" style="color: #04BF55;">Palpitante juventud adelante con el arte tenemos que avanzar,es consigna de buen estudiante con la brega la meta alcanzar  
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="titulo_footer">Paginas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="texto_footer text-decoration-none">Escuela de padres</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Foro</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Talleres formativos</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesion</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="titulo_footer">Proyectos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="texto_footer text-decoration-none">Control de seguimiento del PAE</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Almacen</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">POE</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="titulo_footer">Institucional</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="texto_footer text-decoration-none">Minieducacion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Gov</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">PAE</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="text-start mb-0" style="color: #04BF55;">© Software Development 2025</p>
+
+        </div>
+    </footer>
+
+    <!--Fin Footer-->
+
+    <script>
+
+        function updateFileName1() {
+            const input = document.getElementById('fileInput1');
+            const fileName = document.getElementById('fileName1');
+            if (input.files.length > 0) {
+                fileName.textContent = input.files[0].name;
+            } else {
+                fileName.textContent = 'Ningún archivo seleccionado';
+            }
+        }
+
+        function updateFileName2() {
+            const input = document.getElementById('fileInput2');
+            const fileName = document.getElementById('fileName2');
+            if (input.files.length > 0) {
+                fileName.textContent = input.files[0].name;
+            } else {
+                fileName.textContent = 'Ningún archivo seleccionado';
+            }
+        }
+
+        function updateFileName3() {
+            const input = document.getElementById('fileInput3');
+            const fileName = document.getElementById('fileName3');
+            if (input.files.length > 0) {
+                fileName.textContent = input.files[0].name;
+            } else {
+                fileName.textContent = 'Ningún archivo seleccionado';
+            }
+        }
+
+    </script>
+
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
