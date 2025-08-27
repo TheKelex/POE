@@ -11,7 +11,6 @@ if (!isset($_SESSION["id_dato"])) {
     echo "No se recibió el estudiante.";
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
