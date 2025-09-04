@@ -9,13 +9,13 @@ if (isset($_SESSION["id_dato"])) {
 // Verificación de sesión activa
 if (!isset($_SESSION['usuario'])) {
     // Si no hay usuario logueado, redirigir al login
-    header("Location: ../PRIVADO/INICIO SESION/inicio.html");
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
     exit();
 }
 
 // --- Control de inactividad ---
 $inactividad_maxima = 300; // 5 min
-if (isset($_SESSION['ultimo_movimiento'])) {
+if (isset($_SESSION['ultimo_movimiento'])) { 
     $tiempo_inactivo = time() - $_SESSION['ultimo_movimiento'];
     if ($tiempo_inactivo > $inactividad_maxima) {
         session_unset();
@@ -107,7 +107,7 @@ if ($persona === '1') {
     </div>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #04BF55;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #017800;">
         <div class="container-fluid">
             <a class="navbar-brand fs-4 ms-4" style="font-weight: bold; color: white; font-size: 25px; cursor: default;" href=""><b>POE</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

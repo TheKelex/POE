@@ -6,7 +6,7 @@
     font-weight: bold;
     text-decoration: none;
     color: black;
-    background-color: #4dd286;
+    background-color: #4b9f4a;
     padding: 10px;
     width: 15%;
     max-width: 120px;
@@ -37,7 +37,7 @@
 }
 
 .icon-wrapper {
-    background-color: #a0dfbb;
+    background-color: #9fc79e;
     padding: 20px 20rem;
     border-radius: 10px;
     display: inline-block;
@@ -45,7 +45,7 @@
 }
 
 .icon-wrapper:hover {
-    background-color: #c1e6d1;
+    background-color: #b7dab7;
 }
 
 .file-name {
@@ -74,7 +74,7 @@ input[type="file"] {
 
     text-align: center;
     display: flex;
-    background-color: #4dd286;
+    background-color: #4b9f4a;
     border: 0;
     font-weight: bold;
     color: black;

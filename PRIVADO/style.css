@@ -1,6 +1,6 @@
 .caja { /*"Caja" mas gris que la del fondo*/
 
-  background-color: #def8f4;
+  background-color: #b9dcbc;
   padding: 50px;
 
 }
@@ -24,7 +24,7 @@
  
 .cajita_opciones { /*Caja verde para los filtros*/
 
-  background-color: #b7e2cc;
+  background-color: #73b97d;
   border: 1px solid black;
   padding: 11%;
   transition: all 0.4s ease-in-out;
