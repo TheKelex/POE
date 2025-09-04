@@ -22,140 +22,590 @@
     <a href="../INFO_INDIVIDUAL.php" class="rounded-pill m-4 volver"><span
             class="material-symbols-outlined mx-2">logout</span>Volver</a>
 
-    <form action="">
+    <form class="m-4" action="">
 
-        <div class="caja m-4 p-2">
+        <table class="table table-hover">
 
-            <div class="row align-items-center m-4"> <!--Primera fila-->
+            <!--Primera linea-->
+            <tr>
 
+                <td>ESTUDIANTE</td>
 
-                <!--Nombres Y Apellidos-->
-                <div class="col-1">
+                <td><input class="campo form-control" type="text" name="nombre" placeholder="NOMBRE Y APELLIDO"></td>
 
-                    <p class="titulo">EGRESADO</p>
+                <td>
 
-                </div>
+                    <div class="row w-100 m-auto d-flex flex-colum align-items-center">
 
-                <div class="col-6">
+                        <div class="col w-100">
+                            <label>FECHA DE NACIMIENTO:</label>
+                        </div>
+                        <div class="col w-100">
+                            <input class="campo form-control" type="number" name="dia" placeholder="DIA">
+                        </div>
+                        <div class="col w-100">
+                            <input class="campo form-control" type="number" name="mes" placeholder="MES">
+                        </div>
+                        <div class="col w-100">
+                            <input class="campo form-control" type="number" name="año" placeholder="AÑO">
+                        </div>
 
-                    <label class="titulo" for="nombre">NOMBRES Y APELLIDOS</label>
-                    <input class="campo form-control rounded-pill" type="text" name="nombre">
+                    </div>
 
-                </div>
+                </td>
 
+                <td><input class="campo form-control" type="number" name="edad" placeholder="EDAD"></td>
 
-                <!--Fecha De Nacimiento-->
-                <div class="col-3">
+            </tr>
 
-                    <label class="titulo d-block">FECHA DE NACIMIENTO</label>
+            <!--Segunda linea-->
+            <tr>
 
-                    <div class="row">
+                <td>DOCUMENTO</td>
 
-                        <div class="col">
+                <td>
 
-                            <input class="campo form-control rounded-pill" type="number" name="dia" placeholder="DIA">
+                    <div class="d-flex justify-content-between gap-3">
+
+                        <div class="w-100">
+                            <div class="d-flex align-items-center gap-2 w-100">
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined1" autocomplete="off"
+                                    name="documento" value="R.C">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined1">R.C</label><br>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined2" autocomplete="off"
+                                    name="documento" value="T.I">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined2">T.I</label><br>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined3" autocomplete="off"
+                                    name="documento" value="C.C">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined3">C.C</label><br>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined4" autocomplete="off"
+                                    name="documento" value="Otro">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined4">OTRO</label><br>
+
+                            </div>
+                        </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="Nro_documento">Nro</label>
+                        <input class="campo form-control" type="number" name="Nro_documento"
+                            placeholder="NUMERO DE DOCUMETO">
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="grupo_sanguineo">GRUPO SANGUINEO</label>
+                        <input class="campo form-control" type="text" name="grupo_sanguineo"
+                            placeholder="GRUPO SANGUINEO">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Tercera Linea-->
+            <tr>
+
+                <td colspan="3">
+
+                    <div class="w-100">
+                        <div class="d-flex align-items-center gap-2 w-100">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined5" autocomplete="off"
+                                name="origen_estudiante" value="ANTIGUO">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined5">ANTIGUO</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined6" autocomplete="off"
+                                name="origen_estudiante" value="ANTIGUO_REPITENTE">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined6">ANTIGUO REPITENTE</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined7" autocomplete="off"
+                                name="origen_estudiante" value="NUEVO">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined7">NUEVO</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined8" autocomplete="off"
+                                name="origen_estudiante" value="NUEVO_REPITENTE">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined8">NUEVO REPITENTE</label><br>
+
+                        </div>
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="colegio_procedencia">COLEGIO DE PROCEDENCIA</label>
+                        <input class="campo form-control" type="text" name="colegio_procedencia"
+                            placeholder="COLEGIO DE PROCEDENCIA">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Cuarta linea-->
+            <tr>
+
+                <td colspan="2">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="direccion_residencia">DIRECCION RESIDENCIA</label>
+                        <input class="campo form-control" type="text" name="direccion_residencia"
+                            placeholder="DIRECCION RESIDENCIA">
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="row d-flex flex-colum w-100 align-items-center">
+
+                        <div class="col w-100">
+                            <input class="campo form-control" type="text" name="barrio" placeholder="BARRIO">
+                        </div>
+
+                        <div class="col w-100">
+                            <input class="campo form-control" type="number" name="comuna" placeholder="COMUNA">
+                        </div>
+
+                        <div class="col w-100">
+                            <input class="campo form-control" type="number" name="estrato" placeholder="ESTRATO">
+                        </div>
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="servicio_salud">SERVICIO DE SALUD</label>
+                        <input class="campo form-control" type="text" name="servicio_salud"
+                            placeholder="SERVICIO DE SALUD">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Quinta linea-->
+            <tr>
+
+                <td colspan="3">
+
+                    <div class="row d-flex flex-colum align-items-center w-100">
+
+                        <div class="col w-100">
+
+                            <div class="d-flex flex-colum align-items-center gap-1 py-2">
+
+                                <label for="">TELEFONO FIJO</label>
+
+                            </div>
+
+                            <input class="campo form-control" type="number" name="telefono_fijo" placeholder="TELEFONO FIJO">
 
                         </div>
 
-                        <div class="col">
+                        <div class="col w-100">
 
-                            <input class="campo form-control rounded-pill" type="number" name="mes" placeholder="MES">
+                            <div class="d-flex flex-colum align-items-center gap-1">
+
+                                <label for="">TELEFONO MOVIL</label>
+                                <input type="radio" class="btn-check" id="btn-check-outlined9" autocomplete="off" name="pertenece_tel_fijo" value="P">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined9">P</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined10" autocomplete="off" name="pertenece_tel_fijo" value="M">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined10">M</label><br>
+
+                            </div>
+
+                            <input class="campo form-control" type="number" name="servicio_salud" placeholder="TELEFONO MOVIL">
 
                         </div>
 
-                        <div class="col">
+                        <div class="col w-100">
 
-                            <input class="campo form-control rounded-pill" type="number" name="anio" placeholder="AÑO">
+                            <div class="d-flex flex-colum align-items-center gap-1">
+
+                                <label for="">TELEFONO MOVIL</label>
+                                <input type="radio" class="btn-check" id="btn-check-outlined11" autocomplete="off" name="pertenece_tel_fijo2" value="P">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined11">P</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined12" autocomplete="off" name="pertenece_tel_fijo2" value="M">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined12">M</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined13" autocomplete="off" name="pertenece_tel_fijo2" value="O">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined13">O</label><br>
+
+                            </div>
+
+                            <input class="campo form-control" type="text" name="servicio_salud"
+                                placeholder="SERVICIO DE SALUD">
 
                         </div>
 
                     </div>
 
-                </div>
+                </td>
 
+                <td>
 
-                <!--Edad-->
-                <div class="col-2">
+                    <div class="d-flex flex-colum align-items-center gap-1 py-2">
 
-                    <label class="titulo d-block">EDAD</label>
-                    <input class="campo form-control rounded-pill" type="text" name="edad">
+                        <label>DIR.ELECTRONICA CONTACTO PADRES</label>
 
-                </div>
+                    </div>
 
-            </div>
+                    <input class="campo form-control" type="text" name="dir_contacto_padre" placeholder="DIR.ELECTRONICA CONTACTO PADRES">
 
+                </td>
 
+            </tr>
 
-            <div class="row align-items-center m-4"> <!--Segunda fila-->
+            <!--Sexta linea-->
+            <tr>
 
+                <td>REMITENTE</td>
 
-                <!--Documento-->
-                <div class="col-1">
+                <td colspan="3"><input class="campo form-control" type="text" name="remitente" placeholder="Remitente">
+                </td>
 
-                    <p class="titulo">DOCUMENTO</p>
+            </tr>
 
-                </div>
+            <!--Séptima linea-->
+            <tr>
 
+                <td>FECHA DE REMISION</td>
 
-                <!--Inicio de opciones-->
-                <div class="col-3">
+                <td><input class="campo form-control" type="date" name="fecha_remision"></td>
 
-                    <div class="row">
+                <td colspan="2">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="edad">FECHA DE ATENCION:</label>
+                        <input class="campo form-control" type="date" name="fecha_atencion">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Octava linea-->
+            <tr>
+
+                <td>ASESOR (A) DE GRUPO</td>
+
+                <td colspan="3"><input class="campo form-control" type="text" name="asesor" placeholder="Asesor (A)">
+                </td>
+
+            </tr>
+
+            <!--Novena linea-->
+            <tr>
+
+                <td>E.P.S:</td>
+
+                <td><input class="campo form-control" type="text" name="eps" placeholder="E.P.S"></td>
+
+                <td colspan="2">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="edad">SITUACION DE SALUD:</label>
+                        <input class="campo form-control" type="text" name="situacion_salud"
+                            placeholder="Situacion De Salud">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Primero linea-->
+            <tr>
+
+                <td>DISCAPACIDAD Y/O TRASTORNO DE APRENDIZAJE</td>
+
+                <td><input class="campo form-control" type="text" name="discapacidad" placeholder="Discapacidad"></td>
+
+                <td colspan="2">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="edad">SEGUIMIENTO Y TERAPIAS:</label>
+                        <input class="campo form-control" type="text" name="seguimiento_terapias"
+                            placeholder="Seguimiento Y Terapias">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Segundo linea-->
+            <tr>
+
+                <td>NOMBRE DEL PADRE:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="text" name="nombre_padre"
+                            placeholder="Nombre Del Padre">
+
+                        <label for="edad">CELULAR:</label>
+                        <input class="campo form-control" type="text" name="celular_padre"
+                            placeholder="Celular Del Padre">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Tercera linea-->
+            <tr>
+
+                <td>DOC. DE IDENTIFICACION:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="number" name="doc_identificacion"
+                            placeholder="Doc. De Identificacion">
+
+                        <label for="edad">OCUPACION:</label>
+                        <input class="campo form-control" type="text" name="ocupacion_padre"
+                            placeholder="Ocupacion Del Padre">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Cuarta linea-->
+            <tr>
+
+                <td>NOMBRE DE LA MADRE:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="text" name="nombre_madre"
+                            placeholder="Nombre De La Madre">
+
+                        <label for="edad">CELULAR:</label>
+                        <input class="campo form-control" type="text" name="celular_madre"
+                            placeholder="Celular De La Madre">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Duodécima Quinta linea-->
+            <tr>
+
+                <td>DOC. DE IDENTIFICACION:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="number" name="doc_identificacion_madre"
+                            placeholder="Doc. De Identificacion">
+
+                        <label for="edad">OCUPACION:</label>
+                        <input class="campo form-control" type="text" name="ocupacion_madre"
+                            placeholder="Ocupacion De La Madre">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Sexta linea-->
+            <tr>
+
+                <td>VIVE CON:</td>
+
+                <td colspan="3"><input class="campo form-control" type="text" name="vive_con" placeholder="Vive Con">
+                </td>
+
+            </tr>
+
+            <!--Decimo Septima linea-->
+            <tr>
+
+                <td>ACUDIENTE:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="text" name="parentesco" placeholder="Parentesco">
+
+                        <label for="edad">PARENTESCO:</label>
+                        <input class="campo form-control" type="text" name="ocupacion_acudiente"
+                            placeholder="Ocupacion Del Acudiente">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Octava linea-->
+            <tr>
+
+                <td>DOC. IDENTIFICACION:</td>
+
+                <td colspan="3">
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <input class="campo form-control" type="number" name="doc_identificacion_acudiente"
+                            placeholder="Doc. Identificacion Acudiente">
+
+                        <label for="edad">CELULAR:</label>
+                        <input class="campo form-control" type="number" name="celular_acudiente"
+                            placeholder="Celular Del Acudiente">
+
+                        <label for="edad">OCUPACION:</label>
+                        <input class="campo form-control" type="text" name="ocupacion_acudiente"
+                            placeholder="Ocupacion Del Acudiente">
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!--Decimo Novena linea-->
+            <tr>
+
+                <td>DESCRIPCION DEL CASO O MOTIVO DE CONSULTA:</td>
+
+                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
+                        name="descripcion"></textarea></td>
+
+            </tr>
+
+            <!--Vigesimo linea-->
+            <tr>
+
+                <td>ANTECEDENTES:</td>
+
+                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
+                        name="antecedentes"></textarea></td>
+
+            </tr>
+
+            <!--Vigesimo primera linea-->
+            <tr>
+
+                <td>ACCIONES REALIZADAS:</td>
+
+                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
+                        name="acciones_realizadas"></textarea></td>
+
+            </tr>
+
+            <!--Vigesimo segunda linea-->
+            <tr>
+
+                <td>TAREAS, ACUERDOS O COMPROMISOS PERSONALES:</td>
+
+                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
+                        name="tareas"></textarea></td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="4">
+
+                    <div class="row m-4">
 
                         <div class="col">
 
-                            <label class="titulo d-block">R.C</label>
-                            <input class="form-check-input opcion" type="radio" name="tipo" value="rc">
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
+                                    value="firma_acudiente">
+                                <p style="border-top: 1px solid black; width: 60%;">Firma Del Padre De Familia O
+                                    Acudiente</p>
+                            </center>
 
                         </div>
 
                         <div class="col">
 
-                            <label class="titulo d-block">T.I</label>
-                            <input class="form-check-input" type="radio" name="tipo" value="ti">
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
+                                    value="firma_acudiente">
+                                <p style="border-top: 1px solid black; width: 60%;">Firma De La Orientadora Escolar</p>
+                            </center>
 
                         </div>
 
                         <div class="col">
 
-                            <label class="titulo d-block">C.C</label>
-                            <input class="form-check-input" type="radio" name="tipo" value="cc">
-
-                        </div>
-
-                        <div class="col">
-
-                            <label class="titulo d-block" id="otro">OTRO</label>
-                            <input class="form-check-input" for="otro" type="radio" name="tipo" value="otro">
+                            <center>
+                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
+                                    value="firma_acudiente">
+                                <p style="border-top: 1px solid black; width: 60%;">Firma Del Estudiante</p>
+                            </center>
 
                         </div>
 
                     </div>
 
-                </div>
-                <!--Fin de opciones-->
+                </td>
+
+            </tr>
+
+        </table>
 
 
-                <!--Numero de documento-->
-                <div class="col-4 d-flex align-items-center gap-2">
+        <div class="col-12 d-flex justify-content-end pe-4">
 
-                    <p class="titulo mb-0">Nro</p>
-                    <input class="campo form-control rounded-pill" type="number" name="nro">
-
-                </div>
-
-
-
-                <!--Grupo sanguineo-->
-
-                <div class="col-4 d-flex align-items-center gap-2">
-
-                    <p class="titulo mb-0">GRUPO SANGUINEO</p>
-                    <input class="campo form-control rounded-pill" type="text" name="grupo_sanguineo">
-
-                </div>
-
-            </div>
+            <button class="btn-actualizar rounded-pill my-4" type="submit"><span
+                    class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
 
         </div>
 
