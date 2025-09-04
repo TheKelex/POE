@@ -38,7 +38,7 @@
 
 .titulo_principal { /*Clase Para El Titulo Principal*/
 
-  color: #04bf55;
+  color: #68a777;
   font-weight: bold;
   font-size: clamp(2rem, 5vw, 50px);
 
@@ -47,7 +47,7 @@
 .titulos { /*Clase Para Los Titulos En Una Capsula*/
 
   color: #000000;
-  background-color: #4dd286;
+  background-color: #68a777 ;
   display: flex;
   justify-content: center;
   justify-self: center;
@@ -115,7 +115,7 @@
 
   color: white;
   padding: 10px 30px;
-  background-color: #1B8C2C;
+  background-color: #3a8c4e;
   font-weight: bold;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.5);

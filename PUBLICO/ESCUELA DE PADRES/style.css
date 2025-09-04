@@ -35,7 +35,7 @@
 }
 
 .titulo-principal {
-  color: #04bf55;
+  color: #68a777;
   font-weight: bold;
   font-size: clamp(2rem, 5vw, 50px);
 }
@@ -128,7 +128,7 @@
 .titulos { /*Clase Para Los Titulos En Una Capsula*/
 
   color: #000000;
-  background-color: #4dd286;
+  background-color: #68a777;
   display: flex;
   justify-content: center;
   justify-self: center;
@@ -142,7 +142,7 @@
 }
 
 .cuadro{
-    background-color: #64d88e;      /* Color verde similar */
+    background-color: #68a777;      /* Color verde similar */
   padding: 25px;             /* Espaciado interno */
   border-radius: 35px;            /* Bordes redondeados */
   margin: 20px ;              /* Centrado y con separación */

@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['usuario'])) {
     // Si no hay usuario logueado, redirigir al login
-    header("Location: ../PRIVADO/INICIO SESION/inicio.html");
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
     exit();
 }
 // 2. Definir tiempo máximo de inactividad (en segundos)
