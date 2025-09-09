@@ -124,7 +124,9 @@
             <!--Tercera Linea-->
             <tr>
 
-                <td colspan="3">
+                <td>ESTUDIANTE</td>
+
+                <td colspan="2">
 
                     <div class="w-100">
                         <div class="d-flex align-items-center gap-2 w-100">
@@ -171,7 +173,9 @@
             <!--Cuarta linea-->
             <tr>
 
-                <td colspan="2">
+                <td>DIRECCION</td>
+
+                <td>
 
                     <div class="d-flex align-items-center gap-2">
 
@@ -220,7 +224,9 @@
             <!--Quinta linea-->
             <tr>
 
-                <td colspan="3">
+                <td>CONTACTOS</td>
+
+                <td colspan="2">
 
                     <div class="row d-flex flex-colum align-items-center w-100">
 
@@ -232,7 +238,8 @@
 
                             </div>
 
-                            <input class="campo form-control" type="number" name="telefono_fijo" placeholder="TELEFONO FIJO">
+                            <input class="campo form-control" type="number" name="telefono_fijo"
+                                placeholder="TELEFONO FIJO">
 
                         </div>
 
@@ -241,14 +248,19 @@
                             <div class="d-flex flex-colum align-items-center gap-1">
 
                                 <label for="">TELEFONO MOVIL</label>
-                                <input type="radio" class="btn-check" id="btn-check-outlined9" autocomplete="off" name="pertenece_tel_fijo" value="P">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined9">P</label><br>
-                                <input type="radio" class="btn-check" id="btn-check-outlined10" autocomplete="off" name="pertenece_tel_fijo" value="M">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined10">M</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined9" autocomplete="off"
+                                    name="pertenece_tel_fijo" value="P">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined9">P</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined10" autocomplete="off"
+                                    name="pertenece_tel_fijo" value="M">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined10">M</label><br>
 
                             </div>
 
-                            <input class="campo form-control" type="number" name="servicio_salud" placeholder="TELEFONO MOVIL">
+                            <input class="campo form-control" type="number" name="tel_movil_1"
+                                placeholder="TELEFONO MOVIL">
 
                         </div>
 
@@ -257,17 +269,23 @@
                             <div class="d-flex flex-colum align-items-center gap-1">
 
                                 <label for="">TELEFONO MOVIL</label>
-                                <input type="radio" class="btn-check" id="btn-check-outlined11" autocomplete="off" name="pertenece_tel_fijo2" value="P">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined11">P</label><br>
-                                <input type="radio" class="btn-check" id="btn-check-outlined12" autocomplete="off" name="pertenece_tel_fijo2" value="M">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined12">M</label><br>
-                                <input type="radio" class="btn-check" id="btn-check-outlined13" autocomplete="off" name="pertenece_tel_fijo2" value="O">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined13">O</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined11" autocomplete="off"
+                                    name="pertenece_tel_fijo2" value="P">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined11">P</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined12" autocomplete="off"
+                                    name="pertenece_tel_fijo2" value="M">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined12">M</label><br>
+                                <input type="radio" class="btn-check" id="btn-check-outlined13" autocomplete="off"
+                                    name="pertenece_tel_fijo2" value="O">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined13">O</label><br>
 
                             </div>
 
-                            <input class="campo form-control" type="text" name="servicio_salud"
-                                placeholder="SERVICIO DE SALUD">
+                            <input class="campo form-control" type="number" name="tel_movil_2"
+                                placeholder="TELEFONO MOVIL">
 
                         </div>
 
@@ -283,7 +301,8 @@
 
                     </div>
 
-                    <input class="campo form-control" type="text" name="dir_contacto_padre" placeholder="DIR.ELECTRONICA CONTACTO PADRES">
+                    <input class="campo form-control" type="text" name="dir_contacto_padre"
+                        placeholder="DIR.ELECTRONICA CONTACTO PADRES">
 
                 </td>
 
@@ -292,9 +311,20 @@
             <!--Sexta linea-->
             <tr>
 
-                <td>REMITENTE</td>
+                <td>ACUDIENTE</td>
 
-                <td colspan="3"><input class="campo form-control" type="text" name="remitente" placeholder="Remitente">
+                <td colspan="2"><input class="campo form-control" type="text" name="acudiente" placeholder="Acudiente">
+                </td>
+
+                <td>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <label for="parentesco">PARENTESCO</label>
+                        <input class="campo form-control" type="name" name="parentesco" placeholder="Parentesco">
+
+                    </div>
+
                 </td>
 
             </tr>
@@ -302,16 +332,132 @@
             <!--Séptima linea-->
             <tr>
 
-                <td>FECHA DE REMISION</td>
+                <td colspan="2">
 
-                <td><input class="campo form-control" type="date" name="fecha_remision"></td>
+                    <label class="my-2"><b>INFORMACION PADRE (PD)</b></label>
+
+                    <!-- Primer input de NOMBRES -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="nombres_padre" class="mb-0">NOMBRES</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input class="campo form-control" type="text" name="nombres_padre" placeholder="NOMBRES">
+                        </div>
+
+                    </div>
+
+                    <!-- Segundo input de ESCOLARIDAD y EDAD -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="escolaridad_padre" class="mb-0">ESCOLARIDAD</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="campo form-control" type="text" name="escolaridad_padre"
+                                placeholder="ESCOLARIDAD">
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="campo form-control" type="number" name="edad_padre" placeholder="EDAD">
+                        </div>
+
+                    </div>
+
+                    <!-- Tercer input de OCUPACION -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="ocupacion_padre" class="mb-0">OCUPACION</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input class="campo form-control" type="text" name="ocupacion_padre"
+                                placeholder="OCUPACION">
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 w-100 justify-content-end">
+
+                        <div class="d-flex align-items-center gap-2 w-50">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined14" autocomplete="off"
+                                name="estado_padre" value="INDEPENDIENTE">
+                            <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
+                                for="btn-check-outlined14">INDEPENDIENTE</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined15" autocomplete="off"
+                                name="estado_padre" value="EMPLEADO">
+                            <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
+                                for="btn-check-outlined15">EMPLEADO</label><br>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
 
                 <td colspan="2">
 
-                    <div class="d-flex align-items-center gap-2">
+                    <label class="my-2"><b>INFORMACION MADRE (MD)</b></label>
 
-                        <label for="edad">FECHA DE ATENCION:</label>
-                        <input class="campo form-control" type="date" name="fecha_atencion">
+                    <!-- Primer input de NOMBRES -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="nombres_padre" class="mb-0">NOMBRES</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input class="campo form-control" type="text" name="nombres_madre" placeholder="NOMBRES">
+                        </div>
+
+                    </div>
+
+                    <!-- Segundo input de ESCOLARIDAD y EDAD -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="escolaridad_padre" class="mb-0">ESCOLARIDAD</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="campo form-control" type="text" name="escolaridad_madre"
+                                placeholder="ESCOLARIDAD">
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="campo form-control" type="number" name="edad_madre" placeholder="EDAD">
+                        </div>
+
+                    </div>
+
+                    <!-- Tercer input de OCUPACION -->
+                    <div class="row mb-2">
+
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <label for="ocupacion_padre" class="mb-0">OCUPACION</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input class="campo form-control" type="text" name="ocupacion_madre"
+                                placeholder="OCUPACION">
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 w-100 justify-content-end">
+
+                        <div class="d-flex align-items-center gap-2 w-50">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined16" autocomplete="off"
+                                name="estado_madre" value="INDEPENDIENTE">
+                            <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
+                                for="btn-check-outlined16">INDEPENDIENTE</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined17" autocomplete="off"
+                                name="estado_madre" value="EMPLEADO">
+                            <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
+                                for="btn-check-outlined17">EMPLEADO</label><br>
+
+                        </div>
 
                     </div>
 
@@ -322,9 +468,31 @@
             <!--Octava linea-->
             <tr>
 
-                <td>ASESOR (A) DE GRUPO</td>
+                <td>LOS INGRESOS ECONOMICOS DEL HOGAR SON:</td>
 
-                <td colspan="3"><input class="campo form-control" type="text" name="asesor" placeholder="Asesor (A)">
+                <td colspan="3">
+
+                    <div class="w-100">
+                        <div class="d-flex align-items-center gap-2 w-100">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined18" autocomplete="off"
+                                name="ingresos_hogar" value="Menos de un salario minimo">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined18">MENOS DE UN SALARIO MINIMO</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined19" autocomplete="off"
+                                name="ingresos_hogar" value="Entre 1 y 2 salarios">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined19">ENTRE 1 Y 2 SALARIOS</label><br>
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined20" autocomplete="off"
+                                name="ingresos_hogar" value="Mas de dos salarios minimos">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined20">MAS DE DOS SALARIOS MINIMOS</label><br>
+
+                        </div>
+                    </div>
+
                 </td>
 
             </tr>
@@ -332,17 +500,146 @@
             <!--Novena linea-->
             <tr>
 
-                <td>E.P.S:</td>
+                <td colspan="4">
+                    <label for=""><b>EN CASA VIVO CON (MARQUE)</b> <b>-</b> si es hijo unico no tenga en cuenta el
+                        termino hermano</label>
+                    <br><br>
 
-                <td><input class="campo form-control" type="text" name="eps" placeholder="E.P.S"></td>
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between gap-4 w-100">
 
-                <td colspan="2">
+                            <!-- Primera columna de opciones -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">MIS PADRES Y HERMANOS UNICAMENTE</label>
+
+                                <input type="checkbox" class="btn-check" id="btn-check-outlined21" autocomplete="off"
+                                    name="primera_opcion" value="si">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined21">✓</label>
+
+                            </div>
+
+                            <!-- Segunda columna de opciones -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">PADRES, HERMANOS Y*, OTROS FAMILIARES</label>
+
+                                <input type="checkbox" class="btn-check" id="btn-check-outlined22" autocomplete="off"
+                                    name="segunda_opcion" value="si">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined22">✓</label>
+
+                            </div>
+
+                            <!-- Tercera columna de opciones -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">PADRES, HERMANOS Y*, OTROS NO FAMILIARES</label>
+
+                                <input type="checkbox" class="btn-check" id="btn-check-outlined23" autocomplete="off"
+                                    name="tercera_opcion" value="si">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined23">✓</label>
+
+                            </div>
+
+                            <!-- Cuarta columna con radio buttons (Hermanos y un padre) -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">HERMANOS * Y UNO DE MIS PADRES</label>
+
+                                <div class="d-flex mx-auto w-100 gap-2">
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined24" autocomplete="off"
+                                        name="cuarta_opcion" value="padre">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined24">P</label>
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined25" autocomplete="off"
+                                        name="cuarta_opcion" value="madre">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined25">M</label>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Quinta columna con radio buttons (Mi padrastro o madrastra) -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">MI PADRASTRO O MADRASTRA</label>
+
+                                <div class="d-flex mx-auto w-100 gap-2">
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined26" autocomplete="off"
+                                        name="quinta_opcion" value="padrastro">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;"
+                                        for="btn-check-outlined26">PD</label>
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined27" autocomplete="off"
+                                        name="quinta_opcion" value="madrastra">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;"
+                                        for="btn-check-outlined27">MD</label>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Sexta columna con radio buttons (Hermanos, otros familiares y uno de los padres) -->
+                            <div class="d-flex flex-column mx-auto">
+
+                                <label for="">HERMANOS, OTROS FAMILIARES Y UNO DE LOS PADRES</label>
+
+                                <div class="d-flex mx-auto w-100 gap-2">
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined28" autocomplete="off"
+                                        name="sexta_opcion" value="padre">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined28">P</label>
+
+                                    <input type="radio" class="btn-check" id="btn-check-outlined29" autocomplete="off"
+                                        name="sexta_opcion" value="madre">
+                                    <label class="btn btn-outline-success w-50"
+                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined29">M</label>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Séptima columna con opciones de casa -->
+                            <div class="d-flex flex-column mx-auto gap-2">
+
+                                <label for="">MI CASA ES</label>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined30" autocomplete="off"
+                                    name="mi_casa" value="propia">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined30">PROPIA</label>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined31" autocomplete="off"
+                                    name="mi_casa" value="arrendada">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined31">ARRENDADA</label>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined32" autocomplete="off"
+                                    name="mi_casa" value="de_familiares">
+                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                    for="btn-check-outlined32">DE FAMILIARES</label>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br>
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="edad">SITUACION DE SALUD:</label>
-                        <input class="campo form-control" type="text" name="situacion_salud"
-                            placeholder="Situacion De Salud">
+                        <label for="otro">OTRO</label>
+                        <input class="campo form-control" type="name" name="otro" placeholder="OTRO">
 
                     </div>
 
