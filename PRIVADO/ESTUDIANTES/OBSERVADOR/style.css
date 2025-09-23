@@ -109,3 +109,17 @@ td { /*Para que quede la animacion suave*/
     background-color: #77dda3;
 
 }
+
+.btn-editar {
+
+    background-color: #4b9f4a; 
+    color: black; 
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.btn-editar:hover {
+    background-color: #77dda3 ;
+
+}

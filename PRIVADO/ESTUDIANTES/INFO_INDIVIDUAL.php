@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['ultimo_movimiento'] = time();
 // Guardar el id en sesión si viene del formulario
 if (isset($_POST["id_dato"])) {
     $_SESSION["id_dato"] = $_POST["id_dato"];
@@ -13,7 +13,7 @@ if (!isset($_SESSION["id_dato"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +57,7 @@ if (!isset($_SESSION["id_dato"])) {
                 </center>
 
                 <center>
-                    <a href="./FICHA INDIVIDUAL/ficha.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./FICHA INDIVIDUAL/ficha.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
             </div>
@@ -69,7 +69,7 @@ if (!isset($_SESSION["id_dato"])) {
                 </center>
 
                 <center>
-                    <a href="./OBSERVADOR/observador.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./OBSERVADOR/observador.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
             </div>
