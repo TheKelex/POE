@@ -638,7 +638,7 @@
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="otro">OTRO</label>
+                        <label for="otro"><b>OTRO</b></label>
                         <input class="campo form-control" type="name" name="otro" placeholder="OTRO">
 
                     </div>
@@ -650,17 +650,61 @@
             <!--Decimo Primero linea-->
             <tr>
 
-                <td>DISCAPACIDAD Y/O TRASTORNO DE APRENDIZAJE</td>
+                <td colspan="4">
 
-                <td><input class="campo form-control" type="text" name="discapacidad" placeholder="Discapacidad"></td>
+                    <div class="row d-flex align-items-center w-100">
 
-                <td colspan="2">
+                        <div class="col align-items-center d-flex mx-auto">
 
-                    <div class="d-flex align-items-center gap-2">
+                            <label class="w-100" for=""><b>HIJO UNICO</b></label>
 
-                        <label for="edad">SEGUIMIENTO Y TERAPIAS:</label>
-                        <input class="campo form-control" type="text" name="seguimiento_terapias"
-                            placeholder="Seguimiento Y Terapias">
+                            <div class="d-flex gap-2 w-100">
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined33" autocomplete="off"
+                                    name="hijo_unico" value="Si">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined33">Si</label><br>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined34" autocomplete="off"
+                                    name="hijo_unico" value="No">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined34">No</label><br>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col align-items-center d-flex mx-auto">
+
+                            <label class="w-100" for=""><b>TIENE HERMANOS EN EL COLEGIO</b></label>
+
+                            <div class="d-flex gap-2 w-100">
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined35" autocomplete="off"
+                                    name="hermanos_colegio" value="Si">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined35">Si</label><br>
+
+                                <input type="radio" class="btn-check" id="btn-check-outlined36" autocomplete="off"
+                                    name="hermanos_colegio" value="No">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined36">No</label><br>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col align-items-center d-flex mx-auto">
+
+                            <div class="d-flex align-items-center gap-2">
+
+                                <label for="otro">TOTAL DE PERSONAS QUE VIVEN EN SU HOGAR</label>
+                                <input class="campo form-control" type="number" name="otro" placeholder="TOTAL DE PERSONAS QUE VIVIEN EN SU HOGAR">
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -671,20 +715,193 @@
             <!--Decimo Segundo linea-->
             <tr>
 
-                <td>NOMBRE DEL PADRE:</td>
+                <td colspan="4">
 
-                <td colspan="3">
+                    <!--Inicio de selecciones de discapacidades-->
 
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="row align-items-center">
 
-                        <input class="campo form-control" type="text" name="nombre_padre"
-                            placeholder="Nombre Del Padre">
+                        <div class="col-2">
 
-                        <label for="edad">CELULAR:</label>
-                        <input class="campo form-control" type="text" name="celular_padre"
-                            placeholder="Celular Del Padre">
+                            <label for=""><b>PRESENTO DISCAPACIDAD EN</b></label>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined37" autocomplete="off"
+                                    name="discapacidades" value="Auditiva Castellano Oral">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined37">Auditiva Castellano Oral</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined38" autocomplete="off"
+                                    name="discapacidades" value="Sordoceguera">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined38">Sordoceguera</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined39" autocomplete="off"
+                                    name="discapacidades" value="Intelectual">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined39">Intelectual</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined40" autocomplete="off"
+                                    name="discapacidades" value="Psicosocial">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined40">Psicosocial</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined41" autocomplete="off"
+                                    name="discapacidades" value="Multiple">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined41">Multiple</label><br>
+
+                        </div>
 
                     </div>
+
+                    <br>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-2">
+
+                            
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined42" autocomplete="off"
+                                    name="discapacidades" value="Fisica">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined42">Fisica</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined43" autocomplete="off"
+                                    name="discapacidades" value="Auditivia Lenguaje Señas">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined43">Auditiva Lenguaje Señas</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined44" autocomplete="off"
+                                    name="discapacidades" value="Visual">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined44">Visual</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined45" autocomplete="off"
+                                    name="discapacidades" value="Transtorno Autista TEA">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined45">Transtorno Autista TEA</label><br>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined46" autocomplete="off"
+                                    name="discapacidades" value="Otra">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined46">Otra</label><br>
+
+                        </div>
+
+                    </div>
+
+                    <!--Fin seleccion de discapacidades-->
+
+                    <br>
+
+                    <!--Inicio seleccion transtorno de aprendizaje-->
+
+                    <div class="row align-items-center">
+
+                        <div class="col-2">
+
+                            <label for=""><b>TRANSTORNO APRENDIZAJE</b></label>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined47" autocomplete="off"
+                                    name="transotrno" value="Lectura">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined47">Lectura</label><br>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined48" autocomplete="off"
+                                    name="discapacidades" value="Escritrua">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined48">Escritura</label><br>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined49" autocomplete="off"
+                                    name="discapacidades" value="Calculo">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined49">Calculo</label><br>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined50" autocomplete="off"
+                                    name="discapacidades" value="Ortografia">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined50">Ortografia</label><br>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined51" autocomplete="off"
+                                    name="discapacidades" value="Conducta">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined51">Conducta</label><br>
+
+                        </div>
+
+                        <div class="col">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined52" autocomplete="off"
+                                    name="discapacidades" value="De habla Lenguaje">
+                                <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                    for="btn-check-outlined52">De habla, Lenguaje</label><br>
+
+                        </div>
+
+                    </div>
+
+                    <!--Fin seleccion transtono de aprendizaje-->
 
                 </td>
 
