@@ -70,7 +70,8 @@ $consulta = "
     oe.inf_prp_observador,
     oe.inf_sgp_observador,
     oe.inf_terp_observador,
-    oe.inf_cuarp_observador
+    oe.inf_cuarp_observador,
+    oe.foto_observador
 FROM dato_estudiante de
 INNER JOIN observador_estudiante oe 
     ON de.id_dato = oe.id_observador
@@ -130,53 +131,51 @@ $datos = mysqli_fetch_assoc($resultado);
 
             </div>
 
-            <div class="col">
+            <!-- HTML que muestra la imagen y el modal -->
+<div class="col">
+    <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
 
-                <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
+        <!-- Imagen actual -->
+        <img src="<?= htmlspecialchars($imagen) ?>" class="w-50" style="width: 8rem;" alt="Imagen Del Estudiante">
 
-                    <img src="./Img/Img_prueba.png" class="w-50" style="width: 8rem;" alt="Imagen Del Estudiante">
+        <!-- Botón para abrir modal -->
+        <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <span class="material-symbols-outlined">edit</span>Editar
+        </button>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <span class="material-symbols-outlined">edit</span>Editar
-                    </button>
+        <!-- Modal para subir imagen -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto Estudiante</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto Estudiante</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
 
-                                <div class="modal-body p-4">
-
-                                    <form action="">
-
-                                        <div class="mb-3">
-                                            <label for="formFile" class="form-label">Inserte la foto</label>
-                                            <input class="form-control" type="file" id="formFile">
-                                        </div>
-
-                                        <div class="modal-footer">
-
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <input type="submit" class="btn btn-editar" value="Actualizar foto">
-
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
+                    <div class="modal-body p-4">
+                        <form action="subir.php" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Inserte la foto</label>
+                                <input class="form-control" type="file" name="imagen" id="formFile" accept="image/*" required>
                             </div>
-                        </div>
+
+                            <!-- Enviar el ID del estudiante -->
+                            <input type="hidden" name="id_dato" value="<?= $id_estudiante ?>">
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-editar" value="Actualizar foto">
+                            </div>
+                        </form>
                     </div>
 
                 </div>
-
             </div>
+        </div>
+
+    </div>
+</div>
 
             <div class="col">
 
