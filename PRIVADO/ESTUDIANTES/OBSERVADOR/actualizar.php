@@ -3,7 +3,7 @@
 session_start();
 
 // activar reportes de error para mysqli (opcional, útil en desarrollo)
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
 
 // --- Conexión BD ---
 $conexion = new mysqli("localhost", "root", "", "poe");
@@ -17,6 +17,51 @@ $id_dato = $_POST['id_dato'] ?? $_SESSION['id_dato'] ?? null;
 if (!$id_dato) {
     http_response_code(400);
     echo "No se recibió id_dato.";
+    exit;
+}
+
+// Verificar imagen
+if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] !== UPLOAD_ERR_OK) {
+    http_response_code(400);
+    echo "Imagen no válida.";
+    exit;
+}
+
+// Verificar tabla recibida y validarla contra una lista permitida
+$tabla = $_POST['tabla'] ?? null;
+$tablas_permitidas = ['dato_estudiante', 'atributo_estudiante', 'caracteristicas_estudiante'];
+if (!in_array($tabla, $tablas_permitidas)) {
+    http_response_code(400);
+    echo "Tabla no permitida.";
+    exit;
+}
+
+// Crear carpeta
+$carpeta = "descargas/";
+if (!file_exists($carpeta)) {
+    mkdir($carpeta, 0777, true);
+}
+
+// Subir imagen
+$nombre_original = basename($_FILES['imagen']['name']);
+$extension = pathinfo($nombre_original, PATHINFO_EXTENSION);
+$nombre_nuevo = uniqid('img_') . "." . strtolower($extension);
+$ruta_destino = $carpeta . $nombre_nuevo;
+
+if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino)) {
+    http_response_code(500);
+    echo "Error al mover la imagen.";
+    exit;
+}
+
+// Definir nombre de columna (puedes personalizar según la tabla si lo deseas)
+$columna_imagen = 'imagen_perfil'; // O algo como 'foto_estudiante', según tu esquema
+
+// Verificar si la columna existe en esa tabla (opcional pero seguro)
+$consulta = $conexion->query("SHOW COLUMNS FROM `$tabla` LIKE '$columna_imagen'");
+if ($consulta->num_rows === 0) {
+    http_response_code(400);
+    echo "La columna '$columna_imagen' no existe en la tabla '$tabla'.";
     exit;
 }
 
@@ -137,6 +182,7 @@ try {
     $inf_sgp_observador = $_POST['inf_sgp_observador'] ?? null;
     $inf_terp_observador = $_POST['inf_terp_observador'] ?? null;
     $inf_cuarp_observador = $_POST['inf_cuarp_observador'] ?? null;
+    
 
     // si la columna en la BD tiene ñ en el nombre (`año_observador`) usamos backticks
     $sql = "UPDATE observador_estudiante
@@ -154,9 +200,20 @@ try {
 );
     $st->execute();
     $st->close();
-
     // Confirmar cambios
     $conexion->commit();
+
+
+    // -------- TABLA observador_estudiante --------
+    $foto_observador = $_POST['foto_observador'] ?? null;
+
+
+    //---- thats so easy esto sube la imagen 
+    $sql = "UPDATE `$tabla` SET `$columna_imagen` = ? WHERE id_dato = ?";
+    $st = $conexion->prepare($sql);
+    $st->bind_param("si", $ruta_destino, $id_dato);
+    $st->execute();
+    $st->close();
 
     // Redirigir (ajusta la ruta si la tuya es otra)
     header("Location: observador.php?id_estudiante=" . $id_dato);
