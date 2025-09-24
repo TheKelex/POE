@@ -105,7 +105,7 @@ $datos = mysqli_fetch_assoc($resultado);
 
     <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styl e.css">
 
 </head>
 
