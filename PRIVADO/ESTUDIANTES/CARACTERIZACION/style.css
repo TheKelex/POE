@@ -56,3 +56,22 @@ td { /*Para que quede la animacion suave*/
   transition: all 0.4s ease-in-out;
 
 }
+
+.btn-actualizar { /*Estilo para el boton de actualizar*/
+
+    text-align: center;
+    display: flex;
+    background-color: #4b9f4a;
+    border: 0;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.btn-actualizar:hover { /*Animacion para el boton actualizar*/
+
+    background-color: #77dda3;
+
+}
