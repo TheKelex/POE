@@ -501,8 +501,9 @@
             <tr>
 
                 <td colspan="4">
-                    <label for=""><b>EN CASA VIVO CON (MARQUE)</b> <b>-</b> si es hijo unico no tenga en cuenta el
-                        termino hermano</label>
+
+                    <label for=""><b>EN CASA VIVO CON (MARQUE)</b> <b>-</b> si es hijo unico no tenga en cuenta el termino hermano</label>
+
                     <br><br>
 
                     <div class="w-100">
@@ -513,8 +514,8 @@
 
                                 <label for="">MIS PADRES Y HERMANOS UNICAMENTE</label>
 
-                                <input type="checkbox" class="btn-check" id="btn-check-outlined21" autocomplete="off"
-                                    name="primera_opcion" value="si">
+                                <input type="radio" class="btn-check" id="btn-check-outlined21" autocomplete="off"
+                                    name="vivo_con" value="padres y hermanos">
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined21">✓</label>
 
@@ -525,8 +526,8 @@
 
                                 <label for="">PADRES, HERMANOS Y*, OTROS FAMILIARES</label>
 
-                                <input type="checkbox" class="btn-check" id="btn-check-outlined22" autocomplete="off"
-                                    name="segunda_opcion" value="si">
+                                <input type="radio" class="btn-check" id="btn-check-outlined22" autocomplete="off"
+                                    name="vivo_con" value="padres, hermanos y otros familiares">
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined22">✓</label>
 
@@ -537,8 +538,8 @@
 
                                 <label for="">PADRES, HERMANOS Y*, OTROS NO FAMILIARES</label>
 
-                                <input type="checkbox" class="btn-check" id="btn-check-outlined23" autocomplete="off"
-                                    name="tercera_opcion" value="si">
+                                <input type="radio" class="btn-check" id="btn-check-outlined23" autocomplete="off"
+                                    name="vivo_con" value="padres, hermanos y otros familiares">
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined23">✓</label>
 
@@ -1163,7 +1164,8 @@
 
                             <div class="col">
 
-                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>RECIBO EDUCACION COMPLEMENTARIA</b></label>
+                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>RECIBO EDUCACION
+                                        COMPLEMENTARIA</b></label>
 
                                 <div class="d-flex align-items-center gap-2">
 
@@ -1187,8 +1189,7 @@
 
                                 <div class="d-flex align-items-center gap-2 w-50">
 
-                                    <label for="horario_educacion_complementaria"
-                                        class="text-end">HORARIO</label>
+                                    <label for="horario_educacion_complementaria" class="text-end">HORARIO</label>
                                     <input class="campo form-control" type="number"
                                         name="horario_educacion_complementaria" placeholder="HORARIO">
 
@@ -1219,7 +1220,8 @@
 
                             <div class="col">
 
-                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>ASISTO A ENTRENAMIENTO DEPORTIVO</b></label>
+                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>ASISTO A
+                                        ENTRENAMIENTO DEPORTIVO</b></label>
 
                                 <div class="d-flex align-items-center gap-2">
 
@@ -1243,8 +1245,7 @@
 
                                 <div class="d-flex align-items-center gap-2 w-50">
 
-                                    <label for="horario_entrenamiento_deportivo"
-                                        class="text-end">HORARIO</label>
+                                    <label for="horario_entrenamiento_deportivo" class="text-end">HORARIO</label>
                                     <input class="campo form-control" type="number"
                                         name="horario_entrenamiento_deportivo" placeholder="HORARIO">
 
@@ -1275,7 +1276,8 @@
 
                             <div class="col">
 
-                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>SOY JOVEN TRABAJADOR</b></label>
+                                <label class="w-100 text-start" style="margin-left: 8rem;" for=""><b>SOY JOVEN
+                                        TRABAJADOR</b></label>
 
                                 <div class="d-flex align-items-center gap-2">
 
@@ -1315,17 +1317,118 @@
             <!--Decimo Septima linea-->
             <tr>
 
-                <td>ACUDIENTE:</td>
+                <td colspan="4">
 
-                <td colspan="3">
+                    <label style="margin-bottom: 1rem;" for=""><b>EN LA JORNADA CONTRARIA NORMALMENTE ME
+                            ACOMPAÑAN</b></label>
 
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="row d-flex align-items-center">
 
-                        <input class="campo form-control" type="text" name="parentesco" placeholder="Parentesco">
+                        <div class="col-2 align-items-center">
 
-                        <label for="edad">PARENTESCO:</label>
-                        <input class="campo form-control" type="text" name="ocupacion_acudiente"
-                            placeholder="Ocupacion Del Acudiente">
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined82" autocomplete="off"
+                                name="jornada_acompañan" value="Hermanos">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined82">Hermanos</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined83" autocomplete="off"
+                                name="jornada_acompañan" value="Uno de mis padres">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined83">Uno de mis padres</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined84" autocomplete="off"
+                                name="jornada_acompañan" value="Familiares">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined84">Familiares</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined85" autocomplete="off"
+                                name="jornada_acompañan" value="Otros no familiares">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined85">Otros no familiares</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined86" autocomplete="off"
+                                name="jornada_acompañan" value="Normalmente permanezco solo">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined86">Normalmente, permanezco solo</label>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="row d-flex align-items-center">
+
+                        <div class="col-2 align-items-center">
+
+                            <label for=""><b>EN CASA CUENTO CON</b></label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined87" autocomplete="off"
+                                name="casa_cuento" value="Computador">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined87">Computador</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined88" autocomplete="off"
+                                name="casa_cuento" value="Internet">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined88">Internet</label>
+
+                        </div><
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined89" autocomplete="off"
+                                name="casa_cuento" value="TV. Suscripcion">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined89">TV. Suscripcion</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined90" autocomplete="off"
+                                name="casa_cuento" value="Celular Personal">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined90">Celular Personal</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="checkbox" class="btn-check" id="btn-check-outlined91" autocomplete="off"
+                                name="casa_cuento" value="Servicios Publicos">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined91">Servicios Publicos</label>
+
+                        </div>
 
                     </div>
 
@@ -1336,22 +1439,65 @@
             <!--Decimo Octava linea-->
             <tr>
 
-                <td>DOC. IDENTIFICACION:</td>
+                <td colspan="4">
 
-                <td colspan="3">
+                    <label style="margin-bottom: 1rem;" for=""><b>ME TRANSPORTO AL COLEGIO EN:</b></label>
 
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="row d-flex align-items-center">
 
-                        <input class="campo form-control" type="number" name="doc_identificacion_acudiente"
-                            placeholder="Doc. Identificacion Acudiente">
+                        <div class="col-2 align-items-center">
 
-                        <label for="edad">CELULAR:</label>
-                        <input class="campo form-control" type="number" name="celular_acudiente"
-                            placeholder="Celular Del Acudiente">
+                            <input type="radio" class="btn-check" id="btn-check-outlined92" autocomplete="off"
+                                name="transporte" value="Servicio Publico">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined92">Servicio Publico</label>
 
-                        <label for="edad">OCUPACION:</label>
-                        <input class="campo form-control" type="text" name="ocupacion_acudiente"
-                            placeholder="Ocupacion Del Acudiente">
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined93" autocomplete="off"
+                                name="transporte" value="Vehiculo familiar">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined93">Vehiculo familiar</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined94" autocomplete="off"
+                                name="transporte" value="Bicicleta">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined94">Bicicleta</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined95" autocomplete="off"
+                                name="transporte" value="Motocicleta Personal">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined95">Motocicleta Personal</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined96" autocomplete="off"
+                                name="transporte" value="Caminando">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined96">Caminando</label>
+
+                        </div>
+
+                        <div class="col-2 align-items-center">
+
+                            <input type="radio" class="btn-check" id="btn-check-outlined97" autocomplete="off"
+                                name="transporte" value="Pago Ruta">
+                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
+                                for="btn-check-outlined97">Pago Ruta</label>
+
+                        </div>
 
                     </div>
 
@@ -1359,84 +1505,13 @@
 
             </tr>
 
-            <!--Decimo Novena linea-->
-            <tr>
-
-                <td>DESCRIPCION DEL CASO O MOTIVO DE CONSULTA:</td>
-
-                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
-                        name="descripcion"></textarea></td>
-
-            </tr>
-
-            <!--Vigesimo linea-->
-            <tr>
-
-                <td>ANTECEDENTES:</td>
-
-                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
-                        name="antecedentes"></textarea></td>
-
-            </tr>
-
-            <!--Vigesimo primera linea-->
-            <tr>
-
-                <td>ACCIONES REALIZADAS:</td>
-
-                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
-                        name="acciones_realizadas"></textarea></td>
-
-            </tr>
-
-            <!--Vigesimo segunda linea-->
-            <tr>
-
-                <td>TAREAS, ACUERDOS O COMPROMISOS PERSONALES:</td>
-
-                <td colspan="3"><textarea class="campo form-control mx-auto" style="height: 7rem;"
-                        name="tareas"></textarea></td>
-
-            </tr>
-
             <tr>
 
                 <td colspan="4">
 
-                    <div class="row m-4">
-
-                        <div class="col">
-
-                            <center>
-                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
-                                    value="firma_acudiente">
-                                <p style="border-top: 1px solid black; width: 60%;">Firma Del Padre De Familia O
-                                    Acudiente</p>
-                            </center>
-
-                        </div>
-
-                        <div class="col">
-
-                            <center>
-                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
-                                    value="firma_acudiente">
-                                <p style="border-top: 1px solid black; width: 60%;">Firma De La Orientadora Escolar</p>
-                            </center>
-
-                        </div>
-
-                        <div class="col">
-
-                            <center>
-                                <input class="form-check-input my-3" type="checkbox" name="firma_acudiente"
-                                    value="firma_acudiente">
-                                <p style="border-top: 1px solid black; width: 60%;">Firma Del Estudiante</p>
-                            </center>
-
-                        </div>
-
-                    </div>
+                    <center>
+                    <label style="margin-top: 3rem;" for=""><b>PADRE/ MADRE DE FAMILIA O ACUDIENTE, INFORMACION ADICIONAL RELEVANTE SOBRE SU HIJO/A OFRECERLA EN ORIENTACIÓN ESCOLAR</b></label>
+                    </center>
 
                 </td>
 
