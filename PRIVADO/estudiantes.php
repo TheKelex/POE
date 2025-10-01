@@ -46,12 +46,14 @@ $persona = $_SESSION['persona'] ?? '';
 $jornada = $_POST['jornada'] ?? '';
 $sede    = $_POST['sede'] ?? '';
 $curso   = $_POST['curso'] ?? '';
+$Ti      =$_POST['doc_dato'] ?? '';
 
 // Si se presiona "Eliminar filtros", vaciar variables
 if (isset($_POST['limpiar'])) {
     $jornada = '';
     $sede    = '';
     $curso   = '';
+    $Ti      = '';
 }
 
 // --- Consulta (solo estudiantes) ---
@@ -80,6 +82,10 @@ if ($persona === '1') {
     if ($curso !== '') {
         $consulta .= " AND oe.gradop_observador = '" . mysqli_real_escape_string($enlace, $curso) . "'";
     }
+    if ($Ti !== '') {
+        $consulta .= " AND de.doc_dato = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
+    }
+    
 
     $resultado = mysqli_query($enlace, $consulta);
     if (!$resultado) {
@@ -116,9 +122,6 @@ if ($persona === '1') {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #00ac4a;">
                     <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../index.html">POE</a></li>
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../PUBLICO/ESCUELA DE PADRES/escuela.html">Escuela De Padres</a></li>
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../PUBLICO/FORO/foro.html">Foro</a></li>
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../PUBLICO/TALLERES FORMATIVOS/taller.html">Talleres Formativos</a></li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar d-flex align-items-center" href="./sesion_close.php">
                             <span class="material-symbols-outlined mx-2">logout</span>Cerrar Sesion
@@ -146,6 +149,9 @@ if ($persona === '1') {
             <div class="row">
                 <div class="col-2">
                     <div class="cajita_opciones d-flex flex-column rounded-5 d-grid gap-3">
+
+                        <input type="text" name="doc_dato" value="<?php echo htmlspecialchars($Ti); ?>"
+                            class="boton_cajita rounded-pill mx-2" id="doc_dato" placeholder="Documento de identidad">
 
                         <select name="sede" class="boton_cajita rounded-pill mx-2">
                             <option disabled <?php if (empty($sede)) echo 'selected'; ?>>Sede</option>
@@ -191,34 +197,38 @@ if ($persona === '1') {
                 </tr>
                 <?php
                 if ($persona === '1') {
-                    if ($resultado && mysqli_num_rows($resultado) > 0) {
-                        while ($colum = mysqli_fetch_assoc($resultado)) { ?>
-                            <tr>
-                                <td class="campo"><?php echo (int)$colum['id_dato']; ?></td>
-                                <td class="campo"><?php echo htmlspecialchars($colum['nom_dato']); ?></td>
-                                <td class="campo"><?php echo htmlspecialchars($colum['doc_dato']); ?></td>
-                                <td class="campo"><?php echo htmlspecialchars($colum['jornada_dato']); ?></td>
-                                <td class="campo"><?php echo htmlspecialchars($colum['sede_dato']); ?></td>
-                                <td class="campo"><?php echo htmlspecialchars($colum['gradop_observador']); ?></td>
-                                <td class="ingreso">
-                                    <!-- Form independiente por fila -->
-                                    <form action="../PRIVADO/ESTUDIANTES/INFO_INDIVIDUAL.php" method="POST">
-                                        <input type="hidden" name="id_dato"
-                                            value="<?php echo htmlspecialchars($colum['id_dato']); ?>">
-                                        <button type="submit" class="btn"
-                                            style="border:none; background:none; cursor:pointer; color:black;">
-                                            <span class="material-symbols-outlined fs-2">login</span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                <?php }
-                    } else {
-                        echo "<tr><td colspan='7' class='text-center'>No hay estudiantes registrados</td></tr>";
+                    if ($jornada !== '' || $sede !== '' || $curso !== '' || $Ti !== '') {
+                        if ($resultado && mysqli_num_rows($resultado) > 0) {
+                            while ($colum = mysqli_fetch_assoc($resultado)) { ?>
+                                <tr>
+                                    <td class="campo"><?php echo (int)$colum['id_dato']; ?></td>
+                                    <td class="campo"><?php echo htmlspecialchars($colum['nom_dato']); ?></td>
+                                    <td class="campo"><?php echo htmlspecialchars($colum['doc_dato']); ?></td>
+                                    <td class="campo"><?php echo htmlspecialchars($colum['jornada_dato']); ?></td>
+                                    <td class="campo"><?php echo htmlspecialchars($colum['sede_dato']); ?></td>
+                                    <td class="campo"><?php echo htmlspecialchars($colum['gradop_observador']); ?></td>
+                                    <td class="ingreso">
+                                        <!-- Form independiente por fila -->
+                                        <form action="../PRIVADO/ESTUDIANTES/INFO_INDIVIDUAL.php" method="POST">
+                                            <input type="hidden" name="id_dato"
+                                             value="<?php echo htmlspecialchars($colum['id_dato']); ?>">
+                                            <button type="submit" class="btn"
+                                                style="border:none; background:none; cursor:pointer; color:black;">
+                                                <span class="material-symbols-outlined fs-2">login</span>
+                                         </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        <?php }
+                        } else {
+                         echo "<tr><td colspan='7' class='text-center'>No hay estudiantes registrados</td></tr>";
+                        }
+                    }else{
+                        echo "<tr><td colspan='7' class='text-center'>Seleccione un filtro para visualizar a los estudiantes</td></tr>";
                     }
-                } elseif ($persona === '2') {
+                }elseif ($persona === '2') {
                     echo "<tr><td colspan='7' class='text-center'>No hay egresados registrados</td></tr>";
-                } else {
+                }else{
                     echo "<tr><td colspan='7' class='text-center'>⚠ Escoge entre estudiantes o egresados</td></tr>";
                 }
                 ?>

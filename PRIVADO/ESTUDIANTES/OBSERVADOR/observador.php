@@ -19,7 +19,6 @@ if (!isset($_SESSION["id_dato"])) {
 
 $id_dato = $_SESSION["id_dato"];
 
-
 $consulta = "
     SELECT 
     de.nom_dato,          
@@ -94,7 +93,8 @@ if (!$resultado) {
 }
 
 $datos = mysqli_fetch_assoc($resultado);
-
+$doc_dato = $datos['doc_dato'] ?? 'default';
+$_SESSION['doc_dato'] = $doc_dato; // Guardar en sesión
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -119,63 +119,60 @@ $datos = mysqli_fetch_assoc($resultado);
 
     <!--Grid para la parte superior de la foto y la info general-->
 
-    <form class="m-4" action="actualizar.php" method="POST">
+    
 
         <a href="../INFO_INDIVIDUAL.php" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
 
-        <div class="row m-4 align-items-center">
+        <form class="m-4" action="actualizar_foto.php" method="POST" enctype="multipart/form-data">
+            
+            <div class="row m-4 align-items-center">
 
             <div class="col g-0">
 
                 <input class="campo_superior form-control" type="number" name="gradop_observador" placeholder="GRADO" value="<?php echo htmlspecialchars($datos['gradop_observador'] ?? ''); ?>">
 
             </div>
-
             <!-- HTML que muestra la imagen y el modal -->
-<div class="col">
-    <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
+            <div class="col">
+                <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
 
-        <!-- Imagen actual -->
-        <img src="<?= htmlspecialchars($imagen) ?>" class="w-50" style="width: 8rem;" alt="Imagen Del Estudiante">
+                    <!-- Imagen actual -->
+                    <img src="<?= htmlspecialchars($datos['foto_observador']) ?>" class="w-50" style="width: 8rem;" alt="Imagen Del Estudiante">
 
-        <!-- Botón para abrir modal -->
-        <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <span class="material-symbols-outlined">edit</span>Editar
-        </button>
+                    <!-- Botón para abrir modal -->
+                    <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <span class="material-symbols-outlined">edit</span>Editar
+                    </button>
 
-        <!-- Modal para subir imagen -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                    <!-- Modal para subir imagen -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
 
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto Estudiante</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto Estudiante</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
 
-                    <div class="modal-body p-4">
-                        <form action="subir.php" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Inserte la foto</label>
-                                <input class="form-control" type="file" name="imagen" id="formFile" accept="image/*" required>
+                                <div class="modal-body p-4">
+                                    <div class="mb-3">
+                                         <label for="formFile" class="form-label">Inserte la foto</label>
+                                         <input class="form-control" type="file" name="imagen" id="formFile" accept="image/*" required>
+                                    </div>
+
+                                    <!-- Enviar el ID del estudiante -->
+                                    <input type="hidden" name="id_dato" value="<?= $id_dato ?>">
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <input type="submit" class="btn btn-editar" name="actualizar" value="Actualizar foto">
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Enviar el ID del estudiante -->
-                            <input type="hidden" name="id_dato" value="<?= $id_estudiante ?>">
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <input type="submit" class="btn btn-editar" value="Actualizar foto">
-                            </div>
-                        </form>
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
 
             <div class="col">
 
@@ -185,9 +182,9 @@ $datos = mysqli_fetch_assoc($resultado);
             </div>
 
         </div>
-
+        </form> 
         <!--1. Identificacion-->
-
+    <form class="m-4" action="actualizar.php" method="POST">
         <div class="row borde m-4 d-flex align-items-center">
 
             <div class="col-12 d-flex justify-content-center align-items-center"

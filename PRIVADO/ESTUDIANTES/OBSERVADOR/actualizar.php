@@ -20,51 +20,6 @@ if (!$id_dato) {
     exit;
 }
 
-// Verificar imagen
-if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] !== UPLOAD_ERR_OK) {
-    http_response_code(400);
-    echo "Imagen no válida.";
-    exit;
-}
-
-// Verificar tabla recibida y validarla contra una lista permitida
-$tabla = $_POST['tabla'] ?? null;
-$tablas_permitidas = ['dato_estudiante', 'atributo_estudiante', 'caracteristicas_estudiante'];
-if (!in_array($tabla, $tablas_permitidas)) {
-    http_response_code(400);
-    echo "Tabla no permitida.";
-    exit;
-}
-
-// Crear carpeta
-$carpeta = "descargas/";
-if (!file_exists($carpeta)) {
-    mkdir($carpeta, 0777, true);
-}
-
-// Subir imagen
-$nombre_original = basename($_FILES['imagen']['name']);
-$extension = pathinfo($nombre_original, PATHINFO_EXTENSION);
-$nombre_nuevo = uniqid('img_') . "." . strtolower($extension);
-$ruta_destino = $carpeta . $nombre_nuevo;
-
-if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino)) {
-    http_response_code(500);
-    echo "Error al mover la imagen.";
-    exit;
-}
-
-// Definir nombre de columna (puedes personalizar según la tabla si lo deseas)
-$columna_imagen = 'imagen_perfil'; // O algo como 'foto_estudiante', según tu esquema
-
-// Verificar si la columna existe en esa tabla (opcional pero seguro)
-$consulta = $conexion->query("SHOW COLUMNS FROM `$tabla` LIKE '$columna_imagen'");
-if ($consulta->num_rows === 0) {
-    http_response_code(400);
-    echo "La columna '$columna_imagen' no existe en la tabla '$tabla'.";
-    exit;
-}
-
 try {
     $conexion->begin_transaction();
 
@@ -202,18 +157,6 @@ try {
     $st->close();
     // Confirmar cambios
     $conexion->commit();
-
-
-    // -------- TABLA observador_estudiante --------
-    $foto_observador = $_POST['foto_observador'] ?? null;
-
-
-    //---- thats so easy esto sube la imagen 
-    $sql = "UPDATE `$tabla` SET `$columna_imagen` = ? WHERE id_dato = ?";
-    $st = $conexion->prepare($sql);
-    $st->bind_param("si", $ruta_destino, $id_dato);
-    $st->execute();
-    $st->close();
 
     // Redirigir (ajusta la ruta si la tuya es otra)
     header("Location: observador.php?id_estudiante=" . $id_dato);

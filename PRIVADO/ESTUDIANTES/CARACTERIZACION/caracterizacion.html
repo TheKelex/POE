@@ -11,6 +11,22 @@
     <link rel="stylesheet" href="./style.css">
 
 </head>
+<style>
+/* Para navegadores basados en WebKit (Chrome, Safari, Edge) */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Para Firefox y otros navegadores modernos */
+input[type=number] {
+  -moz-appearance: textfield; /* Prefijo de Firefox para compatibilidad */
+  appearance: none; /* Propiedad estándar */
+  margin: 0;
+}
+
+</style>
 
 <body>
 
@@ -35,21 +51,16 @@
 
                 <td>
 
-                    <div class="row w-100 m-auto d-flex flex-colum align-items-center">
+                    <div class="row d-flex flex-colum align-items-center">
 
-                        <div class="col w-100">
+                        <div class="col d-flex flex-colum align-items-center">
+
                             <label>FECHA DE NACIMIENTO:</label>
-                        </div>
-                        <div class="col w-100">
-                            <input class="campo form-control" type="number" name="dia" placeholder="DIA">
-                        </div>
-                        <div class="col w-100">
-                            <input class="campo form-control" type="number" name="mes" placeholder="MES">
-                        </div>
-                        <div class="col w-100">
-                            <input class="campo form-control" type="number" name="año" placeholder="AÑO">
-                        </div>
 
+                            <input class="campo form-control" type="date">
+
+                        </div>
+                    
                     </div>
 
                 </td>
