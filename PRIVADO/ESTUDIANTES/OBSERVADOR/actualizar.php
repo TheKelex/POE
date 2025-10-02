@@ -33,11 +33,11 @@ try {
     $rh_dato         = $_POST['rh_dato']         ?? null;
 
     $sql = "UPDATE dato_estudiante
-            SET nom_dato=?, doc_dato=?, sede_dato=?, jornada_dato=?, nac_dato=?, lugar_nac_dato=?, rh_dato=?
+            SET nom_dato=?, doc_dato=?, jornada_dato=?, nac_dato=?, lugar_nac_dato=?, rh_dato=?
             WHERE id_dato=?";
     $st = $conexion->prepare($sql);
-    $st->bind_param("sssssssi",
-        $nom_dato, $doc_dato, $sede_dato, $jornada_dato, $nac_dato, $lugar_nac_dato, $rh_dato, $id_dato
+    $st->bind_param("ssssssi",
+        $nom_dato, $doc_dato, $jornada_dato, $nac_dato, $lugar_nac_dato, $rh_dato, $id_dato
     );
     $st->execute();
     $st->close();

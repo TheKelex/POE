@@ -35,22 +35,20 @@ if (!isset($_SESSION["id_dato"])) {
         <a href="../estudiantes.php" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
 
         <div class="row">
-
-            <!--Inicio Cartas de opciones-->
-
-            <div class="col rounded-5 mx-5 opciones">
+            <?php 
+                $caracterizacion = '<div class="col rounded-5 mx-5 opciones">
 
                 <center>
                     <h3 class="p-5" style="font-weight: bold;">Caracterizacion</h3>
                 </center>
 
                 <center>
-                    <a href="./CARACTERIZACION/caracterizacion.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./CARACTERIZACION/caracterizacion.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
-            </div>
+            </div>';
 
-            <div class="col rounded-5 mx-5 opciones">
+                $ficha_individual = '<div class="col rounded-5 mx-5 opciones">
 
                 <center>
                     <h3 class="p-5" style="font-weight: bold;">Ficha Individual</h3>
@@ -60,9 +58,9 @@ if (!isset($_SESSION["id_dato"])) {
                     <a href="./FICHA INDIVIDUAL/ficha.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
-            </div>
+            </div>';
 
-            <div class="col rounded-5 mx-5 opciones">
+                $observador = '<div class="col rounded-5 mx-5 opciones">
 
                 <center>
                     <h3 class="p-5" style="font-weight: bold;">Observador</h3>
@@ -72,9 +70,9 @@ if (!isset($_SESSION["id_dato"])) {
                     <a href="./OBSERVADOR/observador.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
-            </div>
+            </div>';
 
-            <div class="col rounded-5 mx-5 opciones">
+                $folder = '<div class="col rounded-5 mx-5 opciones">
 
                 <center>
                     <h3 class="p-5" style="font-weight: bold;">Folder</h3>
@@ -84,9 +82,24 @@ if (!isset($_SESSION["id_dato"])) {
                     <a href="./FOLDER/folder.html" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
-            </div>
+            </div>';
 
-            <!--Fin Cartas De Opciones-->
+                if ($_SESSION['tipo_usuario']==='administrador') {
+                    echo $caracterizacion;
+                    echo $ficha_individual;
+                    echo $observador;
+                    echo $folder;
+                } elseif ($_SESSION['tipo_usuario']==='docente') {
+                    echo $caracterizacion;
+                    echo $observador;
+                    echo $folder;
+                }elseif ($_SESSION['tipo_usuario']==='psicorientacion') {
+                    echo $caracterizacion;
+                    echo $ficha_individual;
+                    echo $observador;
+                    echo $folder;
+                }
+            ?>
 
         </div>
 

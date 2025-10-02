@@ -1,0 +1,66 @@
+<?php 
+$id_egresados = $_POST['id_egresados'];
+echo $id_egresados;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="w-100">
+        <img src="../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <div class="fondo"> <!--Para tener esa margen y el color blanco-->
+
+        <a href="../estudiantes.php" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+        <div class="row">
+
+            <!--Inicio Cartas de opciones-->
+
+            <div class="col rounded-5 mx-5 opciones">
+
+                <center>
+                    <h3 class="p-5" style="font-weight: bold;">Biografia</h3>
+                </center>
+
+                <center>
+                    <a href="./BIOGRAFIA/biografia.html" class="rounded-pill m-4 cargar">Cargar</a>
+                </center>
+
+            </div>
+
+            <div class="col rounded-5 mx-5 opciones">
+
+                <center>
+                    <h3 class="p-5" style="font-weight: bold;">Datos Personales</h3>
+                </center>
+
+                <center>
+                    <a href="./DATOS PERSONALES/datosp.html" class="rounded-pill m-4 cargar">Cargar</a>
+                </center>
+
+            </div>
+
+            <!--Fin Cartas De Opciones-->
+
+        </div>
+
+    </div>
+
+    <script src="../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
