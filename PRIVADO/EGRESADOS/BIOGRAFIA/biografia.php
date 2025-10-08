@@ -1,0 +1,165 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: ../INICIO SESION/inicio.php");
+    exit();
+}
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
+
+$_SESSION['ultimo_movimiento'] = time();
+
+/* --------------------------
+   Conexión a la base de datos
+   -------------------------- */
+$servidor = "localhost";
+$usuario_db = "root";
+$contraseña = "";
+$basededatos = "poe";
+
+$enlace = mysqli_connect($servidor, $usuario_db, $contraseña, $basededatos);
+if (!$enlace) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+// Verificar si existe en sesión
+if (!isset($_SESSION["id_egresados"])) {
+    echo "No se recibió el estudiante.";
+    exit();
+}
+$id_egresados = $_SESSION['id_egresados'];
+
+$sql = "SELECT 
+id_egresados, 
+nom_egresados, 
+edad_egresados, 
+fechanac_egresados,
+especialidad_egresados, 
+biografia_egresados,
+foto_egresados,
+num_doc_egresados
+FROM egresados 
+WHERE $id_egresados=id_egresados"; // Consulkta SQL
+$resultado = mysqli_query($enlace, $sql);
+if (!$resultado) {
+    die("Error en la consulta: " . mysqli_error($enlace));
+}
+$datos = mysqli_fetch_assoc($resultado);
+
+$_SESSION['doc_egresados'] = $datos['num_doc_egresados'];//Guardamos en sesión el documento del estudiante
+
+$fecha_nacimiento = $datos['fechanac_egresados']; // formato AAAA-MM-DD
+$fecha = $datos['fechanac_egresados']; // por ejemplo: 2001-10-07
+$edad = date_diff(date_create($fecha), date_create('today'))->y;
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOGRAFIA</title>
+
+    <link rel="stylesheet" href="../../../bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    
+    <div class="w-100">
+        <img src="../../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
+    </div>
+
+    <a href="../egresados.php" class="rounded-pill m-4 volver"><span class="material-symbols-outlined mx-2">logout</span>Volver</a>
+
+    
+
+        <!--Grid para la primera linea (Foto e info)-->
+        <div class="row align-items-center m-4">
+
+            <div class="col-3 d-flex justify-content-center">
+                <form action="actualizar_foto.php" method="POST" enctype="multipart/form-data"> 
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
+
+                            <!-- Imagen actual -->
+                            <img src="<?= htmlspecialchars($datos['foto_egresados']) ?>" class="w-50" style="width: 8rem;" alt="Imagen Del Estudiante">
+
+                            <!-- Botón para abrir modal -->
+                            <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <span class="material-symbols-outlined">edit</span>Editar
+                            </button>
+
+                            <!-- Modal para subir imagen -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto Estudiante</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                        </div>
+
+                                        <div class="modal-body p-4">
+                                            <div class="mb-3">
+                                                <label for="formFile" class="form-label">Inserte la foto</label>
+                                                <input class="form-control" type="file" name="imagen" id="formFile" accept="image/*" required>
+                                            </div>
+
+                                            <!-- Enviar el ID del estudiante -->
+                                            <input type="hidden" name="id_dato" value="<?= $id_dato ?>">
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                <input type="submit" class="btn btn-editar" name="actualizar" value="Actualizar foto">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+
+            <form action="actualizar.php" method="POST"> 
+                <div class="col-9">
+
+                    <center>
+                    <h2 class="titulo rounded-pill">EGRESADO</h2>
+
+                    <input class="campo form-control rounded-pill m-4" type="text" placeholder="Nombre" value="<?php echo htmlspecialchars($datos['nom_egresados'] ?? ''); ?>">
+                    <input class="campo form-control rounded-pill m-4" type="number" placeholder="Documento de Identidad" name="num_doc_egresados" value="<?php echo htmlspecialchars($datos['num_doc_egresados'] ?? ''); ?>">
+                    <input class="campo form-control rounded-pill m-4" type="date" placeholder="Año" value="<?php echo htmlspecialchars($datos['fechanac_egresados'] ?? ''); ?>">
+                    <input class="campo form-control rounded-pill m-4" type="number" placeholder="Edad" name="edad_egresados" value="<?php echo htmlspecialchars($edad); ?>">
+                    <input class="campo form-control rounded-pill m-4" type="text" placeholder="Especialidad en que se graduo" value="<?php echo htmlspecialchars($datos['especialidad_egresados'] ?? ''); ?>">
+                    </center>
+
+                </div>
+
+                <div class="col-12">
+
+                    <textarea class="area form-control mx-auto" placeholder="Agregar texto..." rows="7" name="biografia_egresados"><?php echo htmlspecialchars($datos['biografia_egresados'] ?? ''); ?></textarea>
+
+                </div>
+
+                <div class="col-12 d-flex justify-content-end pe-4">
+                
+                    <button class="btn-actualizar rounded-pill my-4" type="submit"><span class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
+                
+                </div>
+            </form>       
+            
+        </div>
+
+
+    <script src="../../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

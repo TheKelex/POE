@@ -136,7 +136,7 @@ if ($persona === '2') {
         $consulta .= " AND año_egresado = '" . mysqli_real_escape_string($enlace, $anio) . "'";
     }
     if ($Ti !== '') {
-        $consulta .= " AND num_doc_egresado = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
+        $consulta .= " AND num_doc_egresados = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
     }
 
     // Ejecutar consulta egresados
@@ -349,7 +349,19 @@ if ($persona === '2') {
                 </div> <!-- col-10 -->
             </div> <!-- row -->
     </div> <!-- caja -->
-
-    <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Previene que el Enter dentro de cualquier input envíe el formulario
+    document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                return false;
+            }
+        });
+    });
+});
+</script>
+<script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

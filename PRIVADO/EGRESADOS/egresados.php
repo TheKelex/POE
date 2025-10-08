@@ -1,15 +1,22 @@
 <?php 
-$id_egresados = $_POST['id_egresados'];
-echo $id_egresados;
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: ../INICIO SESION/inicio.php");
+    exit();
+}
+if (isset($_POST["id_egresados"])) {
+    $_SESSION["id_egresados"] = $_POST["id_egresados"];
+}
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>PANEL DE SELECCIÓN</title>
 
     <link rel="stylesheet" href="../../bootstrap-5.3.7-dist/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -37,7 +44,7 @@ echo $id_egresados;
                 </center>
 
                 <center>
-                    <a href="./BIOGRAFIA/biografia.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./BIOGRAFIA/biografia.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
             </div>
@@ -49,7 +56,7 @@ echo $id_egresados;
                 </center>
 
                 <center>
-                    <a href="./DATOS PERSONALES/datosp.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./DATOS PERSONALES/datosp.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
             </div>
