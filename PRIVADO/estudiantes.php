@@ -281,7 +281,8 @@ if ($persona === '2') {
                                 ';
 
                                 if ($resultado && mysqli_num_rows($resultado) > 0) {
-                                    while ($colum = mysqli_fetch_assoc($resultado)) {
+                                    if ($jornada!== '' OR $sede !== '' OR $curso !== '') {
+                                        while ($colum = mysqli_fetch_assoc($resultado)) {
                                         echo '<tr>';
                                         echo '<td class="campo">' . (int)$colum['id_dato'] . '</td>';
                                         echo '<td class="campo">' . htmlspecialchars($colum['nom_dato']) . '</td>';
@@ -299,6 +300,9 @@ if ($persona === '2') {
                                                 </form>
                                               </td>';
                                         echo '</tr>';
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='7' class='text-center'>⚠ Selecciona los filtros necesarios para empezar</td></tr>";
                                     }
                                 } else {
                                     echo "<tr><td colspan='7' class='text-center'>No hay estudiantes registrados</td></tr>";
@@ -317,7 +321,8 @@ if ($persona === '2') {
                                 ';
 
                                 if ($resultado && mysqli_num_rows($resultado) > 0) {
-                                    while ($colum = mysqli_fetch_assoc($resultado)) {
+                                    if ($anio !== '' OR $Ti !== '') {
+                                        while ($colum = mysqli_fetch_assoc($resultado)) {
                                         echo '<tr>';
                                         echo '<td class="campo">' . (int)$colum['id_egresados'] . '</td>';
                                         echo '<td class="campo">' . htmlspecialchars($colum['nom_egresados']) . '</td>';
@@ -334,7 +339,11 @@ if ($persona === '2') {
                                               </td>';
                                         echo '</tr>';
                                         echo '</tr>';
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5' class='text-center'>⚠ Selecciona los filtros necesarios para empezar</td></tr>";
                                     }
+                                    
                                 } else {
                                     echo "<tr><td colspan='5' class='text-center'>No hay egresados registrados</td></tr>";
                                 }
@@ -349,6 +358,48 @@ if ($persona === '2') {
                 </div> <!-- col-10 -->
             </div> <!-- row -->
     </div> <!-- caja -->
+    <!-- Botón y modal para cargar listas -->
+<div class="col">
+    <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
+
+        <!-- Botón para abrir modal -->
+        <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalListas">
+            <span class="material-symbols-outlined">upload</span>Cargar Listas
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalListas" tabindex="-1" aria-labelledby="modalListasLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalListasLabel">Actualizar listados (CSV)</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+
+                    <form action="listas.php" method="POST" enctype="multipart/form-data" class="p-4">
+                        <div class="mb-3">
+                            <label for="archivoCSV" class="form-label">Seleccione el archivo CSV</label>
+                            <input class="form-control" type="file" name="archivoCSV" id="archivoCSV" accept=".csv" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña de administrador</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña" required>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <input type="submit" class="btn btn-editar" name="actualizar" value="Actualizar listado">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Previene que el Enter dentro de cualquier input envíe el formulario
@@ -360,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
+}); 
 </script>
 <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
