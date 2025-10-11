@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+if (isset($_SESSION["eliminado"])) {
+    echo '<div class="alert alert-success text-center m-3 rounded-pill shadow-sm">
+            ✅ Estudiante eliminado correctamente.
+          </div>';
+    unset($_SESSION["eliminado"]);
+}
+
 $_SESSION['ultimo_movimiento'] = time();
 // Guardar el id en sesión si viene del formulario
 if (isset($_POST["id_dato"])) {
@@ -102,8 +110,50 @@ if (!isset($_SESSION["id_dato"])) {
             ?>
 
         </div>
+        <?php if ($_SESSION['tipo_usuario'] === 'administrador'): ?>
+    <!-- Botón que abre el modal -->
+     <center>
+     <button type="button" class="btn btn-danger rounded-pill m-4 cargar" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal" style="background-color: #d12626; width:16%">
+            <span class="material-symbols-outlined">delete</span>Eliminar Estudiante
+        </button>
+     </center>
+           
+<?php endif; ?>
+
+<!-- Modal de confirmación de eliminación -->
+<div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 border-0 shadow">
+      <div class="modal-header bg-danger text-white rounded-top-4">
+        <h5 class="modal-title fw-bold" id="confirmarEliminarModalLabel">Confirmar eliminación</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="fs-5 mb-0">¿Estás seguro de que deseas eliminar este estudiante?</p>
+        <p class="text-muted">Esta acción no se puede deshacer.</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">No</button>
+        
+        <form action="eliminar_estudiante.php" method="POST" style="display:inline;">
+            <input type="hidden" name="id_dato" value="<?php echo htmlspecialchars($_SESSION['id_dato']); ?>">
+            <button type="submit" class="btn btn-danger rounded-pill px-4">Sí, eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'eliminado'): ?>
+<div class="alert alert-success text-center m-3 rounded-pill shadow-sm">
+    Estudiante eliminado correctamente.
+</div>
+<?php endif; ?>
 
     </div>
+
+
 
     <script src="../../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
