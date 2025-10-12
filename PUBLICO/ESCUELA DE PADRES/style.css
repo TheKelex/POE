@@ -149,9 +149,54 @@
   text-align: center;
 }
 
-.margen {
+/*---------------Inicio de los estilos para los post---------------*/
 
-  margin-right: 20%; 
-  margin-left: 20%;
+.contenedor-imagenes {
+
+  background-color: #bddcbd;
+  width: 600px;
+  border: 1px solid;
+  padding: 15px;
+  flex-wrap: wrap;
 
 }
+
+.imagen-box {
+
+  flex: 1;
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.preview-img {
+
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+
+}
+
+.preview-img:hover {
+
+  transform: scale(1.05);
+
+}
+
+/* 💬 Control de texto largo */
+.texto-post p {
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: justify;
+  line-height: 1.6;
+  max-width: 100%;
+
+}
+
+/*---------------Fin de los estilos para los post---------------*/

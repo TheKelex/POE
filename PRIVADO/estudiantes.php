@@ -171,7 +171,8 @@ if ($persona === '2') {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #00ac4a;">
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../index.html">POE</a></li>
+                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="./EDIT/FORM_FORO/editor.php">Editor Foro</a></li>
+                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../EDITOR INDEX/editor index.html">Editor Pag. Principal</a></li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar d-flex align-items-center" href="./sesion_close.php">
                             <span class="material-symbols-outlined mx-2">logout</span>Cerrar Sesion

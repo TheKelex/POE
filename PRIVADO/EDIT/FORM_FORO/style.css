@@ -177,6 +177,50 @@ input[type="file"] {
 
 }
 
+.correcto {
+
+  background-color: #4b9f4a !important;
+
+}
+
+.alerta {
+
+  background-color: #d24d4d !important;
+
+}
+
+/*Inicio estilos para la tabla*/
+
+table { /*Estilo para el tamaño de la tabla y la alineacion*/
+
+  width: 100% !important;
+  text-align: center !important
+
+}
+
+.campo { /*Estilo para la informacion de la tabla*/
+
+  border: 1px solid black !important;
+  background-color: white !important;
+  padding: 20px !important;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.ingreso {/*Estilo para el icono de ingreso*/
+
+  background-color: #b7e2cc00 !important;
+  border: 0px solid #57a06a00 !important;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  vertical-align: middle;
+
+}
+
+/*Fin de los estilos para la tabla*/
+
 /*Inicio de estilos para el selector de imagenes*/
 
 .image-upload {
