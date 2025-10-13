@@ -54,7 +54,7 @@ $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'escuela' ORD
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar"
-                            href="../TALLERES FORMATIVOS/taller.html">Talleres Formativos</a>
+                            href="../TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar"
@@ -218,7 +218,6 @@ $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'escuela' ORD
         <?php } ?>
 
     </div>
-
 
     <!--Fin De Los POST-->
 
