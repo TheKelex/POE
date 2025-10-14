@@ -228,15 +228,27 @@ if ($persona === '2') {
                                 <p class="w-100 text-center" style="font-weight: bold;">Ej: 1002</p>
 
                                 <input class="actualizar rounded-pill" type="submit" name="actualizar" value="Enviar">
-                                <input class="actualizar rounded-pill" type="submit" name="limpiar"
-                                    value="Eliminar filtros" style="color:black; margin: 0 !important">
+<input class="actualizar rounded-pill" type="submit" name="limpiar"
+    value="Eliminar filtros" style="color:black; margin: 0 !important">
+';  // <-- cerramos la cadena que estaba imprimiendo todo el panel
 
-<button type="button" class="actualizar rounded-pill" style="background-color:#d9534f; color:black;margin-top: 10px;" data-bs-toggle="modal" data-bs-target="#modalEliminar">
-    Eliminar todos los registros
-</button>
+// Mostrar botón SOLO si el usuario es administrador
+if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
+    echo '
+    <button type="button" class="actualizar rounded-pill" 
+            style="background-color:#d9534f; color:black; margin-top: 10px;" 
+            data-bs-toggle="modal" data-bs-target="#modalEliminar">
+        Eliminar todos los registros
+    </button>
+    ';
+}
+
+// Reabrimos el echo para continuar con el HTML que faltaba
+echo '
                             </div>
                         </div>
                     ';
+
                 } elseif ($persona === '2') {
                     // Filtro para EGRESADOS (manteniendo el mismo frontend)
                     echo '
@@ -419,6 +431,8 @@ document.addEventListener("DOMContentLoaded", function() {
 }); 
 </script>
 
+
+<?php if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador'): ?>
 <!-- Modal de confirmación para eliminar todos los registros -->
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminar" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -448,6 +462,8 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
   </div>
 </div>
+<?php endif; ?>
+
 
 
 <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
