@@ -230,6 +230,10 @@ if ($persona === '2') {
                                 <input class="actualizar rounded-pill" type="submit" name="actualizar" value="Enviar">
                                 <input class="actualizar rounded-pill" type="submit" name="limpiar"
                                     value="Eliminar filtros" style="color:black; margin: 0 !important">
+
+<button type="button" class="actualizar rounded-pill" style="background-color:#d9534f; color:black;margin-top: 10px;" data-bs-toggle="modal" data-bs-target="#modalEliminar">
+    Eliminar todos los registros
+</button>
                             </div>
                         </div>
                     ';
@@ -414,6 +418,38 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }); 
 </script>
+
+<!-- Modal de confirmación para eliminar todos los registros -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminar" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="confirmDeleteLabel">Eliminar todos los registros</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <form method="POST" action="eliminar_todo.php">
+        <div class="modal-body">
+          <p class="text-danger fw-bold mb-3">
+            ⚠️ Esta acción eliminará absolutamente todos los registros de estudiantes y sus datos relacionados. 
+            Esta operación no se puede deshacer.
+          </p>
+          <div class="mb-3">
+            <label for="clave_admin" class="form-label">Contraseña de administrador</label>
+            <input type="password" name="clave_admin" id="clave_admin" class="form-control rounded-pill" placeholder="Ingrese su contraseña" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger rounded-pill">Eliminar todo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
