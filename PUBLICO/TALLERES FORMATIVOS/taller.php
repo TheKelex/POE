@@ -14,6 +14,8 @@ if (!$conexion) {
 // --- Consultar todos los posts ---
 $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'talleres' ORDER BY id_foro DESC");
 
+$contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
+
 ?>
 
 <!DOCTYPE html>
@@ -248,17 +250,23 @@ $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'talleres' OR
     <!--Inicio Contacto Psicoorientadora-->
 
     <div class="position-relative text-center">
-
         <img src="../../Imagenes/Contacto.png" class="img-fluid w-100">
-
         <div class="position-absolute top-50 start-50 translate-middle">
-
             <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
             <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
-            <p class="email rounded-pill m-5">DaCode@example.com</p>
-
+            <p class="email rounded-pill m-5">
+                <?php
+                if ($contacto && $contacto->num_rows > 0) {
+                    // Obtener la primera fila del resultado
+                    $datos = $contacto->fetch_assoc();
+                    echo htmlspecialchars($datos['contacto_psicoo']);
+                } else {
+                    // Valor por defecto si no hay datos
+                    echo 'contacto@institucion.edu.co';
+                }
+                ?>
+            </p>
         </div>
-
     </div>
 
     <!--Fin Contacto Psicoorientadora-->
