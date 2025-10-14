@@ -79,7 +79,7 @@
 
                     <div class="col">
 
-                        <a href="../../index.html" class="btn w-100 d-flex justify-content-center gap-2 rounded-pill px-4 py-2" id="boton_1">Volver</a>
+                        <a href="../../index.php" class="btn w-100 d-flex justify-content-center gap-2 rounded-pill px-4 py-2" id="boton_1">Volver</a>
 
                     </div>
 
