@@ -8,7 +8,7 @@ body {
 #boton {
 
     border: 1px solid gray;
-    background-color: #04BF55;
+    background-color: #57a06b;
     color: white;
     font-weight: bold;
     transition: all 0.4s ease-in-out;
@@ -18,7 +18,7 @@ body {
 #boton_1 {
 
     border: 1px solid gray;
-    color: #04BF55;
+    color: #57a06b;
     font-weight: bold;
     transition: all 0.4s ease-in-out;
 

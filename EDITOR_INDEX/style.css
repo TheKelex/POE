@@ -257,6 +257,18 @@ input[type="file"] {
 
 /*Fin de los estilos para el selector de imagenes*/
 
+.correcto {
+
+  background-color: #4b9f4a !important;
+
+}
+
+.alerta {
+
+  background-color: #d24d4d !important;
+
+}
+
 .btn-actualizar { /*Estilo para el boton de actualizar*/
 
     text-align: center;

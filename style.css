@@ -66,6 +66,9 @@
   font-size: 20px;
   margin: 0px 30px;
   text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 
 }
 
@@ -170,4 +173,24 @@
 
 .borde {
   border-radius: 25px;  
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar-nav {
+  flex-wrap: wrap;
 }

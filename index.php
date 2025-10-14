@@ -1,3 +1,21 @@
+<?php
+// Conexión a la base de datos
+$conexion = new mysqli("localhost", "root", "", "poe");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Obtener datos de la tabla info_index
+$sql = "SELECT * FROM info_index WHERE id_index = 1";
+$resultado = $conexion->query($sql);
+$datos = $resultado->fetch_assoc();
+
+// Función para obtener ruta de imagen
+function img_src_for($valorDB) {
+    if (empty($valorDB)) return "./Imagenes/Img_Divisiones.png"; // placeholder por si no hay nada
+    return "./EDITOR_INDEX/" . ltrim($valorDB, './'); // asegurar que apunte a la carpeta correcta
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,10 +34,7 @@
         <img src="./Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
     </div>
 
-
-
     <!--Inicio barra de navegacion-->
-
     <nav class="navbar navbar-expand-lg" style="background-color: #017800;">
         <div class="container-fluid">
             <a class="navbar-brand fs-4 ms-4" style="font-weight: bold; color: white; font-size: 25px; cursor: default;" href=""><b>POE</b></a>
@@ -42,51 +57,39 @@
             </div>
         </div>
     </nav>
-
     <!--Fin inicio barra de navegacion-->
 
 
 
     <!--POE-->
-
     <div class="container my-5" style="position: relative;">
         <div class="row align-items-center">
 
             <!-- Columna de texto -->
             <div class="col-12 col-md-6 my-5">
-
-                <h1 class="titulo_principal">PROYECTO
-                    DE<br>ORIENTACIÓN ESCOLAR (POE)
+                <h1 class="titulo_principal">
+                    <?= htmlspecialchars($datos['titulo_principal'] ?? 'PROYECTO DE ORIENTACIÓN ESCOLAR (POE)') ?>
                 </h1>
 
                 <p class="textos">
-                    “Orientar no es solo guiar caminos, sino despertar conciencias para que cada estudiante descubra,
-                    construya y viva su propio proyecto de vida.”
+                    <?= htmlspecialchars($datos['desc_principal'] ?? '“Orientar no es solo guiar caminos...”') ?>
                 </p>
 
                 <a href="#que_es_el_poe" class="btn rounded-pill px-4 py-2 mt-3 shadow w-30 w-md-auto" id="boton_1">
                     ¿Qué es el POE?
                 </a>
-
-                <br>
-
             </div>
 
-            <!-- Columna de imagen de manos con mariposas -->
+            <!-- Columna de imagen -->
             <div class="col-12 col-md-6 text-center" style="width: 50%;">
-
-                <img src="./Imagenes/Logo_Mariposas.png" alt="" class="img-fluid w-100 borde" >
-
+                <img src="./Imagenes/Logo_Mariposas.png" alt="" class="img-fluid w-100 borde">
             </div>
-
         </div>
 
         <div class="logo-container text-start my-4">
-            <img src="Imagenes/Logo_Tecnico.png" alt="" class="img-fluid" style="max-width: 200px;">
+            <img src="./Imagenes/Logo_Tecnico.png" alt="" class="img-fluid" style="max-width: 200px;">
         </div>
-
     </div>
-
     <!--Fin POE-->
 
     <br><br>
@@ -94,115 +97,89 @@
     <img src="./Imagenes/HR.png" class="img-fluid" width="100%">
 
 
-
     <!--Inicio De Que Es El POE-->
-
     <h1 class="text-center my-4 titulos rounded-pill" id="que_es_el_poe">
-
-        ¿Que es el POE?
-
+        <?= htmlspecialchars($datos['titulo_sec'] ?? '¿Qué es el POE?') ?>
     </h1>
 
-    <p class="texto_que m-4 text-center">
-
-        El POE es el Proyecto de Orientación Escolar del Técnico Superior Neiva, el cual se encarga de la inscripción y
-        caracterizacion de los estudiantes de la institución, así como de la atención a estos. Este proyecto es
-        impulsado por las dos psicorientadoras de la institución, de la jornada mañana y tarde.
-
+    <p class="texto_que m-4 text-justify w-75 mx-auto">
+        <?= htmlspecialchars($datos['desc_sec'] ?? 'El POE es el Proyecto de Orientación Escolar del Técnico Superior Neiva...') ?>
     </p>
 
     <center>
-        <img src="./Imagenes/Img_Desfile.png" class="img-fluid m-4 rounded-5" style="width: 600px; height: auto;">
+        <img src="<?= img_src_for($datos['img_sec'] ?? '') ?>" class="img-fluid m-4 rounded-5" style="width: 600px; height: auto;">
     </center>
-
     <!--Fin De Que Es El POE-->
-
-
-
 
     <img src="./Imagenes/HR.png" class="img-fluid" width="100%">
 
 
-
     <!--Inicio De La Informacion-->
-
     <div class="row shadow">
 
-        <div class="col" style="border-right: 2px solid;"> <!--Vision-->
-
+        <div class="col-4" style="border-right: 2px solid;"> <!--Division 1-->
             <br>
-            <p class="titulos rounded-pill" style="width: 90%;">Vision</p>
+            <p class="titulos rounded-pill" style="width: 90%;">
+                <?= htmlspecialchars($datos['titulo_division1'] ?? 'Visión') ?>
+            </p>
             <br>
-
-            <p class="textos_divisiones">¿Es confuso, verdad? Sin embargo sabes perfectamente cuando estás mal; todo tu cuerpo, física y mentalmente te lo hace saber. Te notás flojo, con pensamientos fatalistas, esa sensación de que todo está perdido, que ya nada será como antes. Te torturas recordando una vivencia pasada aleatoria —que en aquel entonces ni siquiera parecía un buen momento— pero comparado con cómo te sientes ahora, podría incluso decirse que… fuiste feliz sin saberlo.</p>
-
-            <img src="./Imagenes/Img_Divisiones.png" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <p class="textos_divisiones">
+                <?= htmlspecialchars($datos['desc_division1'] ?? 'Texto de ejemplo de la primera división.') ?>
+            </p>
+            <img src="<?= img_src_for($datos['img_division1'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
             <br>
-
         </div>
 
-        <div class="col"> <!--Objetivo-->
-
+        <div class="col-4" style="border-right: 2px solid;"> <!--Division 2-->
             <br>
-            <p class="titulos rounded-pill" style="width: 90%;">Objetivo</p>
+            <p class="titulos rounded-pill" style="width: 90%;">
+                <?= htmlspecialchars($datos['titulo_division2'] ?? 'Objetivo') ?>
+            </p>
             <br>
-
-            <p class="textos_divisiones">¿Es confuso, verdad? Sin embargo sabes perfectamente cuando estás mal; todo tu cuerpo, física y mentalmente te lo hace saber. Te notás flojo, con pensamientos fatalistas, esa sensación de que todo está perdido, que ya nada será como antes. Te torturas recordando una vivencia pasada aleatoria —que en aquel entonces ni siquiera parecía un buen momento— pero comparado con cómo te sientes ahora, podría incluso decirse que… fuiste feliz sin saberlo.</p>
-
-            <img src="./Imagenes/Img_Divisiones.png" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <p class="textos_divisiones">
+                <?= htmlspecialchars($datos['desc_division2'] ?? 'Texto de ejemplo de la segunda división.') ?>
+            </p>
+            <img src="<?= img_src_for($datos['img_division2'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
             <br>
-
         </div>
 
-        <div class="col" style="border-left: 2px solid;"> <!--Mision-->
-
+        <div class="col-4"> <!--Division 3-->
             <br>
-            <p class="titulos rounded-pill" style="width: 90%;">Mision</p>
+            <p class="titulos rounded-pill" style="width: 90%;">
+                <?= htmlspecialchars($datos['titulo_division3'] ?? 'Misión') ?>
+            </p>
             <br>
-
-            <p class="textos_divisiones">¿Es confuso, verdad? Sin embargo sabes perfectamente cuando estás mal; todo tu cuerpo, física y mentalmente te lo hace saber. Te notás flojo, con pensamientos fatalistas, esa sensación de que todo está perdido, que ya nada será como antes. Te torturas recordando una vivencia pasada aleatoria —que en aquel entonces ni siquiera parecía un buen momento— pero comparado con cómo te sientes ahora, podría incluso decirse que… fuiste feliz sin saberlo.</p>
-
-            <img src="./Imagenes/Img_Divisiones.png" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <p class="textos_divisiones">
+                <?= htmlspecialchars($datos['desc_division3'] ?? 'Texto de ejemplo de la tercera división.') ?>
+            </p>
+            <img src="<?= img_src_for($datos['img_division3'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
             <br>
-
         </div>
 
     </div>
-
     <!--Fin De La Informacion-->
 
 
-
     <!--Inicio Contacto Psicoorientadora-->
-
     <div class="position-relative text-center">
-
         <img src="./Imagenes/Contacto.png" class="img-fluid w-100">
-
         <div class="position-absolute top-50 start-50 translate-middle">
-
             <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
             <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
-            <p class="email rounded-pill m-5">DaCode@example.com</p>
-
+            <p class="email rounded-pill m-5">
+                <?= htmlspecialchars($datos['contacto_psicoo'] ?? 'DaCode@example.com') ?>
+            </p>
         </div>
-
     </div>
-
     <!--Fin Contacto Psicoorientadora-->
 
 
-
-<!--Inicio Footer-->
-
-    <footer style="background: url(./Imagenes/footer.png) center center/cover; ">
+    <!--Inicio Footer-->
+    <footer style="background: url(./Imagenes/footer.png) center center/cover;">
         <div class="container py-5 text-start">
-
             <div class="row g-4">
-
                 <div class="col-md-3 d-flex align-items-center text-start">
-                    <p class="mb-3" style="color: #04BF55;">Palpitante juventud adelante con el arte tenemos que avanzar,es consigna de buen estudiante con la brega la meta alcanzar  
-                    </p>
+                    <p class="mb-3" style="color: #04BF55;">Palpitante juventud adelante con el arte tenemos que avanzar,es consigna de buen estudiante con la brega la meta alcanzar</p>
                 </div>
 
                 <div class="col-md-2">
@@ -218,7 +195,7 @@
                 <div class="col-md-2">
                     <h5 class="titulo_footer">Proyectos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="texto_footer text-decoration-none">Control de seguimiento del PAE</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Control del PAE</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Almacen</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">POE</a></li>
                     </ul>
@@ -232,19 +209,12 @@
                         <li><a href="#" class="texto_footer text-decoration-none">PAE</a></li>
                     </ul>
                 </div>
-
             </div>
-
             <p class="text-start mb-0" style="color: #04BF55;">© Software Development 2025</p>
-
         </div>
     </footer>
-
     <!--Fin Footer-->
 
     <script src="./bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
-
 </html>
