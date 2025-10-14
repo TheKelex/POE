@@ -143,7 +143,7 @@ function img_src_for($valorDB) {
             <br>
         </div>
 
-        <div class="col-4" style="border-left: 2px solid;"> <!--Division 3-->
+        <div class="col-4"> <!--Division 3-->
             <br>
             <p class="titulos rounded-pill" style="width: 90%;">
                 <?= htmlspecialchars($datos['titulo_division3'] ?? 'Misión') ?>

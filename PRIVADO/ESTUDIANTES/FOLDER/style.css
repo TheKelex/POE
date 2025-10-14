@@ -33,14 +33,17 @@
 .upload-container {
     text-align: center;
     cursor: pointer;
+    width: 100%;
     display: inline-block;
 }
 
 .icon-wrapper {
     background-color: #9fc79e;
-    padding: 20px 20rem;
+    padding: 2rem;
+    width: 100%;
     border-radius: 10px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     transition: background-color 0.3s;
 }
 

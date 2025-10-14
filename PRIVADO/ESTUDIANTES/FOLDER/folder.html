@@ -24,48 +24,58 @@
 
     <div class="caja rounded-5 m-4">
 
-        <div class="row">
+        <div class="row g-4"> <!-- g-4 da espacio entre columnas -->
 
-            <div class="col">
-
+            <!-- Columna izquierda -->
+            <div class="col-12 col-md-4">
                 <div class="d-flex flex-column gap-3 align-items-center">
-
                     <h1 style="font-weight: bold;">Archivos</h1>
 
-                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill">Kevin Saavedra<span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span></button>
-                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill">David Plazas Morales<span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span></button>
-                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill">Juan David Gomez<span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span></button>
-                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill">Maria Mahecha<span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span></button>
-                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill">Laura Sofia Rojas <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span></button>
-
+                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill w-100">
+                        Kevin Saavedra
+                        <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span>
+                    </button>
+                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill w-100">
+                        David Plazas Morales
+                        <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span>
+                    </button>
+                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill w-100">
+                        Juan David Gomez
+                        <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span>
+                    </button>
+                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill w-100">
+                        Maria Mahecha
+                        <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span>
+                    </button>
+                    <button class="descarga d-flex align-items-center justify-content-between rounded-pill w-100">
+                        Laura Sofia Rojas
+                        <span class="material-symbols-outlined p-2" style="font-size: 1.7rem;">download</span>
+                    </button>
                 </div>
-
             </div>
 
-            <div class="col">
-
+            <!-- Columna derecha -->
+            <div class="col-12 col-md-8 text-center">
                 <div class="upload-container" onclick="document.getElementById('fileInput').click()">
                     <div class="icon-wrapper">
                         <span class="material-symbols-outlined" style="font-size: 20rem;">docs</span>
                     </div>
                     <div class="file-name" id="fileName">Ningún archivo seleccionado</div>
                 </div>
-
                 <input type="file" id="fileInput" onchange="updateFileName()">
-
             </div>
 
-            <br>
-
-            <div class="col-12 d-flex justify-content-end pe-4">
-
-                <button class="btn-actualizar rounded-pill my-4" type="submit"><span class="material-symbols-outlined mx-1">edit</span>Actualizar</button>
-
+            <!-- Botón actualizar -->
+            <div class="col-12 d-flex justify-content-end pe-md-4">
+                <button class="btn-actualizar rounded-pill my-4" type="submit">
+                    <span class="material-symbols-outlined mx-1">edit</span>Actualizar
+                </button>
             </div>
 
         </div>
 
     </div>
+
 
     <script>
         function updateFileName() {
