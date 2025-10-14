@@ -33,6 +33,7 @@ $enlace = mysqli_connect($servidor, $usuario_db, $contraseña, $basededatos);
 if (!$enlace) {
     die("Error de conexión: " . mysqli_connect_error());
 }
+mysqli_set_charset($enlace, "utf8mb4");
 
 /* --------------------------
    AUTENTICACIÓN DEL USUARIO
@@ -44,6 +45,7 @@ $sql = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
 $stmt = mysqli_prepare($enlace, $sql);
 mysqli_stmt_bind_param($stmt, "ss", $usuario, $contraseña);
 mysqli_stmt_execute($stmt);
+mysqli_set_charset($enlace, "utf8mb4");
 $resul = mysqli_stmt_get_result($stmt);
 
 if (!$resul || $resul->num_rows == 0) {
@@ -63,6 +65,9 @@ if (!isset($_FILES['archivoCSV']) || $_FILES['archivoCSV']['error'] != 0) {
 $tmpName = $_FILES['archivoCSV']['tmp_name'];
 if (($handle = fopen($tmpName, "r")) !== FALSE) {
     $primeraFila = true;
+    // 🔧 Convertir codificación (funciona para Ñ, Ü, tildes, etc.)
+stream_filter_append($handle, 'convert.iconv.WINDOWS-1252/UTF-8');
+
 
     while (($datos = fgetcsv($handle, 1000, ";")) !== FALSE) {
 
@@ -84,6 +89,17 @@ if (($handle = fopen($tmpName, "r")) !== FALSE) {
         $nombre1       = trim($datos[27] ?? '');
         $nombre2       = trim($datos[28] ?? '');
         $fecha_nac     = trim($datos[30] ?? '');
+        // 🧭 Convertir fecha al formato YYYY-MM-DD (MySQL)
+if (!empty($fecha_nac)) {
+    $partes = preg_split('/[\/\-]/', $fecha_nac);
+    if (count($partes) === 3) {
+        // Si viene en formato día/mes/año
+        if (strlen($partes[0]) <= 2) {
+            $fecha_nac = $partes[2] . "-" . $partes[1] . "-" . $partes[0];
+        }
+    }
+}
+
         $tipo_sangre   = trim($datos[33] ?? '');
 
         $nombre_completo = ucfirst(trim("$nombre1 $nombre2 $apellido1 $apellido2"));
@@ -143,6 +159,10 @@ if (($handle = fopen($tmpName, "r")) !== FALSE) {
             $nuevo_id, $nuevo_id, $nuevo_id, $nuevo_id
         );
         mysqli_stmt_execute($insert);
+
+        if ($grado = 1) {
+            $grado = 100;
+        }
 
         /* --------------------------
            ACTUALIZAR EL GRADO

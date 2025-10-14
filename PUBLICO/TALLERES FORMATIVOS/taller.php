@@ -50,7 +50,7 @@ $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'talleres' OR
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #378b4a;">
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="../../index.html">POE</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../index.php">POE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/ESCUELA DE PADRES/escuela.php">Escuela De Padres</a>
