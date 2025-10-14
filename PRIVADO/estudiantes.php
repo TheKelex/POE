@@ -210,7 +210,7 @@ if ($persona === '2') {
 
                                 <select name="sede" class="boton_cajita rounded-pill mx-2">
                                     <option disabled ' . (empty($sede) ? "selected" : "") . '>Sede</option>
-                                    <option value="Central" ' . ($sede === "Central" ? "selected" : "") . '>Sede Central</option>
+                                    <option value="Central" ' . ($sede === "Tecnico Superior" ? "selected" : "") . '>Sede Central</option>
                                     <option value="Los Martires" ' . ($sede === "Los Martires" ? "selected" : "") . '>Los Martires</option>
                                     <option value="Floresmiro" ' . ($sede === "Floresmiro" ? "selected" : "") . '>Floresmiro</option>
                                     <option value="Elena Lara" ' . ($sede === "Elena Lara" ? "selected" : "") . '>Elena Lara</option>
