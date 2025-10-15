@@ -445,7 +445,7 @@ echo '
                 <form method="POST" action="eliminar_todo.php">
                     <div class="modal-body">
                         <p class="text-danger fw-bold mb-3">
-                            ⚠️ Esta acción eliminará absolutamente todos los registros de estudiantes y sus datos relacionados.
+                            Esta acción eliminará absolutamente todos los registros de estudiantes y sus datos relacionados.
                             Esta operación no se puede deshacer.
                         </p>
                         <div class="mb-3">
