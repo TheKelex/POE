@@ -13,7 +13,6 @@ if (!$conexion) {
 
 // --- Consultar todos los posts ---
 $posts = $conexion->query("SELECT * FROM foro WHERE destino_foro = 'talleres' ORDER BY id_foro DESC");
-
 ?>
 
 <!DOCTYPE html>

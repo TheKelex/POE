@@ -167,7 +167,7 @@ function img_src_for($valorDB) {
             <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
             <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
             <p class="email rounded-pill m-5">
-                <?= htmlspecialchars($datos['contacto_psicoo'] ?? 'DaCode@example.com') ?>
+                <?= htmlspecialchars($datos['contacto_psicoo'] ?? 'Informacion No Disponible') ?>
             </p>
         </div>
     </div>

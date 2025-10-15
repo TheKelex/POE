@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION["tipo_usuario"] !== "administrador") {
+if ($_SESSION["usuario"] !== "administrador") {
     header("Location: INFO_INDIVIDUAL.php");
     exit();
 }
