@@ -853,105 +853,9 @@ input[type=number] {
 
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-10">
 
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined37" autocomplete="off"
-                                name="discapacidades" value="Auditiva Castellano Oral">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined37">Auditiva Castellano Oral</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined38" autocomplete="off"
-                                name="discapacidades" value="Sordoceguera">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined38">Sordoceguera</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined39" autocomplete="off"
-                                name="discapacidades" value="Intelectual">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined39">Intelectual</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined40" autocomplete="off"
-                                name="discapacidades" value="Psicosocial">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined40">Psicosocial</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined41" autocomplete="off"
-                                name="discapacidades" value="Multiple">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined41">Multiple</label><br>
-
-                        </div>
-
-                    </div>
-
-                    <br>
-
-                    <div class="row align-items-center">
-
-                        <div class="col-2">
-
-
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined42" autocomplete="off"
-                                name="discapacidades" value="Fisica">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined42">Fisica</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined43" autocomplete="off"
-                                name="discapacidades" value="Auditivia Lenguaje Señas">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined43">Auditiva Lenguaje Señas</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined44" autocomplete="off"
-                                name="discapacidades" value="Visual">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined44">Visual</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined45" autocomplete="off"
-                                name="discapacidades" value="Transtorno Autista TEA">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined45">Transtorno Autista TEA</label><br>
-
-                        </div>
-
-                        <div class="col-2">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined46" autocomplete="off"
-                                name="discapacidades" value="Otra">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined46">Otra</label><br>
+                            <textarea class="campo form-control" name="discapacidades" style="resize: none;" rows="3" placeholder="Auditiva castellano oral, sordoceguera, intelectual, psicosocial, multiple, fisica, auditiva lenguaje de señas, visual, trastorno autista TEA, otra"></textarea>
 
                         </div>
 
@@ -971,57 +875,9 @@ input[type=number] {
 
                         </div>
 
-                        <div class="col">
+                        <div class="col-10">
 
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined47" autocomplete="off"
-                                name="transotrno" value="Lectura">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined47">Lectura</label><br>
-
-                        </div>
-
-                        <div class="col">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined48" autocomplete="off"
-                                name="discapacidades" value="Escritrua">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined48">Escritura</label><br>
-
-                        </div>
-
-                        <div class="col">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined49" autocomplete="off"
-                                name="discapacidades" value="Calculo">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined49">Calculo</label><br>
-
-                        </div>
-
-                        <div class="col">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined50" autocomplete="off"
-                                name="discapacidades" value="Ortografia">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined50">Ortografia</label><br>
-
-                        </div>
-
-                        <div class="col">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined51" autocomplete="off"
-                                name="discapacidades" value="Conducta">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined51">Conducta</label><br>
-
-                        </div>
-
-                        <div class="col">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined52" autocomplete="off"
-                                name="discapacidades" value="De habla Lenguaje">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined52">De habla, Lenguaje</label><br>
+                            <input class="campo form-control" name="trastorno_aprendizaje" placeholder="Lectura, escritura, calculo, ortografia, conducta, de habla - lenguaje" type="text">
 
                         </div>
 
@@ -1114,7 +970,7 @@ input[type=number] {
 
                         </div>
 
-                        <div class="col-2 d-flex">
+                        <div class="col-2 gap-2 d-flex">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined57" autocomplete="off"
                                 name="algun_medicamento" value="No">
@@ -1150,35 +1006,7 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined59" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Tecnologia">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined59">Tecnologia</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined60" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Liderazgo Social">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined60">Liderazgo Social</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined61" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Ciencias de la Naturaleza">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined61">Ciencias de la Naturaleza</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined62" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Artes y Letras">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined62">Artes y Letras</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined63" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Actividad Fisica">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined63">Actividad Fisica</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined64" autocomplete="off"
-                            name="excepcionalidad_demostrable" value="Cienc. Sociales y Hum">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined64">Cienc. Sociales y Hum</label>
+                        <input class="campo form-control" name="excepcionalidad" placeholder="Tecnologia, liderazgo social, ciencias de la naturaleza, artes y letras, actividad fisica, Cienc. sociales y hum" type="text">
 
                     </div>
 
@@ -1191,70 +1019,11 @@ input[type=number] {
 
                 <td colspan="4">
 
-                    <label style="margin-bottom: 1rem;" for=""><b>MARCO DONDE ME IDENTIFICO O CORRESPONDA:</b></label>
+                    <label style="margin-bottom: 1rem;" for=""><b>ESCRIBO LO QUE ME INDENTIFICA O CORRESPONDA:</b></label>
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined65" autocomplete="off"
-                            name="identidad" value="Com. Blanca">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined65">Com. Blanca</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined66" autocomplete="off"
-                            name="identidad" value="Com. Mestiza">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined66">Com. Mestiza</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined67" autocomplete="off"
-                            name="identidad" value="Com. Rural">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined67">Com. Rural</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined68" autocomplete="off"
-                            name="identidad" value="Afrocolombianidad">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined68">Afrocolombianidad</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined69" autocomplete="off"
-                            name="identidad" value="Grupos Indigenas">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined69">Grupos Indigenas</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined70" autocomplete="off"
-                            name="identidad" value="Comunidad LGBTI">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined70">Comunidad LGBTI</label>
-
-                    </div>
-
-                    <br>
-
-                    <div class="d-flex align-items-center gap-2">
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined71" autocomplete="off"
-                            name="identidad" value="Desplazado">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined71">Desplazado</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined72" autocomplete="off"
-                            name="identidad" value="Victima Conflicto Armado">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined72">Victima Conflicto Armado</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined73" autocomplete="off"
-                            name="identidad" value="Hijo de Desmovilizado">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined73">Hijo de Desmovilizado</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined74" autocomplete="off"
-                            name="identidad" value="Asentamiento Subnormal">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined74">Asentamiento Subnormal</label>
-
-                        <input type="checkbox" class="btn-check" id="btn-check-outlined75" autocomplete="off"
-                            name="identidad" value="Asistido Fundacion / ICBF">
-                        <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                            for="btn-check-outlined75">Asistido Fundacion / ICBF</label>
+                         <textarea class="campo form-control" name="discapacidades" style="resize: none;" rows="3" placeholder="Com. blanca, Com. mestiza, Com. rural, afrocolombianidad, grupos indigenas, comunidad lgbti, desplazado, victima conflicto armado, victima de conflicto armado, hijo de desmovilizado, asentamiento subnormal, asistido fundacion / ICBF"></textarea>
 
                     </div>
 
@@ -1509,48 +1278,9 @@ input[type=number] {
 
                         </div>
 
-                        <div class="col-2 align-items-center">
+                        <div class="col-10">
 
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined87" autocomplete="off"
-                                name="casa_cuento" value="Computador">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined87">Computador</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined88" autocomplete="off"
-                                name="casa_cuento" value="Internet">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined88">Internet</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined89" autocomplete="off"
-                                name="casa_cuento" value="TV. Suscripcion">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined89">TV. Suscripcion</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined90" autocomplete="off"
-                                name="casa_cuento" value="Celular Personal">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined90">Celular Personal</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined91" autocomplete="off"
-                                name="casa_cuento" value="Servicios Publicos">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined91">Servicios Publicos</label>
+                            <input class="campo form-control" name="casa_cuento" placeholder="Computador, internet, tv. suscripcion, celular personal, servicios publicos" type="text">
 
                         </div>
 
