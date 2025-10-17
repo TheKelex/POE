@@ -28,8 +28,8 @@
         <div class="col-md-4 p-4 rounded-4 shadow" id="fondo">
 
             <center>
-                <h1 style="color: #04BF55; font-weight: bold;">Iniciar Sesion</h1>
-                <p style="color: #02db60; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
+                <h1 style="color: #57a06b; font-weight: bold;">Iniciar Sesion</h1>
+                <p style="color: #57a06b; font-weight: bold;">Llene los campos y luego de click en iniciar sesion para ingresar</p>
             </center>
 
             <h3>Login</h3>

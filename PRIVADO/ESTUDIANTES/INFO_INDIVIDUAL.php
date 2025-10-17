@@ -87,7 +87,7 @@ if (!isset($_SESSION["id_dato"])) {
                 </center>
 
                 <center>
-                    <a href="./FOLDER/folder.html" class="rounded-pill m-4 cargar">Cargar</a>
+                    <a href="./FOLDER/folder.php" class="rounded-pill m-4 cargar">Cargar</a>
                 </center>
 
             </div>';

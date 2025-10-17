@@ -223,6 +223,7 @@ if ($persona === '2') {
                                     <option disabled ' . (empty($jornada) ? "selected" : "") . '>Jornada</option>
                                     <option value="Mañana" ' . ($jornada === "MAÑANA" ? "selected" : "") . '>Mañana</option>
                                     <option value="Tarde" ' . ($jornada === "TARDE" ? "selected" : "") . '>Tarde</option>
+                                    <option value="ÚNICA" ' . ($jornada === "ÚNICA" ? "selected" : "") . '>ÚNICA</option>
                                 </select>
 
                                 <input type="text" name="curso" value="' . htmlspecialchars($curso) . '"
@@ -231,15 +232,27 @@ if ($persona === '2') {
                                 <p class="w-100 text-center" style="font-weight: bold;">Ej: 1002</p>
 
                                 <input class="actualizar rounded-pill" type="submit" name="actualizar" value="Enviar">
-                                <input class="actualizar rounded-pill" type="submit" name="limpiar"
-                                    value="Eliminar filtros" style="color:black; margin: 0 !important">
+<input class="actualizar rounded-pill" type="submit" name="limpiar"
+    value="Eliminar filtros" style="color:black; margin: 0 !important">
+';  // <-- cerramos la cadena que estaba imprimiendo todo el panel
 
-<button type="button" class="actualizar rounded-pill" style="background-color:#d9534f; color:black;margin-top: 10px;" data-bs-toggle="modal" data-bs-target="#modalEliminar">
-    Eliminar todos los registros
-</button>
+// Mostrar botón SOLO si el usuario es administrador
+if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
+    echo '
+    <button type="button" class="actualizar rounded-pill" 
+            style="background-color:#d9534f; color:black; margin-top: 10px;" 
+            data-bs-toggle="modal" data-bs-target="#modalEliminar">
+        Eliminar todos los registros
+    </button>
+    ';
+}
+
+// Reabrimos el echo para continuar con el HTML que faltaba
+echo '
                             </div>
                         </div>
                     ';
+
                 } elseif ($persona === '2') {
                     // Filtro para EGRESADOS (manteniendo el mismo frontend)
                     echo '
@@ -419,19 +432,21 @@ if ($persona === '2') {
         });
     </script>
 
-    <!-- Modal de confirmación para eliminar todos los registros -->
-    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminar" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="confirmDeleteLabel">Eliminar todos los registros</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
+
+<?php if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador'): ?>
+<!-- Modal de confirmación para eliminar todos los registros -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminar" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="confirmDeleteLabel">Eliminar todos los registros</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
 
                 <form method="POST" action="eliminar_todo.php">
                     <div class="modal-body">
                         <p class="text-danger fw-bold mb-3">
-                            ⚠️ Esta acción eliminará absolutamente todos los registros de estudiantes y sus datos relacionados.
+                            Esta acción eliminará absolutamente todos los registros de estudiantes y sus datos relacionados.
                             Esta operación no se puede deshacer.
                         </p>
                         <div class="mb-3">
@@ -440,15 +455,15 @@ if ($persona === '2') {
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-danger rounded-pill">Eliminar todo</button>
-                    </div>
-                </form>
-            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger rounded-pill">Eliminar todo</button>
         </div>
+      </form>
     </div>
-
+  </div>
+</div>
+<?php endif; ?>
 
     <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>

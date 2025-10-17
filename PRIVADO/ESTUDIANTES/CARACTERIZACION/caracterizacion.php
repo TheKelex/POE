@@ -105,6 +105,10 @@ if (!$resultado) {
 $datos = mysqli_fetch_assoc($resultado);
 $doc_dato = $datos['doc_dato'] ?? 'default';
 $_SESSION['doc_dato'] = $doc_dato; // Guardar en sesión
+
+$fecha_nacimiento = $datos['nac_dato']; // formato AAAA-MM-DD
+$fecha = $datos['nac_dato']; // por ejemplo: 2001-10-07
+$edad = date_diff(date_create($fecha), date_create('today'))->y;
 ?>
 
 <!DOCTYPE html>
@@ -156,7 +160,7 @@ input[type=number] {
 
                 <td>ESTUDIANTE</td>
 
-                <td><input class="campo form-control" type="text" name="nombre" placeholder="NOMBRE Y APELLIDO"></td>
+                <td><input class="campo form-control" type="text" name="nombre" placeholder="NOMBRE Y APELLIDO" value="<?php echo htmlspecialchars($datos['nom_dato']); ?>"></td>
 
                 <td>
 
@@ -166,7 +170,7 @@ input[type=number] {
 
                             <label>FECHA DE NACIMIENTO:</label>
 
-                            <input class="campo form-control" type="date">
+                            <input class="campo form-control" type="date" value="<?php echo htmlspecialchars($datos['nac_dato']); ?>">
 
                         </div>
                     
@@ -174,7 +178,7 @@ input[type=number] {
 
                 </td>
 
-                <td><input class="campo form-control" type="number" name="edad" placeholder="EDAD"></td>
+                <td><input class="campo form-control" type="number" name="edad" placeholder="EDAD" value="<?php echo $edad ?>"></td>
 
             </tr>
 

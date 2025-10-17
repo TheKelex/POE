@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if ($_SESSION["usuario"] !== "administrador") {
-    header("Location: INFO_INDIVIDUAL.php");
+if ($_SESSION["usuario"] !== "admin") {
+    header("Location: estudiantes.php");
     exit();
 }
 
@@ -51,7 +51,7 @@ try {
 } catch (Exception $e) {
     // En caso de error, reactivar restricciones y mostrar mensaje
     $enlace->query("SET FOREIGN_KEY_CHECKS = 1");
-    echo "<script>alert('❌ Error al eliminar registros: " . addslashes($e->getMessage()) . "');
+    echo "<script>alert('Error al eliminar registros: " . addslashes($e->getMessage()) . "');
     window.location.href='estudiantes.php';
     </script>";
 }
