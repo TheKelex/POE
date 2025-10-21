@@ -58,6 +58,8 @@ SELECT
     ent.hermano_entorno,
     ent.totalv_entorno,
     sal.diag_salud,
+    sal.dis_salud,
+    sal.trat_salud,
     sal.trasa_salud,
     sal.med_salud,
     sal.expreso_salud,
@@ -151,7 +153,7 @@ input[type=number] {
     <a href="../INFO_INDIVIDUAL.php" class="rounded-pill m-4 volver"><span
             class="material-symbols-outlined mx-2">logout</span>Volver</a>
 
-    <form class="m-4" action="">
+    <form class="m-4" action="actualizar.php" method="POST">
 
         <table class="table table-hover">
 
@@ -160,7 +162,7 @@ input[type=number] {
 
                 <td>ESTUDIANTE</td>
 
-                <td><input class="campo form-control" type="text" name="nombre" placeholder="NOMBRE Y APELLIDO" value="<?php echo htmlspecialchars($datos['nom_dato']); ?>"></td>
+                <td><input class="campo form-control" type="text" name="nom_dato" placeholder="NOMBRE Y APELLIDO" value="<?php echo htmlspecialchars($datos['nom_dato']); ?>"></td>
 
                 <td>
 
@@ -178,7 +180,21 @@ input[type=number] {
 
                 </td>
 
-                <td><input class="campo form-control" type="number" name="edad" placeholder="EDAD" value="<?php echo $edad ?>"></td>
+                <td>
+
+                <div class="row d-flex flex-colum align-items-center">
+
+                        <div class="col d-flex flex-colum align-items-center gap-2">
+
+                            <label>EDAD</label>
+
+                            <input class="campo form-control" type="number" name="edad" placeholder="EDAD" value="<?php echo $edad; ?>">
+
+                        </div>
+                    
+                    </div>
+
+                </td>
 
             </tr>
 
@@ -195,22 +211,22 @@ input[type=number] {
                             <div class="d-flex align-items-center gap-2 w-100">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined1" autocomplete="off"
-                                    name="documento" value="R.C">
+                                    name="tipo_doc_dato" value="R.C" <?php if ($datos['tipo_doc_dato'] == "R.C") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined1">R.C</label><br>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined2" autocomplete="off"
-                                    name="documento" value="T.I">
+                                    name="tipo_doc_dato" value="T.I" <?php if ($datos['tipo_doc_dato'] == "T.I") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined2">T.I</label><br>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined3" autocomplete="off"
-                                    name="documento" value="C.C">
+                                    name="tipo_doc_dato" value="C.C" <?php if ($datos['tipo_doc_dato'] == "C.C") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined3">C.C</label><br>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined4" autocomplete="off"
-                                    name="documento" value="Otro">
+                                    name="tipo_doc_dato" value="OTRO" <?php if ($datos['tipo_doc_dato'] == "OTRO") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined4">OTRO</label><br>
 
@@ -223,9 +239,9 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="Nro_documento">Nro</label>
-                        <input class="campo form-control" type="number" name="Nro_documento"
-                            placeholder="NUMERO DE DOCUMETO">
+                        <label for="doc_dato">Nro</label>
+                        <input class="campo form-control" type="number" name="doc_dato"
+                            placeholder="NUMERO DE DOCUMETO" value="<?php echo htmlspecialchars($datos['doc_dato']); ?>">
 
                     </div>
 
@@ -235,9 +251,9 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="grupo_sanguineo">GRUPO SANGUINEO</label>
-                        <input class="campo form-control" type="text" name="grupo_sanguineo"
-                            placeholder="GRUPO SANGUINEO">
+                        <label for="rh_dato">GRUPO SANGUINEO</label>
+                        <input class="campo form-control" type="text" name="rh_dato"
+                            placeholder="GRUPO SANGUINEO" value="<?php echo htmlspecialchars($datos['rh_dato']); ?>">
 
                     </div>
 
@@ -256,24 +272,24 @@ input[type=number] {
                         <div class="d-flex align-items-center gap-2 w-100">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined5" autocomplete="off"
-                                name="origen_estudiante" value="ANTIGUO">
+                                name="estado_dato" value="ANTIGUO"<?php if ($datos['estado_dato'] == "ANTIGUO") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined5">ANTIGUO</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined6" autocomplete="off"
-                                name="origen_estudiante" value="ANTIGUO_REPITENTE">
+                                name="estado_dato" value="ANTIGUO REPITENTE" <?php if ($datos['estado_dato'] == "ANTIGUO REPITENTE") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined6">ANTIGUO REPITENTE</label><br>
+                                for="btn-check-outlined6">A. REPITENTE</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined7" autocomplete="off"
-                                name="origen_estudiante" value="NUEVO">
+                                name="estado_dato" value="NUEVO" <?php if ($datos['estado_dato'] == "NUEVO") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined7">NUEVO</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined8" autocomplete="off"
-                                name="origen_estudiante" value="NUEVO_REPITENTE">
+                                name="estado_dato" value="NUEVO REPITENTE" <?php if ($datos['estado_dato'] == "NUEVO REPITENTE") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined8">NUEVO REPITENTE</label><br>
+                                for="btn-check-outlined8">N. REPITENTE</label><br>
 
                         </div>
                     </div>
@@ -284,9 +300,9 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="colegio_procedencia">COLEGIO DE PROCEDENCIA</label>
-                        <input class="campo form-control" type="text" name="colegio_procedencia"
-                            placeholder="COLEGIO DE PROCEDENCIA">
+                        <label for="col_dato">COLEGIO DE PROCEDENCIA</label>
+                        <input class="campo form-control" type="text" name="col_dato"
+                            placeholder="COLEGIO DE PROCEDENCIA" value="<?php echo htmlspecialchars($datos['col_dato']); ?>">
 
                     </div>
 
@@ -303,9 +319,9 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="direccion_residencia">DIRECCION RESIDENCIA</label>
-                        <input class="campo form-control" type="text" name="direccion_residencia"
-                            placeholder="DIRECCION RESIDENCIA">
+                        <label for="dir_caracteristicas">DIRECCION RESIDENCIA</label>
+                        <input class="campo form-control" type="text" name="dir_caracteristicas"
+                            placeholder="DIRECCION RESIDENCIA" value="<?php echo htmlspecialchars($datos['dir_caracteristicas']); ?>">
 
                     </div>
 
@@ -316,15 +332,15 @@ input[type=number] {
                     <div class="row d-flex flex-colum w-100 align-items-center">
 
                         <div class="col w-100">
-                            <input class="campo form-control" type="text" name="barrio" placeholder="BARRIO">
+                            <input class="campo form-control" type="text" name="barri_caracteristicas" placeholder="BARRIO" value="<?php echo htmlspecialchars($datos['barri_caracteristicas']); ?>">
                         </div>
 
                         <div class="col w-100">
-                            <input class="campo form-control" type="number" name="comuna" placeholder="COMUNA">
+                            <input class="campo form-control" type="number" name="com_caracteristicas" placeholder="COMUNA" value="<?php echo htmlspecialchars($datos['com_caracteristicas']); ?>">
                         </div>
 
                         <div class="col w-100">
-                            <input class="campo form-control" type="number" name="estrato" placeholder="ESTRATO">
+                            <input class="campo form-control" type="number" name="est_caracteristicas" placeholder="ESTRATO" value="<?php echo htmlspecialchars($datos['est_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -335,9 +351,9 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="servicio_salud">SERVICIO DE SALUD</label>
-                        <input class="campo form-control" type="text" name="servicio_salud"
-                            placeholder="SERVICIO DE SALUD">
+                        <label for="eps_caracteristicas">SERVICIO DE SALUD</label>
+                        <input class="campo form-control" type="text" name="eps_caracteristicas"
+                            placeholder="SERVICIO DE SALUD" value="<?php echo htmlspecialchars($datos['eps_caracteristicas']); ?>">
 
                     </div>
 
@@ -362,8 +378,8 @@ input[type=number] {
 
                             </div>
 
-                            <input class="campo form-control" type="number" name="telefono_fijo"
-                                placeholder="TELEFONO FIJO">
+                            <input class="campo form-control" type="number" name="cel_caracteristicas"
+                                placeholder="TELEFONO FIJO" value="<?php echo htmlspecialchars($datos['cel_caracteristicas']); ?>">
 
                         </div>
 
@@ -373,18 +389,18 @@ input[type=number] {
 
                                 <label for="">TELEFONO MOVIL</label>
                                 <input type="radio" class="btn-check" id="btn-check-outlined9" autocomplete="off"
-                                    name="pertenece_tel_fijo" value="P">
+                                    name="p_tel_m1_caracteristicas" value="p" <?php if ($datos['p_tel_m1_caracteristicas'] == "P") echo "checked"; ?>>
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined9">P</label><br>
                                 <input type="radio" class="btn-check" id="btn-check-outlined10" autocomplete="off"
-                                    name="pertenece_tel_fijo" value="M">
+                                    name="p_tel_m1_caracteristicas" value="M" <?php if ($datos['p_tel_m1_caracteristicas'] == "M") echo "checked"; ?>>
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined10">M</label><br>
 
                             </div>
 
-                            <input class="campo form-control" type="number" name="tel_movil_1"
-                                placeholder="TELEFONO MOVIL">
+                            <input class="campo form-control" type="number" name="num_m1_caracteristicas"
+                                placeholder="TELEFONO MOVIL" value="<?php echo htmlspecialchars($datos['num_m1_caracteristicas']); ?>">
 
                         </div>
 
@@ -394,22 +410,22 @@ input[type=number] {
 
                                 <label for="">TELEFONO MOVIL</label>
                                 <input type="radio" class="btn-check" id="btn-check-outlined11" autocomplete="off"
-                                    name="pertenece_tel_fijo2" value="P">
+                                    name="p_tel_m2_caracteristicas" value="P" <?php if ($datos['p_tel_m2_caracteristicas'] == "P") echo "checked"; ?>>
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined11">P</label><br>
                                 <input type="radio" class="btn-check" id="btn-check-outlined12" autocomplete="off"
-                                    name="pertenece_tel_fijo2" value="M">
+                                    name="p_tel_m2_caracteristicas" value="M" <?php if ($datos['p_tel_m2_caracteristicas'] == "M") echo "checked"; ?>>
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined12">M</label><br>
                                 <input type="radio" class="btn-check" id="btn-check-outlined13" autocomplete="off"
-                                    name="pertenece_tel_fijo2" value="O">
+                                    name="p_tel_m2_caracteristicas" value="O" <?php if ($datos['p_tel_m2_caracteristicas'] == "O") echo "checked"; ?>>
                                 <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
                                     for="btn-check-outlined13">O</label><br>
 
                             </div>
 
-                            <input class="campo form-control" type="number" name="tel_movil_2"
-                                placeholder="TELEFONO MOVIL">
+                            <input class="campo form-control" type="number" name="num_m2_caracteristicas"
+                                placeholder="TELEFONO MOVIL" value="<?php echo htmlspecialchars($datos['num_m2_caracteristicas']); ?>">
 
                         </div>
 
@@ -425,8 +441,8 @@ input[type=number] {
 
                     </div>
 
-                    <input class="campo form-control" type="text" name="dir_contacto_padre"
-                        placeholder="DIR.ELECTRONICA CONTACTO PADRES">
+                    <input class="campo form-control" type="text" name="gmail_p_caracteristicas"
+                        placeholder="DIR.ELECTRONICA CONTACTO PADRES" value="<?php echo htmlspecialchars($datos['gmail_p_caracteristicas']); ?>">
 
                 </td>
 
@@ -437,15 +453,15 @@ input[type=number] {
 
                 <td>ACUDIENTE</td>
 
-                <td colspan="2"><input class="campo form-control" type="text" name="acudiente" placeholder="Acudiente">
+                <td colspan="2"><input class="campo form-control" type="text" name="acu_caracteristicas" placeholder="Acudiente" value="<?php echo htmlspecialchars($datos['acu_caracteristicas']); ?>">
                 </td>
 
                 <td>
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <label for="parentesco">PARENTESCO</label>
-                        <input class="campo form-control" type="name" name="parentesco" placeholder="Parentesco">
+                        <label for="acu_paren_caracteristicas">PARENTESCO</label>
+                        <input class="campo form-control" type="name" name="acu_paren_caracteristicas" placeholder="Parentesco" value="<?php echo htmlspecialchars($datos['acu_paren_caracteristicas']); ?>">
 
                     </div>
 
@@ -464,10 +480,10 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="nombres_padre" class="mb-0">NOMBRES</label>
+                            <label for="pd_nom_caracteristicas" class="mb-0">NOMBRES</label>
                         </div>
                         <div class="col-sm-10">
-                            <input class="campo form-control" type="text" name="nombres_padre" placeholder="NOMBRES">
+                            <input class="campo form-control" type="text" name="pd_nom_caracteristicas" placeholder="NOMBRES" value="<?php echo htmlspecialchars($datos['pd_nom_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -476,14 +492,14 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="escolaridad_padre" class="mb-0">ESCOLARIDAD</label>
+                            <label for="pd_esco_caracteristicas" class="mb-0">ESCOLARIDAD</label>
                         </div>
                         <div class="col-sm-5">
-                            <input class="campo form-control" type="text" name="escolaridad_padre"
-                                placeholder="ESCOLARIDAD">
+                            <input class="campo form-control" type="text" name="pd_esco_caracteristicas"
+                                placeholder="ESCOLARIDAD" value="<?php echo htmlspecialchars($datos['pd_esco_caracteristicas']); ?>">
                         </div>
                         <div class="col-sm-5">
-                            <input class="campo form-control" type="number" name="edad_padre" placeholder="EDAD">
+                            <input class="campo form-control" type="number" name="pd_edad_caracteristicas" placeholder="EDAD" value="<?php echo htmlspecialchars($datos['pd_edad_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -492,11 +508,11 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="ocupacion_padre" class="mb-0">OCUPACION</label>
+                            <label for="pd_ocu_caracteristicas" class="mb-0">OCUPACION</label>
                         </div>
                         <div class="col-sm-10">
-                            <input class="campo form-control" type="text" name="ocupacion_padre"
-                                placeholder="OCUPACION">
+                            <input class="campo form-control" type="text" name="pd_ocu_caracteristicas"
+                                placeholder="OCUPACION" value="<?php echo htmlspecialchars($datos['pd_ocu_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -506,12 +522,12 @@ input[type=number] {
                         <div class="d-flex align-items-center gap-2 w-50">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined14" autocomplete="off"
-                                name="estado_padre" value="INDEPENDIENTE">
+                                name="pd_trab_caracteristicas" value="INDEPENDIENTE" <?php if ($datos['pd_trab_caracteristicas'] == "INDEPENDIENTE") echo "checked"; ?>>
                             <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
                                 for="btn-check-outlined14">INDEPENDIENTE</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined15" autocomplete="off"
-                                name="estado_padre" value="EMPLEADO">
+                                name="pd_trab_caracteristicas" value="EMPLEADO" <?php if ($datos['pd_trab_caracteristicas'] == "EMPLEADO") echo "checked"; ?>>
                             <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
                                 for="btn-check-outlined15">EMPLEADO</label><br>
 
@@ -530,10 +546,10 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="nombres_padre" class="mb-0">NOMBRES</label>
+                            <label for="md_nom_caracteristicas" class="mb-0">NOMBRES</label>
                         </div>
                         <div class="col-sm-10">
-                            <input class="campo form-control" type="text" name="nombres_madre" placeholder="NOMBRES">
+                            <input class="campo form-control" type="text" name="md_nom_caracteristicas" placeholder="NOMBRES" value="<?php echo htmlspecialchars($datos['md_nom_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -542,14 +558,14 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="escolaridad_padre" class="mb-0">ESCOLARIDAD</label>
+                            <label for="md_esco_caracteristicas" class="mb-0">ESCOLARIDAD</label>
                         </div>
                         <div class="col-sm-5">
-                            <input class="campo form-control" type="text" name="escolaridad_madre"
-                                placeholder="ESCOLARIDAD">
+                            <input class="campo form-control" type="text" name="md_esco_caracteristicas"
+                                placeholder="ESCOLARIDAD" value="<?php echo htmlspecialchars($datos['md_esco_caracteristicas']); ?>">
                         </div>
                         <div class="col-sm-5">
-                            <input class="campo form-control" type="number" name="edad_madre" placeholder="EDAD">
+                            <input class="campo form-control" type="number" name="md_edad_caracteristicas" placeholder="EDAD" value="<?php echo htmlspecialchars($datos['md_edad_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -558,11 +574,11 @@ input[type=number] {
                     <div class="row mb-2">
 
                         <div class="col-sm-2 d-flex align-items-center">
-                            <label for="ocupacion_padre" class="mb-0">OCUPACION</label>
+                            <label for="md_ocu_caracteristicas" class="mb-0">OCUPACION</label>
                         </div>
                         <div class="col-sm-10">
-                            <input class="campo form-control" type="text" name="ocupacion_madre"
-                                placeholder="OCUPACION">
+                            <input class="campo form-control" type="text" name="md_ocu_caracteristicas"
+                                placeholder="OCUPACION" value="<?php echo htmlspecialchars($datos['md_ocu_caracteristicas']); ?>">
                         </div>
 
                     </div>
@@ -572,12 +588,12 @@ input[type=number] {
                         <div class="d-flex align-items-center w-50 gap-2">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined16" autocomplete="off"
-                                name="estado_madre" value="INDEPENDIENTE">
+                                name="md_trab_caracteristicas" value="INDEPENDIENTE" <?php if ($datos['md_trab_caracteristicas'] == "INDEPENDIENTE") echo "checked"; ?>>
                             <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
                                 for="btn-check-outlined16">INDEPENDIENTE</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined17" autocomplete="off"
-                                name="estado_madre" value="EMPLEADO">
+                                name="md_trab_caracteristicas" value="EMPLEADO" <?php if ($datos['md_trab_caracteristicas'] == "EMPLEADO") echo "checked"; ?>>
                             <label class="btn btn-outline-success w-50 align-items-end" style="font-weight: bold;"
                                 for="btn-check-outlined17">EMPLEADO</label><br>
 
@@ -600,17 +616,17 @@ input[type=number] {
                         <div class="d-flex align-items-center gap-2 w-100">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined18" autocomplete="off"
-                                name="ingresos_hogar" value="Menos de un salario minimo">
+                                name="economia_caracteristicas" value="MENOS DE UN SALARIO MINIMO" <?php if ($datos['economia_caracteristicas'] == "MENOS DE UN SALARIO MINIMO") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined18">MENOS DE UN SALARIO MINIMO</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined19" autocomplete="off"
-                                name="ingresos_hogar" value="Entre 1 y 2 salarios">
+                                name="economia_caracteristicas" value="ENTRE 1 Y 2 SALARIOS" <?php if ($datos['economia_caracteristicas'] == "ENTRE 1 Y 2 SALARIOS") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined19">ENTRE 1 Y 2 SALARIOS</label><br>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined20" autocomplete="off"
-                                name="ingresos_hogar" value="Mas de dos salarios minimos">
+                                name="economia_caracteristicas" value="MAS DE DOS SALARIOS MINIMOS" <?php if ($datos['economia_caracteristicas'] == "MAS DE DOS SALARIOS MINIMOS") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined20">MAS DE DOS SALARIOS MINIMOS</label><br>
 
@@ -626,148 +642,37 @@ input[type=number] {
 
                 <td colspan="4">
 
-                    <label for=""><b>EN CASA VIVO CON (MARQUE)</b> <b>-</b> si es hijo unico no tenga en cuenta el termino hermano</label>
+                    <div class="row d-flex align-items-center">
+                        
+                        <div class="d-flex align-items-center gap-2">
 
-                    <br><br>
+                            <label for="otro"><b>EN CASA VIVO CON:</b></label>
+                            <input class="campo form-control" type="text" name="vive_entorno" placeholder="PADRES, MADRE, PADRE, HERMANOS, MADRASTRAS, FAMILIARES, ETC." value="<?php echo htmlspecialchars($datos['vive_entorno']); ?>">
 
-                    <div class="w-100">
-                        <div class="d-flex justify-content-between gap-4 w-100">
+                        </div>
+                        <br><br><br><br>
+                        <!-- Séptima columna con opciones de casa -->
+                        <div class="d-flex flex-column mx-auto gap-2">
 
-                            <!-- Primera columna de opciones -->
-                            <div class="d-flex flex-column mx-auto">
+                        <label for=""><B>MI CASA ES:</B></label>
 
-                                <label for="">MIS PADRES Y HERMANOS UNICAMENTE</label>
+                            <input type="radio" class="btn-check" id="btn-check-outlined30" autocomplete="off"
+                                name="casa_entorno" value="PROPIA" <?php if ($datos['casa_entorno'] == "PROPIA") echo "checked"; ?>>
+                            <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                for="btn-check-outlined30">PROPIA</label>
 
-                                <input type="radio" class="btn-check" id="btn-check-outlined21" autocomplete="off"
-                                    name="vivo_con" value="padres y hermanos">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined21">✓</label>
+                            <input type="radio" class="btn-check" id="btn-check-outlined31" autocomplete="off"
+                                name="casa_entorno" value="ARRENDADA" <?php if ($datos['casa_entorno'] == "ARRENDADA") echo "checked"; ?>>
+                            <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                for="btn-check-outlined31">ARRENDADA</label>
 
-                            </div>
-
-                            <!-- Segunda columna de opciones -->
-                            <div class="d-flex flex-column mx-auto">
-
-                                <label for="">PADRES, HERMANOS Y*, OTROS FAMILIARES</label>
-
-                                <input type="radio" class="btn-check" id="btn-check-outlined22" autocomplete="off"
-                                    name="vivo_con" value="padres, hermanos y otros familiares">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined22">✓</label>
-
-                            </div>
-
-                            <!-- Tercera columna de opciones -->
-                            <div class="d-flex flex-column mx-auto">
-
-                                <label for="">PADRES, HERMANOS Y*, OTROS NO FAMILIARES</label>
-
-                                <input type="radio" class="btn-check" id="btn-check-outlined23" autocomplete="off"
-                                    name="vivo_con" value="padres, hermanos y otros familiares">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined23">✓</label>
-
-                            </div>
-
-                            <!-- Cuarta columna con radio buttons (Hermanos y un padre) -->
-                            <div class="d-flex flex-column mx-auto">
-
-                                <label for="">HERMANOS * Y UNO DE MIS PADRES</label>
-
-                                <div class="d-flex mx-auto w-100 gap-2">
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined24" autocomplete="off"
-                                        name="cuarta_opcion" value="padre">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined24">P</label>
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined25" autocomplete="off"
-                                        name="cuarta_opcion" value="madre">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined25">M</label>
-
-                                </div>
-
-                            </div>
-
-                            <!-- Quinta columna con radio buttons (Mi padrastro o madrastra) -->
-                            <div class="d-flex flex-column mx-auto">
-
-                                <label for="">MI PADRASTRO O MADRASTRA</label>
-
-                                <div class="d-flex mx-auto w-100 gap-2">
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined26" autocomplete="off"
-                                        name="quinta_opcion" value="padrastro">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;"
-                                        for="btn-check-outlined26">PD</label>
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined27" autocomplete="off"
-                                        name="quinta_opcion" value="madrastra">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;"
-                                        for="btn-check-outlined27">MD</label>
-
-                                </div>
-
-                            </div>
-
-                            <!-- Sexta columna con radio buttons (Hermanos, otros familiares y uno de los padres) -->
-                            <div class="d-flex flex-column mx-auto">
-
-                                <label for="">HERMANOS, OTROS FAMILIARES Y UNO DE LOS PADRES</label>
-
-                                <div class="d-flex mx-auto w-100 gap-2">
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined28" autocomplete="off"
-                                        name="sexta_opcion" value="padre">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined28">P</label>
-
-                                    <input type="radio" class="btn-check" id="btn-check-outlined29" autocomplete="off"
-                                        name="sexta_opcion" value="madre">
-                                    <label class="btn btn-outline-success w-50"
-                                        style="font-weight: bold; font-size: 1rem;" for="btn-check-outlined29">M</label>
-
-                                </div>
-
-                            </div>
-
-                            <!-- Séptima columna con opciones de casa -->
-                            <div class="d-flex flex-column mx-auto gap-2">
-
-                                <label for="">MI CASA ES</label>
-
-                                <input type="radio" class="btn-check" id="btn-check-outlined30" autocomplete="off"
-                                    name="mi_casa" value="propia">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined30">PROPIA</label>
-
-                                <input type="radio" class="btn-check" id="btn-check-outlined31" autocomplete="off"
-                                    name="mi_casa" value="arrendada">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined31">ARRENDADA</label>
-
-                                <input type="radio" class="btn-check" id="btn-check-outlined32" autocomplete="off"
-                                    name="mi_casa" value="de_familiares">
-                                <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
-                                    for="btn-check-outlined32">DE FAMILIARES</label>
-
-                            </div>
+                            <input type="radio" class="btn-check" id="btn-check-outlined32" autocomplete="off"
+                                name="casa_entorno" value="DE FAMILIARES" <?php if ($datos['casa_entorno'] == "DE FAMILIARES") echo "checked"; ?>>
+                            <label class="btn btn-outline-success" style="font-weight: bold; font-size: 1rem;"
+                                for="btn-check-outlined32">DE FAMILIARES</label>
 
                         </div>
                     </div>
-
-                    <br>
-
-                    <div class="d-flex align-items-center gap-2">
-
-                        <label for="otro"><b>OTRO</b></label>
-                        <input class="campo form-control" type="name" name="otro" placeholder="OTRO">
-
-                    </div>
-
                 </td>
 
             </tr>
@@ -786,14 +691,14 @@ input[type=number] {
                             <div class="d-flex gap-2 w-100">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined33" autocomplete="off"
-                                    name="hijo_unico" value="Si">
+                                    name="hijou_entorno" value="SI" <?php if ($datos['hijou_entorno'] == "SI") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                    for="btn-check-outlined33">Si</label><br>
+                                    for="btn-check-outlined33">SI</label><br>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined34" autocomplete="off"
-                                    name="hijo_unico" value="No">
+                                    name="hijou_entorno" value="NO" <?php if ($datos['hijou_entorno'] == "NO") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                    for="btn-check-outlined34">No</label><br>
+                                    for="btn-check-outlined34">NO</label><br>
 
                             </div>
 
@@ -807,14 +712,14 @@ input[type=number] {
                             <div class="d-flex gap-2 w-100">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined35" autocomplete="off"
-                                    name="hermanos_colegio" value="Si">
+                                    name="hermano_entorno" value="SI" <?php if ($datos['hermano_entorno'] == "SI") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                    for="btn-check-outlined35">Si</label><br>
+                                    for="btn-check-outlined35">SI</label><br>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined36" autocomplete="off"
-                                    name="hermanos_colegio" value="No">
+                                    name="hermano_entorno" value="NO" <?php if ($datos['hermano_entorno'] == "NO") echo "checked"; ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                    for="btn-check-outlined36">No</label><br>
+                                    for="btn-check-outlined36">NO</label><br>
 
                             </div>
 
@@ -824,9 +729,9 @@ input[type=number] {
 
                             <div class="d-flex align-items-center gap-2 w-100">
 
-                                <label for="otro">TOTAL DE PERSONAS QUE VIVEN EN SU HOGAR</label>
-                                <input class="campo form-control" type="number" name="total_personas_viven_hogar"
-                                    placeholder="TOTAL DE PERSONAS QUE VIVIEN EN SU HOGAR">
+                                <label for="totalv_entorno">TOTAL DE PERSONAS QUE VIVEN EN SU HOGAR</label>
+                                <input class="campo form-control" type="number" name="totalv_entorno"
+                                    placeholder="TOTAL DE PERSONAS QUE VIVIEN EN SU HOGAR" value="<?php echo htmlspecialchars($datos['totalv_entorno']); ?>">
 
                             </div>
 
@@ -855,7 +760,7 @@ input[type=number] {
 
                         <div class="col-10">
 
-                            <textarea class="campo form-control" name="discapacidades" style="resize: none;" rows="3" placeholder="Auditiva castellano oral, sordoceguera, intelectual, psicosocial, multiple, fisica, auditiva lenguaje de señas, visual, trastorno autista TEA, otra"></textarea>
+                            <textarea class="campo form-control" name="dis_salud" style="resize: none;" rows="3" placeholder="Auditiva castellano oral, sordoceguera, intelectual, psicosocial, multiple, fisica, auditiva lenguaje de señas, visual, trastorno autista TEA, otra"><?php echo htmlspecialchars($datos['dis_salud']); ?></textarea>
 
                         </div>
 
@@ -877,7 +782,7 @@ input[type=number] {
 
                         <div class="col-10">
 
-                            <input class="campo form-control" name="trastorno_aprendizaje" placeholder="Lectura, escritura, calculo, ortografia, conducta, de habla - lenguaje" type="text">
+                            <input class="campo form-control" name="trasa_salud" placeholder="Lectura, escritura, calculo, ortografia, conducta, de habla - lenguaje" type="text" value="<?php echo htmlspecialchars($datos['trasa_salud']); ?>">
 
                         </div>
 
@@ -905,12 +810,16 @@ input[type=number] {
                                 <div class="d-flex gap-2 w-50">
 
                                     <input type="radio" class="btn-check" id="btn-check-outlined53" autocomplete="off"
-                                        name="enfermedad_diagnosticada" value="No">
+                                        name="" value="NO" <?php if ($datos['diag_salud'] == '') {
+                                            echo "checked";
+                                        } ?>>
                                     <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                         for="btn-check-outlined53">NO</label>
 
                                     <input type="radio" class="btn-check" id="btn-check-outlined54" autocomplete="off"
-                                        name="enfermedad_diagnosticada" value="Si">
+                                        name="" value="SI" <?php if ($datos['diag_salud'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                                     <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                         for="btn-check-outlined54">SI</label>
 
@@ -918,8 +827,8 @@ input[type=number] {
 
                                 <div class="d-flex gap-2 align-items-center w-50">
 
-                                    <label for="cual">CUAL</label>
-                                    <input class="campo form-control" type="text" name="cual_1" placeholder="CUAL">
+                                    <label for="diag_salud">CUAL</label>
+                                    <input class="campo form-control" type="text" name="diag_salud" placeholder="CUAL" value="<?php echo htmlspecialchars($datos['diag_salud']); ?>">
 
                                 </div>
 
@@ -936,12 +845,16 @@ input[type=number] {
                                 <div class="d-flex gap-2 w-50">
 
                                     <input type="radio" class="btn-check" id="btn-check-outlined55" autocomplete="off"
-                                        name="tratamiento_medico" value="No">
+                                        name="tratamiento_medico" value="No" <?php if ($datos['trat_salud'] == '') {
+                                            echo "checked";
+                                        } ?>>
                                     <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                         for="btn-check-outlined55">NO</label>
 
                                     <input type="radio" class="btn-check" id="btn-check-outlined56" autocomplete="off"
-                                        name="tratamiento_medico" value="Si">
+                                        name="tratamiento_medico" value="Si" <?php if ($datos['trat_salud'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                                     <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                         for="btn-check-outlined56">SI</label>
 
@@ -949,8 +862,8 @@ input[type=number] {
 
                                 <div class="d-flex gap-2 align-items-center w-50">
 
-                                    <label for="cual">CUAL</label>
-                                    <input class="campo form-control" type="text" name="cual_2" placeholder="CUAL">
+                                    <label for="trat_salud">CUAL</label>
+                                    <input class="campo form-control" type="text" name="trat_salud" placeholder="CUAL" value="<?php echo htmlspecialchars($datos['trat_salud']); ?>">
 
                                 </div>
 
@@ -973,12 +886,16 @@ input[type=number] {
                         <div class="col-2 gap-2 d-flex">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined57" autocomplete="off"
-                                name="algun_medicamento" value="No">
+                                name="algun_medicamento" value="No" <?php if ($datos['med_salud'] == '') {
+                                            echo "checked";
+                                        } ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined57">NO</label>
 
                             <input type="radio" class="btn-check" id="btn-check-outlined58" autocomplete="off"
-                                name="algun_medicamento" value="Si">
+                                name="algun_medicamento" value="Si" <?php if ($datos['med_salud'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined58">SI</label>
 
@@ -987,7 +904,7 @@ input[type=number] {
                         <div class="col-8 d-flex align-items-center gap-2">
 
                             <label for="">DESCRIBA</label>
-                            <input class="campo form-control" type="text" name="describa" placeholder="DESCRIBA">
+                            <input class="campo form-control" type="text" name="med_salud" placeholder="DESCRIBA" value="<?php echo htmlspecialchars($datos['med_salud']); ?>">
 
                         </div>
 
@@ -1006,7 +923,7 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <input class="campo form-control" name="excepcionalidad" placeholder="Tecnologia, liderazgo social, ciencias de la naturaleza, artes y letras, actividad fisica, Cienc. sociales y hum" type="text">
+                        <input class="campo form-control" name="expreso_salud" placeholder="Tecnologia, liderazgo social, ciencias de la naturaleza, artes y letras, actividad fisica, Cienc. sociales y hum" type="text" value="<?php echo htmlspecialchars($datos['expreso_salud']); ?>">
 
                     </div>
 
@@ -1023,7 +940,7 @@ input[type=number] {
 
                     <div class="d-flex align-items-center gap-2">
 
-                         <textarea class="campo form-control" name="discapacidades" style="resize: none;" rows="3" placeholder="Com. blanca, Com. mestiza, Com. rural, afrocolombianidad, grupos indigenas, comunidad lgbti, desplazado, victima conflicto armado, victima de conflicto armado, hijo de desmovilizado, asentamiento subnormal, asistido fundacion / ICBF"></textarea>
+                         <textarea class="campo form-control" name="comunidad_atributo" style="resize: none;" rows="3" placeholder="Com. blanca, Com. mestiza, Com. rural, afrocolombianidad, grupos indigenas, comunidad lgbti, desplazado, victima conflicto armado, victima de conflicto armado, hijo de desmovilizado, asentamiento subnormal, asistido fundacion / ICBF" value="<?php echo htmlspecialchars($datos['comunidad_atributo']); ?>"></textarea>
 
                     </div>
 
@@ -1044,12 +961,16 @@ input[type=number] {
                             <div class="col d-flex gap-2 h-50 mt-auto">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined76" autocomplete="off"
-                                    name="educacion_complementaria" value="No">
+                                    name="educacion_complementaria" value="No" <?php if ($datos['educom_atributo'] == '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined76">NO</label>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined77" autocomplete="off"
-                                    name="educacion_complementaria" value="Si">
+                                    name="educacion_complementaria" value="Si" <?php if ($datos['educom_atributo'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined77">SI</label>
 
@@ -1062,9 +983,9 @@ input[type=number] {
 
                                 <div class="d-flex align-items-center gap-2">
 
-                                    <label for="Nro_documento" class="w-25 text-end">DESCRIBA</label>
-                                    <input class="campo form-control" type="number" name="Nro_documento"
-                                        placeholder="NUMERO DE DOCUMENTO">
+                                    <label for="educom_atributo" class="w-25 text-end">DESCRIBA</label>
+                                    <input class="campo form-control" type="number" name="educom_atributo"
+                                        placeholder="SENA, CURSOS CORTOS, IDRD, OTROS" value="<?php echo htmlspecialchars($datos['educom_atributo']); ?>">
 
                                 </div>
 
@@ -1074,17 +995,17 @@ input[type=number] {
 
                                 <div class="d-flex align-items-center gap-2 w-100">
 
-                                    <label for="dias_educacion_complementaria" class="w-25 text-end">DIAS</label>
-                                    <input class="campo form-control" type="text" name="dias_educacion_complementaria"
-                                        placeholder="DIAS">
+                                    <label for="dia_educom_atributo" class="w-25 text-end">DIAS</label>
+                                    <input class="campo form-control" type="text" name="dia_educom_atributo"
+                                        placeholder="DIAS" value="<?php echo htmlspecialchars($datos['dia_educom_atributo']); ?>">
 
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2 w-50">
 
-                                    <label for="horario_educacion_complementaria" class="text-end">HORARIO</label>
+                                    <label for="horario_educom_atributo" class="text-end">HORARIO</label>
                                     <input class="campo form-control" type="number"
-                                        name="horario_educacion_complementaria" placeholder="HORARIO">
+                                        name="horario_educom_atributo" placeholder="HORARIO" value="<?php echo htmlspecialchars($datos['horario_educom_atributo']); ?>">
 
                                 </div>
 
@@ -1100,12 +1021,16 @@ input[type=number] {
                             <div class="col d-flex gap-2 h-50 mt-auto">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined78" autocomplete="off"
-                                    name="entrenamiento_deportivo" value="No">
+                                    name="entrenamiento_deportivo" value="No" <?php if ($datos['deporte_atributo'] == '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined78">NO</label>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined79" autocomplete="off"
-                                    name="entrenamiento_deportivo" value="Si">
+                                    name="entrenamiento_deportivo" value="Si" <?php if ($datos['deporte_atributo'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined79">SI</label>
 
@@ -1118,9 +1043,9 @@ input[type=number] {
 
                                 <div class="d-flex align-items-center gap-2">
 
-                                    <label for="deporte" class="w-25 text-end">DEPORTE</label>
-                                    <input class="campo form-control" type="number" name="deporte"
-                                        placeholder="NUMERO DE DOCUMENTO">
+                                    <label for="deporte_atributo" class="w-25 text-end">DEPORTE</label>
+                                    <input class="campo form-control" type="number" name="deporte_atributo"
+                                        placeholder="BASQUETBOLL, NATACION, GIMNACIA, OTROS" value="<?php echo htmlspecialchars($datos['deporte_atributo']); ?>">
 
                                 </div>
 
@@ -1130,17 +1055,17 @@ input[type=number] {
 
                                 <div class="d-flex align-items-center gap-2 w-100">
 
-                                    <label for="dias_entrenamiento_deportivo" class="w-25 text-end">DIAS</label>
-                                    <input class="campo form-control" type="text" name="dias_entrenamiento_deportivo"
-                                        placeholder="DIAS">
+                                    <label for="dia_deporte_atributo" class="w-25 text-end">DIAS</label>
+                                    <input class="campo form-control" type="text" name="dia_deporte_atributo"
+                                        placeholder="DIAS" value="<?php echo htmlspecialchars($datos['dia_deporte_atributo']); ?>">
 
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2 w-50">
 
-                                    <label for="horario_entrenamiento_deportivo" class="text-end">HORARIO</label>
+                                    <label for="horario_deporte_atributo" class="text-end">HORARIO</label>
                                     <input class="campo form-control" type="number"
-                                        name="horario_entrenamiento_deportivo" placeholder="HORARIO">
+                                        name="horario_deporte_atributo" placeholder="HORARIO" value="<?php echo htmlspecialchars($datos['horario_deporte_atributo']); ?>">
 
                                 </div>
 
@@ -1156,12 +1081,16 @@ input[type=number] {
                             <div class="col d-flex gap-2 h-50 mt-auto">
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined80" autocomplete="off"
-                                    name="joven_trabajador" value="No">
+                                    name="joven_trabajador" value="No" <?php if ($datos['jtrab_atributo'] == '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined80">NO</label>
 
                                 <input type="radio" class="btn-check" id="btn-check-outlined81" autocomplete="off"
-                                    name="joven_trabajador" value="Si">
+                                    name="joven_trabajador" value="Si" <?php if ($datos['jtrab_atributo'] !== '') {
+                                            echo "checked";
+                                        } ?>>
                                 <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                     for="btn-check-outlined81">SI</label>
 
@@ -1174,9 +1103,9 @@ input[type=number] {
 
                                 <div class="d-flex align-items-center gap-2">
 
-                                    <label for="ocupacion" class="w-25 text-end">OCUPACION</label>
-                                    <input class="campo form-control" type="number" name="ocupacion"
-                                        placeholder="NUMERO DE DOCUMENTO">
+                                    <label for="jtrab_atributo" class="w-25 text-end">OCUPACION</label>
+                                    <input class="campo form-control" type="number" name="jtrab_atributo"
+                                        placeholder="TRABAJA COMO: MESERO, AUXILIAR, VENDEDOR, OTROS" value="<?php echo htmlspecialchars($datos['jtrab_atributo']); ?>">
 
                                 </div>
 
@@ -1185,15 +1114,15 @@ input[type=number] {
                             <div class="col h-50 mt-auto d-flex gap-2">
 
                                 <div class="d-flex align-items-center gap-2 w-100">
-                                    <label for="dias_joven_trabajador" class="w-25 text-end">DIAS</label>
-                                    <input class="campo form-control" type="text" name="dias_joven_trabajador"
-                                        placeholder="DIAS">
+                                    <label for="dia_jtrab_atributo" class="w-25 text-end">DIAS</label>
+                                    <input class="campo form-control" type="text" name="dia_jtrab_atributo"
+                                        placeholder="DIAS" value="<?php echo htmlspecialchars($datos['dia_jtrab_atributo']); ?>">
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2 w-50">
-                                    <label for="horario_joven_trabajador" class="text-end">HORARIO</label>
-                                    <input class="campo form-control" type="number" name="horario_joven_trabajador"
-                                        placeholder="HORARIO">
+                                    <label for="horario_jtrab_atributo" class="text-end">HORARIO</label>
+                                    <input class="campo form-control" type="number" name="horario_jtrab_atributo"
+                                        placeholder="HORARIO" value="<?php echo htmlspecialchars($datos['horario_jtrab_atributo']); ?>">
                                 </div>
 
                             </div>
@@ -1211,65 +1140,21 @@ input[type=number] {
             <tr>
 
                 <td colspan="4">
-
-                    <label style="margin-bottom: 1rem;" for=""><b>EN LA JORNADA CONTRARIA NORMALMENTE ME
-                            ACOMPAÑAN</b></label>
-
                     <div class="row d-flex align-items-center">
-
                         <div class="col-2 align-items-center">
+
+                            <label for="jacom_adicional"><b>EN LA JORNADA CONTRARIO ME ACOMPAÑAN</b></label>
 
                         </div>
 
-                        <div class="col-2 align-items-center">
-
-                            <input type="radio" class="btn-check" id="btn-check-outlined82" autocomplete="off"
-                                name="jornada_acompañan" value="Hermanos">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined82">Hermanos</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="radio" class="btn-check" id="btn-check-outlined83" autocomplete="off"
-                                name="jornada_acompañan" value="Uno de mis padres">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined83">Uno de mis padres</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="radio" class="btn-check" id="btn-check-outlined84" autocomplete="off"
-                                name="jornada_acompañan" value="Familiares">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined84">Familiares</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="radio" class="btn-check" id="btn-check-outlined85" autocomplete="off"
-                                name="jornada_acompañan" value="Otros no familiares">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined85">Otros no familiares</label>
-
-                        </div>
-
-                        <div class="col-2 align-items-center">
-
-                            <input type="radio" class="btn-check" id="btn-check-outlined86" autocomplete="off"
-                                name="jornada_acompañan" value="Normalmente permanezco solo">
-                            <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
-                                for="btn-check-outlined86">Normalmente, permanezco solo</label>
-
-                        </div>
-
+                    <div class="col-10">
+                        <input class="campo form-control" type="text" name="jacom_adicional"
+                            placeholder="MADRE, PADRE, PADRES, HERMANOS..." value="<?php echo htmlspecialchars($datos['jacom_adicional']); ?>">
                     </div>
 
-                    <br>
-
+                    </div>
+                    
+                    <br><br>
                     <div class="row d-flex align-items-center">
 
                         <div class="col-2 align-items-center">
@@ -1280,7 +1165,7 @@ input[type=number] {
 
                         <div class="col-10">
 
-                            <input class="campo form-control" name="casa_cuento" placeholder="Computador, internet, tv. suscripcion, celular personal, servicios publicos" type="text">
+                            <input class="campo form-control" name="ccuento_adicional" placeholder="Computador, internet, tv. suscripcion, celular personal, servicios publicos" type="text" value="<?php echo htmlspecialchars($datos['ccuento_adicional']); ?>">
 
                         </div>
 
@@ -1302,7 +1187,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined92" autocomplete="off"
-                                name="transporte" value="Servicio Publico">
+                                name="transp_adicional" value="Servicio Publico" <?php if ($datos['transp_adicional'] == "Servicio Publico") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined92">Servicio Publico</label>
 
@@ -1311,7 +1196,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined93" autocomplete="off"
-                                name="transporte" value="Vehiculo familiar">
+                                name="transp_adicional" value="Vehiculo familiar" <?php if ($datos['transp_adicional'] == "Vehiculo familiar") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined93">Vehiculo familiar</label>
 
@@ -1320,7 +1205,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined94" autocomplete="off"
-                                name="transporte" value="Bicicleta">
+                                name="transp_adicional" value="Bicicleta" <?php if ($datos['transp_adicional'] == "Bicicleta") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined94">Bicicleta</label>
 
@@ -1329,7 +1214,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined95" autocomplete="off"
-                                name="transporte" value="Motocicleta Personal">
+                                name="transp_adicional" value="Motocicleta Personal" <?php if ($datos['transp_adicional'] == "Motocicleta Personal") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined95">Motocicleta Personal</label>
 
@@ -1338,7 +1223,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined96" autocomplete="off"
-                                name="transporte" value="Caminando">
+                                name="transp_adicional" value="Caminando" <?php if ($datos['transp_adicional'] == "Caminando") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined96">Caminando</label>
 
@@ -1347,7 +1232,7 @@ input[type=number] {
                         <div class="col-2 align-items-center">
 
                             <input type="radio" class="btn-check" id="btn-check-outlined97" autocomplete="off"
-                                name="transporte" value="Pago Ruta">
+                                name="transp_adicional" value="Pago Ruta" <?php if ($datos['transp_adicional'] == "Pago Ruta") echo "checked"; ?>>
                             <label class="btn btn-outline-success mx-auto w-100" style="font-weight: bold;"
                                 for="btn-check-outlined97">Pago Ruta</label>
 
