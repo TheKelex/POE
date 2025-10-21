@@ -45,14 +45,14 @@ if (isset($_POST['persona']) && in_array($_POST['persona'], ['1', '2'], true)) {
 $persona = $_SESSION['persona'] ?? '';
 
 // Filtros comunes y captura de inputs (soportando variaciones de nombre)
-$jornada = $_POST['jornada'] ?? '';
-$sede    = $_POST['sede'] ?? '';
-$curso   = $_POST['curso'] ?? '';
-$Ti      = $_POST['doc_dato'] ?? ''; // documento filtro
-$Doc     = $_POST['num_doc_egresados'] ?? ''; // documento egresados
+$jornada = $_POST['jornada'] ?? $_GET['jornada'] ?? '';
+$sede    = $_POST['sede'] ?? $_GET['sede'] ?? '';
+$curso   = $_POST['curso'] ?? $_GET['curso'] ?? '';
+$Ti      = $_POST['doc_dato'] ?? $_GET['doc_dato'] ?? ''; // documento filtro (estudiantes)
+$Doc     = $_POST['num_doc_egresados'] ?? $_GET['num_doc_egresados'] ?? ''; // documento egresados
 
 // año para egresados: aceptamos "aaño", "año" o "anio"
-$anio = $_POST['aaño'] ?? $_POST['año'] ?? $_POST['anio'] ?? '';
+$anio = $_POST['aaño'] ?? $_POST['año'] ?? $_POST['anio'] ?? $_GET['aaño'] ?? $_GET['año'] ?? $_GET['anio'] ?? '';
 
 // Limpiar filtros si se presionó el botón correspondiente
 if (isset($_POST['limpiar'])) {
@@ -65,10 +65,35 @@ if (isset($_POST['limpiar'])) {
 }
 
 /* --------------------------
+   Paginación: variables
+   -------------------------- */
+$por_pagina = 10; // registros por página
+$pagina = isset($_GET['pagina']) && is_numeric($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($pagina < 1) $pagina = 1;
+$inicio = ($pagina - 1) * $por_pagina;
+
+/* --------------------------
    Consultas según persona
    -------------------------- */
 $resultado = null;
 $error_msg = '';
+
+// Construimos también un array con parámetros actuales para mantener filtros en los links
+$params = [];
+if ($persona !== '') $params['persona'] = $persona;
+if ($jornada !== '') $params['jornada'] = $jornada;
+if ($sede !== '') $params['sede'] = $sede;
+if ($curso !== '') $params['curso'] = $curso;
+if ($Ti !== '') $params['doc_dato'] = $Ti;
+if ($anio !== '') $params['aaño'] = $anio;
+if ($Doc !== '') $params['num_doc_egresados'] = $Doc;
+
+/* Helper para crear enlaces de paginación */
+function page_link($page, $params) {
+    $p = $params;
+    $p['pagina'] = $page;
+    return '?' . http_build_query($p);
+}
 
 // Si seleccionaron Estudiantes (persona === '1')
 if ($persona === '1') {
@@ -92,7 +117,6 @@ if ($persona === '1') {
     if (is_numeric($grado_autorizado)) {
         $min = (int)$grado_autorizado;
         $max = $min + 100;
-        // Usamos >= min y < max para incluir 100 y excluir 200 (puedes ajustar si quieres inclusive)
         $consulta .= " AND oe.gradop_observador >= " . $min . " AND oe.gradop_observador < " . $max;
     }
 
@@ -110,8 +134,11 @@ if ($persona === '1') {
         $consulta .= " AND de.doc_dato = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
     }
 
+    // Agregar LIMIT para paginar
+    $consulta_con_limit = $consulta . " LIMIT $inicio, $por_pagina";
+
     // Ejecutar consulta estudiantes
-    $resultado = mysqli_query($enlace, $consulta);
+    $resultado = mysqli_query($enlace, $consulta_con_limit);
     if (!$resultado) {
         $error_msg = "Error en la consulta de estudiantes: " . mysqli_error($enlace);
     }
@@ -133,19 +160,25 @@ if ($persona === '2') {
 
     // Aplicar filtros (anio y documento)
     if ($anio !== '') {
-        // evitar caracteres peligrosos
         $consulta .= " AND año_egresado = '" . mysqli_real_escape_string($enlace, $anio) . "'";
     }
     if ($Doc !== '') {
         $consulta .= " AND num_doc_egresados = '" . mysqli_real_escape_string($enlace, $Doc) . "'";
     }
 
+    // Agregar LIMIT para paginar
+    $consulta_con_limit = $consulta . " LIMIT $inicio, $por_pagina";
+
     // Ejecutar consulta egresados
-    $resultado = mysqli_query($enlace, $consulta);
+    $resultado = mysqli_query($enlace, $consulta_con_limit);
     if (!$resultado) {
         $error_msg = "Error en la consulta de egresados: " . mysqli_error($enlace);
     }
 }
+
+/* --------------------------
+   HTML
+   -------------------------- */
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -153,7 +186,7 @@ if ($persona === '2') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudiantes / Egresados</title>
+    <title>PANEL PRINCIPAL</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="../bootstrap-5.3.7-dist/css/bootstrap.css">
@@ -208,7 +241,7 @@ if ($persona === '2') {
                     echo '
                         <div class="col-2">
                             <div class="cajita_opciones d-flex flex-column rounded-5 d-grid gap-3">
-                                <input type="text" name="doc_dato" value="' . htmlspecialchars($Ti) . '"
+                                <input type="number" name="doc_dato" value="' . htmlspecialchars($Ti) . '"
                                     class="boton_cajita rounded-pill mx-2" id="doc_dato" placeholder="Documento de identidad">
 
                                 <select name="sede" class="boton_cajita rounded-pill mx-2">
@@ -226,29 +259,28 @@ if ($persona === '2') {
                                     <option value="ÚNICA" ' . ($jornada === "ÚNICA" ? "selected" : "") . '>ÚNICA</option>
                                 </select>
 
-                                <input type="text" name="curso" value="' . htmlspecialchars($curso) . '"
+                                <input type="number" name="curso" value="' . htmlspecialchars($curso) . '"
                                     class="boton_cajita rounded-pill mx-2" id="curso" placeholder="Curso">
 
                                 <p class="w-100 text-center" style="font-weight: bold;">Ej: 1002</p>
 
                                 <input class="actualizar rounded-pill" type="submit" name="actualizar" value="Enviar">
-<input class="actualizar rounded-pill" type="submit" name="limpiar"
-    value="Eliminar filtros" style="color:black; margin: 0 !important">
-';  // <-- cerramos la cadena que estaba imprimiendo todo el panel
+                                <input class="actualizar rounded-pill" type="submit" name="limpiar"
+                                    value="Eliminar filtros" style="color:black; margin: 0 !important">
+                    ';
 
-// Mostrar botón SOLO si el usuario es administrador
-if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
-    echo '
-    <button type="button" class="actualizar rounded-pill" 
-            style="background-color:#d9534f; color:black; margin-top: 10px;" 
-            data-bs-toggle="modal" data-bs-target="#modalEliminar">
-        Eliminar todos los registros
-    </button>
-    ';
-}
+                    // Mostrar botón SOLO si el usuario es administrador
+                    if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
+                        echo '
+                        <button type="button" class="actualizar rounded-pill" 
+                                style="background-color:#d9534f; color:black; margin-top: 10px;" 
+                                data-bs-toggle="modal" data-bs-target="#modalEliminar">
+                            Eliminar todos los registros
+                        </button>
+                        ';
+                    }
 
-// Reabrimos el echo para continuar con el HTML que faltaba
-echo '
+                    echo '
                             </div>
                         </div>
                     ';
@@ -258,10 +290,10 @@ echo '
                     echo '
                         <div class="col-2">
                             <div class="cajita_opciones d-flex flex-column rounded-5 d-grid gap-3">
-                                <input type="text" name="num_doc_egresados" value="' . htmlspecialchars($Doc) . '"
+                                <input type="number" name="num_doc_egresados" value="' . htmlspecialchars($Doc) . '"
                                     class="boton_cajita rounded-pill mx-2" id="num_doc_egresados" placeholder="Documento de identidad">
 
-                                <input type="text" name="aaño" value="' . htmlspecialchars($anio) . '"
+                                <input type="number" name="aaño" value="' . htmlspecialchars($anio) . '"
                                     class="boton_cajita rounded-pill mx-2" id="año_egresados" placeholder="Año">
 
                                 <p class="w-100 text-center" style="font-weight: bold;">Ej: 2025</p>
@@ -358,7 +390,6 @@ echo '
                                                 </form>
                                               </td>';
                                     echo '</tr>';
-                                    echo '</tr>';
                                 }
                             } else {
                                 echo "<tr><td colspan='5' class='text-center'>⚠ Selecciona los filtros necesarios para empezar</td></tr>";
@@ -373,24 +404,124 @@ echo '
                 }
                 ?>
             </table>
+
+            <!-- -------------------------
+                 PAGINADOR (estudiantes / egresados)
+                 ------------------------- -->
+            <?php
+            // Solo calcular y mostrar paginador si no hay error y hay resultados reales
+            if ($error_msg === '') {
+                // Calcular total de filas (COUNT) con mismos filtros (sin LIMIT)
+                $total_filas = 0;
+                if ($persona === '1') {
+                    $total_query = "SELECT COUNT(*) AS total FROM dato_estudiante de INNER JOIN observador_estudiante oe ON de.id_dato = oe.id_observador WHERE 1=1";
+                    if ($grado_autorizado && is_numeric($grado_autorizado)) {
+                        $min = (int)$grado_autorizado;
+                        $max = $min + 100;
+                        $total_query .= " AND oe.gradop_observador >= " . $min . " AND oe.gradop_observador < " . $max;
+                    }
+                    if ($jornada !== '') $total_query .= " AND de.jornada_dato = '" . mysqli_real_escape_string($enlace, $jornada) . "'";
+                    if ($sede !== '') $total_query .= " AND de.sede_dato = '" . mysqli_real_escape_string($enlace, $sede) . "'";
+                    if ($curso !== '') $total_query .= " AND oe.gradop_observador = '" . mysqli_real_escape_string($enlace, $curso) . "'";
+                    if ($Ti !== '') $total_query .= " AND de.doc_dato = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
+                    $res_total = mysqli_query($enlace, $total_query);
+                    if ($res_total) {
+                        $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
+                    }
+                } elseif ($persona === '2') {
+                    $total_query = "SELECT COUNT(*) AS total FROM egresados WHERE 1=1";
+                    if ($anio !== '') $total_query .= " AND año_egresado = '" . mysqli_real_escape_string($enlace, $anio) . "'";
+                    if ($Doc !== '') $total_query .= " AND num_doc_egresados = '" . mysqli_real_escape_string($enlace, $Doc) . "'";
+                    $res_total = mysqli_query($enlace, $total_query);
+                    if ($res_total) {
+                        $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
+                    }
+                }
+
+                $total_paginas = ($total_filas > 0) ? (int)ceil($total_filas / $por_pagina) : 0;
+
+                if ($total_paginas > 1) {
+                    // Lógica para mostrar 10 botones visibles con "1 fijo" y bloque a partir de la página seleccionada
+                    $visible_count = 10; // total de botones numéricos a mostrar (incluye el "1")
+                    echo '<nav aria-label="Paginación"><ul class="pagination justify-content-center">';
+
+                    // Botón anterior
+                    $prev = $pagina - 1;
+                    if ($prev < 1) $prev = 1;
+                    echo '<li class="page-item ' . ($pagina == 1 ? 'disabled' : '') . '">';
+                    echo '<a class="page-link fw-bold" href="' . page_link($prev, $params) . '" aria-label="Anterior" >&lt;</a>';
+                    echo '</li>';
+
+                    if ($pagina === 1) {
+                        // Mostrar 1..min(total_paginas, visible_count)
+                        $start = 1;
+                        $end = min($total_paginas, $visible_count);
+                        for ($i = $start; $i <= $end; $i++) {
+                            $active = ($i == $pagina) ? 'active' : '';
+                            echo '<li class="page-item ' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
+                        }
+                    } else {
+                        // página actual > 1: mostrar 1 fijo, posible "..." y bloque que empieza en $pagina
+                        echo '<li class="page-item numero ' . (1 == $pagina ? 'active' : '') . '"><a class="page-link" href="' . page_link(1, $params) . '">1</a></li>';
+
+                        $start = $pagina;
+                        $end = min($total_paginas, $start + ($visible_count - 2)); // visible_count -1 botones después del '1', por eso -2 para índice
+                        // Si al final no alcanzamos la cantidad deseada, desplazamos el bloque hacia atrás
+                        $needed_after_1 = $visible_count - 1; // ej. 9
+                        $current_count_after_1 = $end - $start + 1;
+                        if ($current_count_after_1 < $needed_after_1) {
+                            // intentamos mover start hacia atrás, pero no menos de 2 (ya que 1 está fijo)
+                            $start = max(2, $start - ($needed_after_1 - $current_count_after_1));
+                            $end = min($total_paginas, $start + $needed_after_1 - 1);
+                        }
+
+                        if ($start > 2) {
+                            // hay un hueco entre 1 y start -> mostramos "..."
+                            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                        }
+
+                        for ($i = $start; $i <= $end; $i++) {
+                            $active = ($i == $pagina) ? 'active' : '';
+                            echo '<li class="page-item numero' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
+                        }
+                    }
+
+                    // Botón siguiente
+                    $next = $pagina + 1;
+                    if ($next > $total_paginas) $next = $total_paginas;
+                    echo '<li class="page-item ' . ($pagina == $total_paginas ? 'disabled' : '') . '" >';
+                    echo '<a class="page-link fw-bold" href="' . page_link($next, $params) . '" aria-label="Siguiente">&gt;</a>';
+                    echo '</li>';
+
+                    echo '</ul></nav>';
+                }
+            }
+            ?>
         </div> <!-- col-10 -->
     </div> <!-- row -->
     </div> <!-- caja -->
     <!-- Botón y modal para cargar listas -->
     <div class="col">
         <div class="d-flex flex-column align-items-center w-75 mx-auto gap-3">
-
-            <!-- Botón para abrir modal -->
-            <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalListas">
-                <span class="material-symbols-outlined">upload</span>Cargar Listas
-            </button>
-
+            
+            <?php 
+                if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
+                    echo '
+                    <!-- Botón para abrir modal -->
+                    <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center rounded-pill" data-bs-toggle="modal" data-bs-target="#modalListas" style="color: #ffffffff; background-color: #00ac4bff;">
+                        <span class="material-symbols-outlined">upload</span>Cargar Listas
+                    </button>
+                    <br>
+                    ';
+                }
+            ?> 
+        
             <!-- Modal -->
             <div class="modal fade" id="modalListas" tabindex="-1" aria-labelledby="modalListasLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
 
-                        <div class="modal-header">
+                        <div class="modal-header" style="background-color: #017800; color: white;">
                             <h5 class="modal-title" id="modalListasLabel">Actualizar listados (CSV)</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                         </div>
@@ -406,9 +537,9 @@ echo '
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña" required>
                             </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <input type="submit" class="btn btn-editar" name="actualizar" value="Actualizar listado">
+                            <div class="mb-3" style="margin-left: 14.4rem;">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: #ffffffff; background-color: #ba1717ff;">Cerrar</button>
+                                <input type="submit" class="btn btn-editar" style="color: #ffffffff; background-color: #00ac4bff;" name="actualizar" value="Actualizar listado">
                             </div>
                         </form>
                     </div>

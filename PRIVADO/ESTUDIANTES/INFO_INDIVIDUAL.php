@@ -1,5 +1,12 @@
 <?php
 session_start();
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
 
 if (isset($_SESSION["eliminado"])) {
     echo '<div class="alert alert-success text-center m-3 rounded-pill shadow-sm">

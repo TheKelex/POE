@@ -1,6 +1,13 @@
 <?php
 // subir_archivo.php (versión ajustada para XAMPP / rutas robustas)
 session_start();
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $conexion = new mysqli("localhost", "root", "", "poe");
@@ -47,7 +54,7 @@ $doc = $res->fetch_assoc()['doc_dato'];
 $stmt->close();
 
 // Relative dir pública (la guardaremos como URL, por ejemplo "/POE/FOLDER/ESTUDIANTE/EST_4/123/")
-$relative_dir = "FOLDER/ESTUDIANTE/EST_{$id_dato}/{$doc}";
+$relative_dir = "PRIVADO/ESTUDIANTES/FOLDER/ESTUDIANTE/{$doc}";
 
 // ---- Construir ruta física robusta ----
 // Intento 1: DOCUMENT_ROOT + relative_dir

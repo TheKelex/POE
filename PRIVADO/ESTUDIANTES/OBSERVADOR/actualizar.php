@@ -1,6 +1,13 @@
 <?php
 // actualizar.php
 session_start();
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
 
 // activar reportes de error para mysqli (opcional, útil en desarrollo)
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
