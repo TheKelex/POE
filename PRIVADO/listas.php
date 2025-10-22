@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-// ⏳ Control de inactividad (5 minutos)
+//  Control de inactividad (5 minutos)
 $inactividad_maxima = 300;
 if (isset($_SESSION['ultimo_movimiento'])) {
     $tiempo_inactivo = time() - $_SESSION['ultimo_movimiento'];
@@ -49,7 +49,7 @@ mysqli_set_charset($enlace, "utf8mb4");
 $resul = mysqli_stmt_get_result($stmt);
 
 if (!$resul || $resul->num_rows == 0) {
-    echo "<script>alert('❌ Contraseña incorrectos');</script>";
+    echo "<script>alert('Contraseña incorrectos');</script>";
     header("Location: estudiantes.php?error=1");
     exit();
 }
@@ -58,7 +58,7 @@ if (!$resul || $resul->num_rows == 0) {
    PROCESAMIENTO DEL CSV
    -------------------------- */
 if (!isset($_FILES['archivoCSV']) || $_FILES['archivoCSV']['error'] != 0) {
-    echo "<script>alert('⚠️ No se cargó ningún archivo válido'); window.location='panel_admin.php';</script>";
+    echo "<script>alert(' No se cargó ningún archivo válido'); window.location='panel_admin.php';</script>";
     exit();
 }
 
@@ -160,13 +160,24 @@ if (!empty($fecha_nac)) {
         );
         mysqli_stmt_execute($insert);
 
-        if ($grado = 1) {
-            $grado = 100;
-        }
-
         /* --------------------------
            ACTUALIZAR EL GRADO
            -------------------------- */
+        if ($grado == 1) {
+            $grado == 100;
+        }
+        if ($grado == 2) {
+            $grado == 200;
+        }
+        if ($grado == 3) {
+            $grado == 300;
+        }
+        if ($grado == 4) {
+            $grado == 400;
+        }
+        if ($grado == 5) {
+            $grado == 500;
+        }
         $update = mysqli_prepare($enlace, "UPDATE observador_estudiante SET gradop_observador = ? WHERE id_observador = ?");
         mysqli_stmt_bind_param($update, "si", $grado, $nuevo_id);
         mysqli_stmt_execute($update);
@@ -180,9 +191,9 @@ if (!empty($fecha_nac)) {
     }
 
     fclose($handle);
-    echo "<script>alert('✅ Listas cargadas correctamente'); window.location='estudiantes.php';</script>";
+    echo "<script>alert('Listas cargadas correctamente'); window.location='estudiantes.php';</script>";
 } else {
-    echo "<script>alert('⚠️ No se pudo abrir el archivo CSV');</script>";
+    echo "<script>alert('No se pudo abrir el archivo CSV');</script>";
 }
 
 ?>

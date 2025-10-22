@@ -5,6 +5,13 @@
 
 }
 
+.numero {
+
+  text-decoration: nome !important;
+  color: black !important;
+
+}
+
 .boton_cajita { /*Estilo para los botones dentro de la caja de filtros*/
 
   background-color: #ffffff;

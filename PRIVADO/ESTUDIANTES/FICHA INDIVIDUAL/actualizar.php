@@ -1,6 +1,13 @@
 
 <?php
 session_start();
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
 $conn = new mysqli("localhost", "root", "", "poe");
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);

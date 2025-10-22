@@ -1,6 +1,13 @@
 <?php
 // folder.php
 session_start();
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    exit();
+}
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $conexion = new mysqli("localhost", "root", "", "poe");
@@ -77,23 +84,23 @@ if ($stmt) {
       <div class="d-flex flex-column gap-3 align-items-center">
         <h1 style="font-weight:bold;">Archivos</h1>
 
-        <?php if ($alert): ?>
-          <div class="alert alert-info w-100"><?php echo htmlspecialchars($alert); ?></div>
-        <?php endif; ?>
-
         <?php if (count($archivos) > 0): ?>
-          <?php foreach ($archivos as $ruta): 
-              $nombre = basename($ruta);
-              // $ruta ya debe ser una ruta pública (p.ej: /FOLDER/ESTUDIANTE/...)
-          ?>
-            <a href="<?php echo htmlspecialchars($ruta); ?>" download class="descarga rounded-pill text-decoration-none">
-              <span><?php echo htmlspecialchars($nombre); ?></span>
-              <span class="material-symbols-outlined p-2" style="font-size:1.7rem;">download</span>
-            </a>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p class="text-muted">No hay archivos subidos.</p>
-        <?php endif; ?>
+  <?php 
+    $contador = 1;
+    foreach ($archivos as $ruta): 
+  ?>
+    <a href="<?php echo htmlspecialchars($ruta); ?>" download class="descarga rounded-pill text-decoration-none">
+      <span><?php echo 'Archivo ' . $contador; ?></span>
+      <span class="material-symbols-outlined p-2" style="font-size:1.7rem;">download</span>
+    </a>
+  <?php 
+    $contador++;
+    endforeach; 
+  ?>
+<?php else: ?>
+  <p class="text-muted">No hay archivos subidos.</p>
+<?php endif; ?>
+
 
       </div>
     </div>

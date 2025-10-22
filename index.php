@@ -51,7 +51,7 @@ function img_src_for($valorDB) {
                         <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="./PRIVADO/INICIO SESION/inicio.php">Iniciar Sesion</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="./PRIVADO/INICIO SESION/inicio.php">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -165,9 +165,9 @@ function img_src_for($valorDB) {
         <img src="./Imagenes/Contacto.png" class="img-fluid w-100">
         <div class="position-absolute top-50 start-50 translate-middle">
             <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
-            <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
+            <p class="text-center m-4" style="color: white;">Contacto Directo Vía Email</p>
             <p class="email rounded-pill m-5">
-                <?= htmlspecialchars($datos['contacto_psicoo'] ?? 'DaCode@example.com') ?>
+                <?= htmlspecialchars($datos['contacto_psicoo'] ?? 'Informacion No Disponible') ?>
             </p>
         </div>
     </div>
@@ -179,16 +179,16 @@ function img_src_for($valorDB) {
         <div class="container py-5 text-start">
             <div class="row g-4">
                 <div class="col-md-3 d-flex align-items-center text-start">
-                    <p class="mb-3" style="color: #04BF55;">Palpitante juventud adelante con el arte tenemos que avanzar,es consigna de buen estudiante con la brega la meta alcanzar</p>
+                    <p class="mb-3" style="color: #04BF55;">“¡Palpitante juventud! Adelante con el arte, tenemos que avanzar.
+Es consigna de buen estudiante: con la brega, la meta alcanzar.”</p>
                 </div>
 
                 <div class="col-md-2">
-                    <h5 class="titulo_footer">Paginas</h5>
+                    <h5 class="titulo_footer">Páginas</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="texto_footer text-decoration-none">Escuela de padres</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Foro</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Talleres formativos</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesion</a></li>
+                        <li><a href="./PUBLICO/ESCUELA DE PADRES/escuela.php" class="texto_footer text-decoration-none">Escuela de padres</a></li>
+                        <li><a href="./PUBLICO/TALLERES FORMATIVOS/taller.php" class="texto_footer text-decoration-none">Talleres formativos</a></li>
+                        <li><a href="./PRIVADO/INICIO SESION/inicio.php" class="texto_footer text-decoration-none">Iniciar sesión</a></li>
                     </ul>
                 </div>
 
@@ -196,7 +196,7 @@ function img_src_for($valorDB) {
                     <h5 class="titulo_footer">Proyectos</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="texto_footer text-decoration-none">Control del PAE</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Almacen</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Almacén</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">POE</a></li>
                     </ul>
                 </div>
@@ -204,13 +204,13 @@ function img_src_for($valorDB) {
                 <div class="col-md-2">
                     <h5 class="titulo_footer">Institucional</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="texto_footer text-decoration-none">Minieducacion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Mineducación</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Gov</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">PAE</a></li>
                     </ul>
                 </div>
             </div>
-            <p class="text-start mb-0" style="color: #04BF55;">© Software Development 2025</p>
+            <p class="text-start mb-0" style="color: #04BF55;">© Desarrollo de Software 2025</p>
         </div>
     </footer>
     <!--Fin Footer-->
