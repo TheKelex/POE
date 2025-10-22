@@ -113,7 +113,7 @@ if (!isset($_SESSION["id_dato"])) {
         <?php if ($_SESSION['tipo_usuario'] === 'administrador'): ?>
     <!-- Botón que abre el modal -->
      <center>
-     <button type="button" class="btn btn-danger rounded-pill m-4 cargar" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal" style="background-color: #d12626; width:16%">
+     <button type="button" class="btn btn-danger rounded-pill m-4 cargar" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal" style="background-color:  ; width:16%">
             <span class="material-symbols-outlined">delete</span>Eliminar Estudiante
         </button>
      </center>
