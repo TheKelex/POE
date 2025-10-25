@@ -58,6 +58,9 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                             href="../TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atencion</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar"
                             href="../../PRIVADO/INICIO SESION/inicio.php">Iniciar Sesion</a>
                     </li>
@@ -78,17 +81,52 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
             <!-- Columna de texto -->
             <div class="col-12 col-md-6 my-5">
 
-                <h1 class="titulo-principal">ESCUELA
-                    DE<br> DE PADRES (EDP)
+                <h1 class="titulo-principal">PROGRAMA ESCUELA<br> DE PADRES: "PADRES AFECTUOSOS Y EFICIENTES"
                 </h1>
 
                 <p class="textos">
-                    "Un espacio para fortalecer el vínculo con tus hijos a través del diálogo, la escucha y la
-                    comprensión mutua."
+                    "Un espacio para fortalecer el vínculo con tus hijos(as) y/o acudidos a través del diálogo, la escucha, la validación emocional y la
+                    comprensión mutua." <br>
                 </p>
 
-                <a href="#escuela_padres" class="btn rounded-pill px-4 py-2 mt-3 shadow w-30 w-md-auto" id="boton_1">
-                    ¿cual es su funcion?
+                <a href="#descubre_aqui" class="btn rounded-pill px-4 py-2 mt-3 shadow w-30 w-md-auto" id="boton_1">
+                    Ley 2025 de 2020
+                </a>
+
+                <br>
+
+            </div>
+
+            <!-- Columna de imagen de manos con mariposas -->
+            <div class="col-12 col-md-6 text-center" style="width: 50%;">
+
+                <img src="../../Imagenes/Logo_Mariposas.png" alt="" class="img-fluid w-100">
+
+            </div>
+
+        </div>
+
+        <div class="logo-container text-start my-4">
+            <img src="../../Imagenes/Logo_Tecnico.png" alt="" class="img-fluid" style="max-width: 200px;">
+        </div>
+
+    </div>
+    <img src="../../Imagenes/HR.png" class="img-fluid" width="100%">
+
+    <div class="container my-5" style="position: relative;">
+        <div class="row align-items-center" id="descubre_aqui">
+
+            <!-- Columna de texto -->
+            <div class="col-12 col-md-6 my-5">
+
+                <h1 class="titulo-principal">"La Ley 2025 de 2020</h1>
+
+                <p class="textos">
+                    La Ley 2025 de 2020 de Colombia, promulgada el 23 de julio de 2020, establece los lineamientos para la implementación de las Escuelas para Padres y Madres de Familia y Cuidadores en las instituciones de educación preescolar, básica y media del país. Su objetivo principal es fomentar la participación de los padres y cuidadores en la formación integral de los estudiantes.
+                </p>
+
+                <a href="#publicaciones" class="btn rounded-pill px-4 py-2 mt-3 shadow w-30 w-md-auto" id="boton_1">
+                    ¡Descubre Nuestro Trabajo!!
                 </a>
 
                 <br>
@@ -110,60 +148,15 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 
     </div>
 
+
     <!--Fin POE-->
 
     <br><br><br><br><br>
 
-    <img src="../../Imagenes/HR.png" class="img-fluid" width="100%">
-
-
-
-    <!--Inicio De la funcion de la escuerla de padres-->
-
-    <h1 class="text-center my-4 titulos rounded-pill" id="escuela_padres">
-
-        ¿La funcion de la escuela de padres?
-
-    </h1>
-
-    <h1 class="text-center my-6 textos">
-
-        La escuela de padres busca fortalecer el lazo de padre he hijo con herramientas practicas y estrategias para
-        lograr eso
-
-    </h1>
-    <br><br>
-
-
-    <div class="d-flex flex-column align-items-center">
-
-        <div class="d-flex flex-column align-items-start">
-            <div class="d-flex align-items-center mb-3 cuadro">
-                <div class="d-flex align-items-center justify-content-center circulos me-3 ">1</div>
-                <p class="textos mb-0">Mejorar el laso padre he hijo </p>
-            </div>
-
-            <div class="d-flex align-items-center cuadro" style="width: 510px;">
-                <div class="d-flex align-items-center justify-content-center circulos me-3">2</div>
-                <p class="textos mb-0">Dar talleres para estos </p>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <center>
-        <img src="./Imagenes_escuela/escuela padres.png" class="img-fluid m-4 borde"
-            style="width: 600px; height: auto;">
-    </center>
-
-    <br><br><br><br>
-    <!--Fin De Que Es La Escuela De Padres-->
 
     <!--Inicio De Los POST-->
 
-    <div class="w-100">
+    <div class="w-100" id="publicaciones">
 
         <?php while ($post = $posts->fetch_assoc()) { ?>
 

@@ -205,11 +205,15 @@ if ($persona === '2') {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav"> 
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #00ac4a;">
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="./EDIT/FORM_FORO/editor.php">Editor Foro</a></li>
-                    <li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../EDITOR_INDEX/editor index.php">Editor Pag. Principal</a></li>
                     <li class="nav-item">
+                        <?php 
+                            if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador' OR $_SESSION['tipo_usuario'] === 'psicoorientador') {
+                                echo '<li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="./EDIT/FORM_FORO/editor.php">Editor Foro</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link px-4 py-2 textos_navbar" href="../EDITOR_INDEX/editor index.php">Editor Pag. Principal</a></li>';
+                            }
+                        ?>
                         <a class="nav-link px-4 py-2 textos_navbar d-flex align-items-center" href="./sesion_close.php">
                             <span class="material-symbols-outlined mx-2">logout</span>Cerrar Sesion
                         </a>
@@ -405,98 +409,114 @@ if ($persona === '2') {
                 ?>
             </table>
 
-            <!-- -------------------------
-                 PAGINADOR (estudiantes / egresados)
-                 ------------------------- -->
-            <?php
-            // Solo calcular y mostrar paginador si no hay error y hay resultados reales
-            if ($error_msg === '') {
-                // Calcular total de filas (COUNT) con mismos filtros (sin LIMIT)
-                $total_filas = 0;
-                if ($persona === '1') {
-                    $total_query = "SELECT COUNT(*) AS total FROM dato_estudiante de INNER JOIN observador_estudiante oe ON de.id_dato = oe.id_observador WHERE 1=1";
-                    if ($grado_autorizado && is_numeric($grado_autorizado)) {
-                        $min = (int)$grado_autorizado;
-                        $max = $min + 100;
-                        $total_query .= " AND oe.gradop_observador >= " . $min . " AND oe.gradop_observador < " . $max;
-                    }
-                    if ($jornada !== '') $total_query .= " AND de.jornada_dato = '" . mysqli_real_escape_string($enlace, $jornada) . "'";
-                    if ($sede !== '') $total_query .= " AND de.sede_dato = '" . mysqli_real_escape_string($enlace, $sede) . "'";
-                    if ($curso !== '') $total_query .= " AND oe.gradop_observador = '" . mysqli_real_escape_string($enlace, $curso) . "'";
-                    if ($Ti !== '') $total_query .= " AND de.doc_dato = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
-                    $res_total = mysqli_query($enlace, $total_query);
-                    if ($res_total) {
-                        $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
-                    }
-                } elseif ($persona === '2') {
-                    $total_query = "SELECT COUNT(*) AS total FROM egresados WHERE 1=1";
-                    if ($anio !== '') $total_query .= " AND año_egresado = '" . mysqli_real_escape_string($enlace, $anio) . "'";
-                    if ($Doc !== '') $total_query .= " AND num_doc_egresados = '" . mysqli_real_escape_string($enlace, $Doc) . "'";
-                    $res_total = mysqli_query($enlace, $total_query);
-                    if ($res_total) {
-                        $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
-                    }
+<!-- -------------------------
+     PAGINADOR (estudiantes / egresados)
+     ------------------------- -->
+<?php
+// Solo calcular y mostrar paginador si no hay error y hay filtros aplicados
+if ($error_msg === '') {
+
+    // Verificar si hay filtros activos según la persona seleccionada
+    $hayFiltros = false;
+
+    if ($persona === '1') {
+        // Filtros de estudiantes
+        $hayFiltros = ($jornada !== '' || $sede !== '' || $curso !== '' || $Ti !== '');
+    } elseif ($persona === '2') {
+        // Filtros de egresados
+        $hayFiltros = ($anio !== '' || $Doc !== '');
+    }
+
+    // Solo si hay filtros, se muestra el paginador
+    if ($hayFiltros) {
+
+        // Calcular total de filas (COUNT) con mismos filtros (sin LIMIT)
+        $total_filas = 0;
+        if ($persona === '1') {
+            $total_query = "SELECT COUNT(*) AS total FROM dato_estudiante de 
+                            INNER JOIN observador_estudiante oe 
+                            ON de.id_dato = oe.id_observador WHERE 1=1";
+            if ($grado_autorizado && is_numeric($grado_autorizado)) {
+                $min = (int)$grado_autorizado;
+                $max = $min + 100;
+                $total_query .= " AND oe.gradop_observador >= $min AND oe.gradop_observador < $max";
+            }
+            if ($jornada !== '') $total_query .= " AND de.jornada_dato = '" . mysqli_real_escape_string($enlace, $jornada) . "'";
+            if ($sede !== '') $total_query .= " AND de.sede_dato = '" . mysqli_real_escape_string($enlace, $sede) . "'";
+            if ($curso !== '') $total_query .= " AND oe.gradop_observador = '" . mysqli_real_escape_string($enlace, $curso) . "'";
+            if ($Ti !== '') $total_query .= " AND de.doc_dato = '" . mysqli_real_escape_string($enlace, $Ti) . "'";
+            $res_total = mysqli_query($enlace, $total_query);
+            if ($res_total) {
+                $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
+            }
+        } elseif ($persona === '2') {
+            $total_query = "SELECT COUNT(*) AS total FROM egresados WHERE 1=1";
+            if ($anio !== '') $total_query .= " AND año_egresado = '" . mysqli_real_escape_string($enlace, $anio) . "'";
+            if ($Doc !== '') $total_query .= " AND num_doc_egresados = '" . mysqli_real_escape_string($enlace, $Doc) . "'";
+            $res_total = mysqli_query($enlace, $total_query);
+            if ($res_total) {
+                $total_filas = (int)mysqli_fetch_assoc($res_total)['total'];
+            }
+        }
+
+        $total_paginas = ($total_filas > 0) ? (int)ceil($total_filas / $por_pagina) : 0;
+
+        if ($total_paginas > 1) {
+            // Lógica para mostrar 10 botones visibles con "1 fijo" y bloque a partir de la página seleccionada
+            $visible_count = 10; // total de botones numéricos a mostrar (incluye el "1")
+            echo '<nav aria-label="Paginación"><ul class="pagination justify-content-center">';
+
+            // Botón anterior
+            $prev = $pagina - 1;
+            if ($prev < 1) $prev = 1;
+            echo '<li class="page-item ' . ($pagina == 1 ? 'disabled' : '') . '">';
+            echo '<a class="page-link fw-bold" href="' . page_link($prev, $params) . '" aria-label="Anterior" >&lt;</a>';
+            echo '</li>';
+
+            if ($pagina === 1) {
+                // Mostrar 1..min(total_paginas, visible_count)
+                $start = 1;
+                $end = min($total_paginas, $visible_count);
+                for ($i = $start; $i <= $end; $i++) {
+                    $active = ($i == $pagina) ? 'active' : '';
+                    echo '<li class="page-item ' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
+                }
+            } else {
+                // página actual > 1: mostrar 1 fijo, posible "..." y bloque que empieza en $pagina
+                echo '<li class="page-item numero ' . (1 == $pagina ? 'active' : '') . '"><a class="page-link" href="' . page_link(1, $params) . '">1</a></li>';
+
+                $start = $pagina;
+                $end = min($total_paginas, $start + ($visible_count - 2)); 
+                $needed_after_1 = $visible_count - 1;
+                $current_count_after_1 = $end - $start + 1;
+                if ($current_count_after_1 < $needed_after_1) {
+                    $start = max(2, $start - ($needed_after_1 - $current_count_after_1));
+                    $end = min($total_paginas, $start + $needed_after_1 - 1);
                 }
 
-                $total_paginas = ($total_filas > 0) ? (int)ceil($total_filas / $por_pagina) : 0;
+                if ($start > 2) {
+                    echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                }
 
-                if ($total_paginas > 1) {
-                    // Lógica para mostrar 10 botones visibles con "1 fijo" y bloque a partir de la página seleccionada
-                    $visible_count = 10; // total de botones numéricos a mostrar (incluye el "1")
-                    echo '<nav aria-label="Paginación"><ul class="pagination justify-content-center">';
-
-                    // Botón anterior
-                    $prev = $pagina - 1;
-                    if ($prev < 1) $prev = 1;
-                    echo '<li class="page-item ' . ($pagina == 1 ? 'disabled' : '') . '">';
-                    echo '<a class="page-link fw-bold" href="' . page_link($prev, $params) . '" aria-label="Anterior" >&lt;</a>';
-                    echo '</li>';
-
-                    if ($pagina === 1) {
-                        // Mostrar 1..min(total_paginas, visible_count)
-                        $start = 1;
-                        $end = min($total_paginas, $visible_count);
-                        for ($i = $start; $i <= $end; $i++) {
-                            $active = ($i == $pagina) ? 'active' : '';
-                            echo '<li class="page-item ' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
-                        }
-                    } else {
-                        // página actual > 1: mostrar 1 fijo, posible "..." y bloque que empieza en $pagina
-                        echo '<li class="page-item numero ' . (1 == $pagina ? 'active' : '') . '"><a class="page-link" href="' . page_link(1, $params) . '">1</a></li>';
-
-                        $start = $pagina;
-                        $end = min($total_paginas, $start + ($visible_count - 2)); // visible_count -1 botones después del '1', por eso -2 para índice
-                        // Si al final no alcanzamos la cantidad deseada, desplazamos el bloque hacia atrás
-                        $needed_after_1 = $visible_count - 1; // ej. 9
-                        $current_count_after_1 = $end - $start + 1;
-                        if ($current_count_after_1 < $needed_after_1) {
-                            // intentamos mover start hacia atrás, pero no menos de 2 (ya que 1 está fijo)
-                            $start = max(2, $start - ($needed_after_1 - $current_count_after_1));
-                            $end = min($total_paginas, $start + $needed_after_1 - 1);
-                        }
-
-                        if ($start > 2) {
-                            // hay un hueco entre 1 y start -> mostramos "..."
-                            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
-                        }
-
-                        for ($i = $start; $i <= $end; $i++) {
-                            $active = ($i == $pagina) ? 'active' : '';
-                            echo '<li class="page-item numero' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
-                        }
-                    }
-
-                    // Botón siguiente
-                    $next = $pagina + 1;
-                    if ($next > $total_paginas) $next = $total_paginas;
-                    echo '<li class="page-item ' . ($pagina == $total_paginas ? 'disabled' : '') . '" >';
-                    echo '<a class="page-link fw-bold" href="' . page_link($next, $params) . '" aria-label="Siguiente">&gt;</a>';
-                    echo '</li>';
-
-                    echo '</ul></nav>';
+                for ($i = $start; $i <= $end; $i++) {
+                    $active = ($i == $pagina) ? 'active' : '';
+                    echo '<li class="page-item numero' . $active . '"><a class="page-link" href="' . page_link($i, $params) . '">' . $i . '</a></li>';
                 }
             }
-            ?>
+
+            // Botón siguiente
+            $next = $pagina + 1;
+            if ($next > $total_paginas) $next = $total_paginas;
+            echo '<li class="page-item ' . ($pagina == $total_paginas ? 'disabled' : '') . '" >';
+            echo '<a class="page-link fw-bold" href="' . page_link($next, $params) . '" aria-label="Siguiente">&gt;</a>';
+            echo '</li>';
+
+            echo '</ul></nav>';
+        }
+    } // fin de $hayFiltros
+}
+?>
+
         </div> <!-- col-10 -->
     </div> <!-- row -->
     </div> <!-- caja -->

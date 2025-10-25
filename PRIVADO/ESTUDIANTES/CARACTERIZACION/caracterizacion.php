@@ -8,6 +8,17 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
+// Control de inactividad (5 minutos)
+$inactividad_maxima = 300;
+if (isset($_SESSION['ultimo_movimiento'])) {
+    $tiempo_inactivo = time() - $_SESSION['ultimo_movimiento'];
+    if ($tiempo_inactivo > $inactividad_maxima) {
+        session_unset();
+        session_destroy();
+        header("Location: ../PRIVADO/INICIO SESION/inicio.php?expirado=1");
+        exit();
+    }
+}
 $_SESSION['ultimo_movimiento'] = time();
 
 // --- Conexión BD ---

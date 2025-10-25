@@ -33,8 +33,7 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 <body>
 
     <div class="w-100">
-        <img src="../../Imagenes/Banner.png" alt="" class="img-fluid"
-            style="width: 100%; max-height: 160px; object-fit: cover;">
+        <img src="../../Imagenes/Banner.png" alt="" class="img-fluid" style="width: 100%; max-height: 160px; object-fit: cover;">
     </div>
 
 
@@ -56,6 +55,9 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/ESCUELA DE PADRES/escuela.php">Escuela De Padres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atencion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../PRIVADO/INICIO SESION/inicio.php">Iniciar Sesion</a>

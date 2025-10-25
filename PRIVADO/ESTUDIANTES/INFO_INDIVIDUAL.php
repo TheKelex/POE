@@ -8,6 +8,19 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
+// Control de inactividad (5 minutos)
+$inactividad_maxima = 300;
+if (isset($_SESSION['ultimo_movimiento'])) {
+    $tiempo_inactivo = time() - $_SESSION['ultimo_movimiento'];
+    if ($tiempo_inactivo > $inactividad_maxima) {
+        session_unset();
+        session_destroy();
+        header("Location: ../PRIVADO/INICIO SESION/inicio.php?expirado=1");
+        exit();
+    }
+}
+$_SESSION['ultimo_movimiento'] = time();
+
 if (isset($_SESSION["eliminado"])) {
     echo '<div class="alert alert-success text-center m-3 rounded-pill shadow-sm">
             ✅ Estudiante eliminado correctamente.
@@ -108,7 +121,7 @@ if (!isset($_SESSION["id_dato"])) {
                     echo $caracterizacion;
                     echo $observador;
                     echo $folder;
-                }elseif ($_SESSION['tipo_usuario']==='psicorientacion') {
+                }elseif ($_SESSION['tipo_usuario']==='psicoorientador') {
                     echo $caracterizacion;
                     echo $ficha_individual;
                     echo $observador;

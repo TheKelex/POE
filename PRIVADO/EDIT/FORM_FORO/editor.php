@@ -1,4 +1,32 @@
 <?php
+session_start();
+
+/* --------------------------
+   Configuración / Seguridad
+   -------------------------- */
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../../INICIO%20SESION/inicio.php");
+    session_destroy();
+    exit();
+}
+if ($_SESSION['tipo_usuario'] !== "psicoorientador" && $_SESSION['tipo_usuario'] !== "administrador") {
+    header("Location: ../../INICIO%20SESION/inicio.php");
+    session_destroy();
+    exit();
+}
+
+// Control de inactividad (5 minutos)
+$inactividad_maxima = 300;
+if (isset($_SESSION['ultimo_movimiento'])) {
+    $tiempo_inactivo = time() - $_SESSION['ultimo_movimiento'];
+    if ($tiempo_inactivo > $inactividad_maxima) {
+        session_unset();
+        session_destroy();
+        header("Location: ../PRIVADO/INICIO SESION/inicio.php?expirado=1");
+        exit();
+    }
+}
+$_SESSION['ultimo_movimiento'] = time();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['actualizar']) && !isset($_POST['borrar'])) {
     unset($_GET['editar']);

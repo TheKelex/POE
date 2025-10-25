@@ -1,6 +1,5 @@
 <?php 
 session_start(); // Inicia o continúa una sesión. Obligatorio para usar variables $_SESSION
-
 // Parámetros para conectarse a la base de datos
 $host = "localhost";      // Dirección del servidor (en este caso, local)
 $user = "root";           // Usuario de MySQL (por defecto es root)
