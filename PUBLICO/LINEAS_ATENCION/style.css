@@ -138,6 +138,23 @@
 
 }
 
+.actualizar { /*Estilo para el boton de actualizar de la caja de filtros*/
+
+  color: white !important;
+  background-color: #57a06b !important;
+  font-weight: bold !important;
+  padding: 5px 10px !important;
+  text-align: center !important;
+  transition: all 0.4s ease-in-out !important;
+
+}
+
+.actualizar:hover { /*Efecto para el boton de actualizar*/
+
+  background-color: #04BF55 !important;
+
+}
+
 .texto_footer { /*Clase Para Los Textos Del Footer*/
 
   color: gray;
