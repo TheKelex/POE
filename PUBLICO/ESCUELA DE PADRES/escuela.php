@@ -215,28 +215,20 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 
     <!--Fin De Los POST-->
 
-    <!--Inicio Contacto Psicoorientadora-->
-
+  <!--Inicio Contacto Psicoorientadora-->
     <div class="position-relative text-center">
         <img src="../../Imagenes/Contacto.png" class="img-fluid w-100">
         <div class="position-absolute top-50 start-50 translate-middle">
-            <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
-            <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
-            <p class="email rounded-pill m-5">
-                <?php
-                if ($contacto && $contacto->num_rows > 0) {
-                    // Obtener la primera fila del resultado
-                    $datos = $contacto->fetch_assoc();
-                    echo htmlspecialchars($datos['contacto_psicoo']);
-                } else {
-                    // Valor por defecto si no hay datos
-                    echo 'contacto@institucion.edu.co';
-                }
-                ?>
-            </p>
+            <h2 class="titulo_contacto text-center">DOCUMENTOS NORMATIVOS Y LEGALES</h2>
+            <p class="text-center m-4" style="color: white;">POR LA CUAL SE INCORPORA A LOS PROYECTOS EDUCATIVOS INSTITUCIONALES EL COMPONENTE DE COMPETENCIAS SOCIOEMOCIONALES EN COLOMBIA Y SE DICTAN OTRAS DISPOSICIONES</p>
+            <a href="./PDF/1. LEY 2025 DEL 23.07.2000 escuela padres.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
+                LEY 2491 DE 2025 (Julio 23)
+            </a>
+            <a href="./PDF/2. Decreto 0459 de 2024 Escuela de padres.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
+                DECRETO 0459 DE 2024
+            </a>
         </div>
     </div>
-
     <!--Fin Contacto Psicoorientadora-->
 
     <!--Inicio Footer-->

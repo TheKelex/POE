@@ -529,7 +529,19 @@ if ($error_msg === '') {
                     echo '
                     <!-- Botón para abrir modal -->
                     <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center rounded-pill" data-bs-toggle="modal" data-bs-target="#modalListas" style="color: #ffffffff; background-color: #00ac4bff;">
-                        <span class="material-symbols-outlined">upload</span>Cargar Listas
+                        <span class="material-symbols-outlined">upload</span>Cargar Listas De Estudiantes
+                    </button>
+                    <br>
+                    ';
+                }
+            ?> 
+
+            <?php 
+                if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador') {
+                    echo '
+                    <!-- Botón para abrir modal -->
+                    <button type="button" class="btn btn-editar d-flex w-50 align-items-center justify-content-center rounded-pill" data-bs-toggle="modal" data-bs-target="#modalListasEgresados" style="color: #ffffffff; background-color: #00ac4bff;">
+                        <span class="material-symbols-outlined">upload</span>Cargar Listas De Egresados
                     </button>
                     <br>
                     ';
@@ -560,6 +572,35 @@ if ($error_msg === '') {
                             <div class="mb-3" style="margin-left: 14.4rem;">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: #ffffffff; background-color: #ba1717ff;">Cerrar</button>
                                 <input type="submit" class="btn btn-editar" style="color: #ffffffff; background-color: #00ac4bff;" name="actualizar" value="Actualizar listado">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+             <!-- Modal -->
+            <div class="modal fade" id="modalListasEgresados" tabindex="-1" aria-labelledby="modalListasLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <div class="modal-header" style="background-color: #017800; color: white;">
+                            <h5 class="modal-title" id="modalListasLabel">Actualizar listados Egresados (CSV)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+
+                        <form action="listas_egresados.php" method="POST" enctype="multipart/form-data" class="p-4">
+                            <div class="mb-3">
+                                <label for="archivoCSV" class="form-label">Seleccione el archivo CSV</label>
+                                <input class="form-control" type="file" name="archivoCSV" id="archivoCSV" accept=".csv" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña de administrador</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: #ffffffff; background-color: #ba1717ff;">Cerrar</button>
+                                <input type="submit" class="btn btn-editar" style="color: #ffffffff; background-color: #00ac4bff;" name="actualizar" value="Actualizar listado Egresados">
                             </div>
                         </form>
                     </div>

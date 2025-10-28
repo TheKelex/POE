@@ -121,7 +121,7 @@ function img_src_for($valorDB)
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">ATENCION INTEGRAL PARA LA CONVIVENCIA ESCOLAR</h5>
+                <h5 class="card-title">ATENCIÓN INTEGRAL PARA LA CONVIVENCIA ESCOLAR</h5>
                 <p>Busca promover el respeto, la tolerancia y la resolución pacífica de conflictos dentro del entorno educativo. <br>
                     <b>Se activa</b> cuando hay conflictos entre estudiantes o situaciones que alteren la armonía escolar.
                 </p>
@@ -131,8 +131,8 @@ function img_src_for($valorDB)
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">AGRESION Y ACOSO ESCOLAR INTEGRLA</h5>
-                <p>Atiende casos de maltrato físico, verbal, psicológico o virtual entre estudiantes.<br>
+                <h5 class="card-title">AGRESIÓN Y ACOSO ESCOLAR INTEGRAL</h5>
+                <p>Atiende casos de maltrato físico, verbal, psicológico, virtual, uso inadecuado de la intelgencia artificial y redes entre estudiantes.<br>
                     <b>Se activa</b> ante evidencias o denuncias de bullying o ciberacoso.
                 </p>
             </div>
@@ -143,7 +143,7 @@ function img_src_for($valorDB)
             <div class="card-body">
                 <h5 class="card-title">CONDUCTA SUICIDA NO FATAL</h5>
                 <p>Brinda atención inmediata a estudiantes con intentos o ideación suicida. <br>
-                    <b>Se activa</b> ante cualquier señal de riesgo o manifestación de autolesión.
+                    <b>Se activa</b> ante cualquier señal de riesgo o manifestación de autolesion, pensamiento negativista o expresiones deseperanzadoras hacia la vida.
                 </p>
             </div>
             <a href="./PDF/CONDUCTA_SUICIDA_NO_FATAL.pdf" class="btn actualizar m-3">Visualizar</a>
@@ -162,7 +162,7 @@ function img_src_for($valorDB)
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">CONSUMO DE SUSTANCIAS PSICOACTIVAS</h5>
-                <p>Promueve la prevención y atención de casos de uso o abuso de drogas.<br>
+                <p>Promueve la prevención y atención de casos de uso, consumo, porte, preparación y/o venta de sustancias o alimentos psicoactivos<br>
                     <b>Se activa</b> al identificar consumo o posesión de sustancias dentro o fuera del colegio.
                 </p>
             </div>
@@ -172,7 +172,7 @@ function img_src_for($valorDB)
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">EMBARAZO ADOLECENTE TEMPRANO</h5>
-                <p>Brinda orientación médica, psicológica y educativa a adolescentes gestantes.<br>
+                <p>Brinda asesoramiento y apoyo psicopedagogíco a la estudiante embarazada y su familia, Orienta en la activación de la ruta en salud que garantice los cuidados integrales en salud como gestante y acompaña el proceso educativo de la estudiante gestante.<br>
                     <b>Se activa</b> cuando se confirma o se sospecha un embarazo en estudiante menor de edad.
                 </p>
             </div>
@@ -182,8 +182,8 @@ function img_src_for($valorDB)
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">VIOLENCIA INTRAFAMILIAR</h5>
-                <p>Protege a menores víctimas de maltrato físico, psicológico o negligencia en su hogar.<br>
-                    <b>Se activa</b> ante cualquier señal o denuncia de abuso dentro de la familia.
+                <p>Protege a niños, niñas y adolescentes del maltrato físico o de cualquier negligencia en su hogar.<br>
+                    <b>Se activa</b> ante cualquier señal o denuncia de violencia dentro de la familia.
                 </p>
             </div>
             <a href="./PDF/VIOLENCIA_INTRAFAMILIAR.pdf" class="btn actualizar m-3">Visualizar</a>
@@ -192,8 +192,8 @@ function img_src_for($valorDB)
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">VIOLENCIA POR DISCRIMINACIÓN</h5>
-                <p>Busca garantizar el respeto a la diversidad y prevenir tratos injustos por origen, condición o creencia.<br>
-                    <b>Se activa</b> cuando un estudiante es excluido, humillado o agredido por diferencias personales.
+                <p>Busca garantizar el respeto a la diversidad y prevenir tratos injustos por origen, condición sexual y creencias.<br>
+                    <b>Se activa</b> cuando el estudiante manifiesta ser excluido humillado o agredido por sus condiciones diversas.
                 </p>
             </div>
             <a href="./PDF/VIOLENCIA_DISCRIMACION.pdf" class="btn actualizar m-3">Visualizar</a>
@@ -202,8 +202,8 @@ function img_src_for($valorDB)
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">VIOLENCIA SEXUAL</h5>
-                <p>Atiende y protege a víctimas de abuso o acoso sexual, garantizando atención médica, psicológica y legal.<br>
-                    <b>Se activa</b> ante cualquier sospecha, relato o evidencia de abuso sexual.</p>
+                <p>Atiende, orienta y protege a víctimas con presunción de abuso o acoso sexual, garantizando la activación de la ruta para atención en salud, orientación psicológica e intervención legal de las entidades competentes.<br>
+                    <b>Se activa</b> ante cualquier evento que indique posible abuso sexual</p>
             </div>
             <a href="./PDF/VIOLENCIA_SEXUAL.pdf" class="btn actualizar m-3">Visualizar</a>
         </div>

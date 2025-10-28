@@ -115,79 +115,6 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 
     <br><br><br><br><br>
 
-    <img src="../../Imagenes/HR.png" class="img-fluid" width="100%">
-
-
-
-    <!--Inicio De Que Es El POE-->
-
-    <h1 class="text-center my-4 titulos" id="que_es_el_poe">
-
-        ¿Que Es El POE?
-
-    </h1>
-
-    <p class="textos m-4 text-center">
-
-        El POE es el Proyecto de Orientación Escolar del Técnico Superior Neiva, el cual se encarga de la inscripción y
-        caracterizacion de los estudiantes de la institución, así como de la atención a estos. Este proyecto es
-        impulsado por las dos psicorientadoras de la institución, de la jornada mañana y tarde.
-
-    </p>
-
-    <center>
-        <img src="../../Imagenes/Img_Desfile.png" class="img-fluid m-4" style="width: 600px; height: auto;">
-    </center>
-
-    <!--Fin De Que Es El POE-->
-
-
-
-
-    <img src="../../Imagenes/HR.png" class="img-fluid" width="100%">
-
-
-
-    <!--Inicio De La Funcion Del POE-->
-
-    <div class="shadow">
-
-        <h1 class="text-center my-4 titulos" id="que_es_el_poe">
-
-            La Funcion Del POE
-
-        </h1>
-
-        <p class="textos m-4 text-center">
-
-            El programa del POE tiene la siguiente función dentro de la Institución Educativa Técnico Superior:
-
-        </p>
-
-        <div class="d-flex flex-column align-items-center">
-
-            <div class="d-flex flex-column align-items-start">
-                <div class="d-flex align-items-center cuadro">
-                    <div class="d-flex align-items-center justify-content-center circulos me-3">1</div>
-                    <p class="textos mb-0">Caracterización del estudiante</p>
-                </div>
-
-                <div class="d-flex align-items-center cuadro" style="width: 93%; ;">
-                    <div class="d-flex align-items-center justify-content-center circulos me-3">2</div>
-                    <p class="textos mb-0">Inscripción del estudiante</p>
-                </div>
-            </div>
-
-        </div>
-
-        <center>
-            <img src="../../Imagenes/Img_FuncionPOE.png" class="img-fluid m-4" style="width: 600px; height: auto; border-radius: 25px;">
-        </center>
-
-    </div>
-
-    <!--Fin De La Funcion Del POE-->
-
     <!--Inicio de los post-->
 
     <div class="w-100">
@@ -249,28 +176,20 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 
     <!--Fin de los post-->
 
-    <!--Inicio Contacto Psicoorientadora-->
-
+  <!--Inicio Contacto Psicoorientadora-->
     <div class="position-relative text-center">
         <img src="../../Imagenes/Contacto.png" class="img-fluid w-100">
         <div class="position-absolute top-50 start-50 translate-middle">
-            <h2 class="titulo_contacto text-center">Contacto Psicoorientadora</h2>
-            <p class="text-center m-4" style="color: white;">Contacto Directo Via Email</p>
-            <p class="email rounded-pill m-5">
-                <?php
-                if ($contacto && $contacto->num_rows > 0) {
-                    // Obtener la primera fila del resultado
-                    $datos = $contacto->fetch_assoc();
-                    echo htmlspecialchars($datos['contacto_psicoo']);
-                } else {
-                    // Valor por defecto si no hay datos
-                    echo 'contacto@institucion.edu.co';
-                }
-                ?>
-            </p>
+            <h2 class="titulo_contacto text-center">DOCUMENTOS NORMATIVOS Y LEGALES</h2>
+            <p class="text-center m-4" style="color: white;">POR MEDIO DE LA CUAL SE CREA Y SE IMPLEMENTA LA CÁTEDRA DE EDUCACIÓN EMOCIONAL EN TODAS LAS INSTITUCIONES EDUCATIVAS DE COLOMBIA EN LOS NIVELES DE PREESCOLAR, BÁSICA Y MEDIA Y SE ADOPTAN OTRAS DISPOSICIONES.</p>
+            <a href="./PDF/Ley_2491_de_2025_Congreso_de_la_República.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
+                LEY 2491 DE 2025 (JULIO 23)
+            </a>
+            <a href="./PDF/Ley_2503_de_2025_Congreso_de_la_República.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
+                LEY No. 2503 DE 2025 (Julio 28)
+            </a>
         </div>
     </div>
-
     <!--Fin Contacto Psicoorientadora-->
 
 

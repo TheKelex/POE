@@ -34,12 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtener los valores enviados
     $biografia_egresados = $_POST["biografia_egresados"] ?? '';
     $edad_egresados = $_POST["edad_egresados"] ?? null;
+    $aporte_egresados = $_POST["aporte_egresados"] ?? '';
 
     try {
         // Preparar la consulta con ambos campos
-        $sql = "UPDATE egresados SET biografia_egresados=?, edad_egresados=? WHERE id_egresados=?";
+        $sql = "UPDATE egresados SET biografia_egresados=?, aporte_egresados=?, edad_egresados=? WHERE id_egresados=?";
         $st = $conexion->prepare($sql);
-        $st->bind_param("sii", $biografia_egresados, $edad_egresados, $id_egresados);
+        $st->bind_param("ssii", $biografia_egresados, $aporte_egresados, $edad_egresados, $id_egresados);
         $st->execute();
         $st->close();
 

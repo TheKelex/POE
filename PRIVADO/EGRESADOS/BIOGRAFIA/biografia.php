@@ -52,6 +52,7 @@ edad_egresados,
 fechanac_egresados,
 especialidad_egresados, 
 biografia_egresados,
+aporte_egresados,
 foto_egresados,
 num_doc_egresados
 FROM egresados 
@@ -142,6 +143,9 @@ $edad = date_diff(date_create($fecha), date_create('today'))->y;
         <div class="col-12">
 
             <textarea class="area form-control mx-auto" placeholder="Agregar texto..." rows="7" name="biografia_egresados"><?= htmlspecialchars($datos['biografia_egresados'] ?? '') ?></textarea>
+            <h3 style="text-align: center;">Que me gustaria aportar a la Institución</h3>
+            <textarea class="area form-control mx-auto" placeholder="Agregar texto..." rows="7" name="aporte_egresados"><?= htmlspecialchars($datos['aporte_egresados'] ?? '') ?></textarea>
+
 
             <div class="d-flex justify-content-end pe-4">
 
@@ -152,7 +156,6 @@ $edad = date_diff(date_create($fecha), date_create('today'))->y;
             </div>
 
         </div>
-
         </form>
 
     </div>
