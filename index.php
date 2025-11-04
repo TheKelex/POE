@@ -11,7 +11,8 @@ $resultado = $conexion->query($sql);
 $datos = $resultado->fetch_assoc();
 
 // Función para obtener ruta de imagen
-function img_src_for($valorDB) {
+function img_src_for($valorDB)
+{
     if (empty($valorDB)) return "./Imagenes/Img_Divisiones.png"; // placeholder por si no hay nada
     return "./EDITOR_INDEX/" . ltrim($valorDB, './'); // asegurar que apunte a la carpeta correcta
 }
@@ -45,10 +46,13 @@ function img_src_for($valorDB) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #378b4a;">
                     <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="http://tecnicosuperiorneiva.com.co/">I.E Tecnico</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/ESCUELA DE PADRES/escuela.php">Escuela de Padres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/TALLERES FORMATIVOS/taller.php">T. Formativos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atencion</a>
@@ -110,7 +114,8 @@ function img_src_for($valorDB) {
     </p>
 
     <center>
-        <img src="<?= img_src_for($datos['img_sec'] ?? '') ?>" class="img-fluid m-4 rounded-5" style="width: 600px; height: auto;">
+        <img src="<?= img_src_for($datos['img_sec'] ?? '') ?>"
+            class="img-fluid m-4 rounded-5 img-poe-responsive">
     </center>
     <!--Fin De Que Es El POE-->
 
@@ -129,7 +134,9 @@ function img_src_for($valorDB) {
             <p class="textos_divisiones">
                 <?= htmlspecialchars($datos['desc_division1'] ?? 'Texto de ejemplo de la primera división.') ?>
             </p>
-            <img src="<?= img_src_for($datos['img_division1'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <center>
+                <img src="<?= img_src_for($datos['img_division1'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            </center>
             <br>
         </div>
 
@@ -142,7 +149,9 @@ function img_src_for($valorDB) {
             <p class="textos_divisiones">
                 <?= htmlspecialchars($datos['desc_division2'] ?? 'Texto de ejemplo de la segunda división.') ?>
             </p>
-            <img src="<?= img_src_for($datos['img_division2'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <center>
+                <img src="<?= img_src_for($datos['img_division2'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            </center>
             <br>
         </div>
 
@@ -155,7 +164,9 @@ function img_src_for($valorDB) {
             <p class="textos_divisiones">
                 <?= htmlspecialchars($datos['desc_division3'] ?? 'Texto de ejemplo de la tercera división.') ?>
             </p>
-            <img src="<?= img_src_for($datos['img_division3'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            <center>
+                <img src="<?= img_src_for($datos['img_division3'] ?? '') ?>" style="width: 90%; height: auto;" class="rounded-5 m-4">
+            </center>
             <br>
         </div>
 
@@ -183,7 +194,7 @@ function img_src_for($valorDB) {
             <div class="row g-4">
                 <div class="col-md-3 d-flex align-items-center text-start">
                     <p class="mb-3" style="color: #04BF55;">“¡Palpitante juventud! Adelante con el arte, tenemos que avanzar.
-Es consigna de buen estudiante: con la brega, la meta alcanzar.”</p>
+                        Es consigna de buen estudiante: con la brega, la meta alcanzar.”</p>
                 </div>
 
                 <div class="col-md-2">
@@ -220,4 +231,5 @@ Es consigna de buen estudiante: con la brega, la meta alcanzar.”</p>
 
     <script src="./bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
