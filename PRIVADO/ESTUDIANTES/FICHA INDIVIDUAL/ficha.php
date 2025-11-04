@@ -4,7 +4,7 @@ session_start();
    Configuración / Seguridad
    -------------------------- */
 if (!isset($_SESSION['usuario'])) {
-    header("Location: ../PRIVADO/INICIO SESION/inicio.php");
+    header("Location: ../../INICIO SESION/inicio.php");
     exit();
 }
 
@@ -15,7 +15,7 @@ if (isset($_SESSION['ultimo_movimiento'])) {
     if ($tiempo_inactivo > $inactividad_maxima) {
         session_unset();
         session_destroy();
-        header("Location: ../PRIVADO/INICIO SESION/inicio.php?expirado=1");
+        header("Location: ../../INICIO SESION/inicio.php?expirado=1");
         exit();
     }
 }
