@@ -283,21 +283,21 @@ function img_src_for($valorDB)
                         <li><a href="#" class="texto_footer text-decoration-none">Escuela de padres</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Foro</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Talleres formativos</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesión</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2">
                     <h5 class="titulo_footer">Proyectos</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="texto_footer text-decoration-none">Control de seguimiento del PAE</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Almacen</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Almacén</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">POE</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2">
                     <h5 class="titulo_footer">Institucional</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="texto_footer text-decoration-none">Minieducacion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Minieducación</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Gov</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">PAE</a></li>
                     </ul>

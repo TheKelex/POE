@@ -58,11 +58,11 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                             href="../TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atencion</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atención</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar"
-                            href="../../PRIVADO/INICIO SESION/inicio.php">Iniciar Sesion</a>
+                            href="../../PRIVADO/INICIO SESION/inicio.php">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -250,7 +250,7 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                         <li><a href="#" class="texto_footer text-decoration-none">Escuela de padres</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Foro</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Talleres formativos</a></li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Iniciar Sesión</a></li>
                     </ul>
                 </div>
 
@@ -259,7 +259,7 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                     <ul class="list-unstyled">
                         <li><a href="#" class="texto_footer text-decoration-none">Control de seguimiento del PAE</a>
                         </li>
-                        <li><a href="#" class="texto_footer text-decoration-none">Almacen</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Almacén</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">POE</a></li>
                     </ul>
                 </div>
@@ -267,7 +267,7 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
                 <div class="col-md-2">
                     <h5 class="titulo_footer">Institucional</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="texto_footer text-decoration-none">Minieducacion</a></li>
+                        <li><a href="#" class="texto_footer text-decoration-none">Minieducación</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">Gov</a></li>
                         <li><a href="#" class="texto_footer text-decoration-none">PAE</a></li>
                     </ul>

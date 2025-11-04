@@ -51,7 +51,7 @@ function img_src_for($valorDB) {
                         <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atencion</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="./PUBLICO/LINEAS_ATENCION/lineas_atencion.php">Lineas De Atención</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="./PRIVADO/INICIO SESION/inicio.php">Iniciar Sesión</a>

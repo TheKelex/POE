@@ -143,7 +143,7 @@ function img_src_for($valorDB)
             <div class="card-body">
                 <h5 class="card-title">CONDUCTA SUICIDA NO FATAL</h5>
                 <p>Brinda atención inmediata a estudiantes con intentos o ideación suicida. <br>
-                    <b>Se activa</b> ante cualquier señal de riesgo o manifestación de autolesion, pensamiento negativista o expresiones deseperanzadoras hacia la vida.
+                    <b>Se activa</b> ante cualquier señal de riesgo o manifestación de autolesión, pensamiento negativista o expresiones deseperanzadoras hacia la vida.
                 </p>
             </div>
             <a href="./PDF/CONDUCTA_SUICIDA_NO_FATAL.pdf" class="btn actualizar m-3">Visualizar</a>
