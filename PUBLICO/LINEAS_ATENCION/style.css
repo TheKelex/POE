@@ -211,3 +211,220 @@ img {
 .navbar-nav {
   flex-wrap: wrap;
 }
+
+/* ============================= */
+/* Ajustes Responsive del POE XD */
+/* ============================= */
+
+/* Navbar */
+.navbar-nav {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar-toggler {
+  border-color: white;
+  background-color: white;
+}
+
+/* Sección principal */
+@media (max-width: 768px) {
+  .titulo_principal {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .textos {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  #boton_1 {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .col-md-6 img {
+    width: 90% !important;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo-container {
+    text-align: center !important;
+  }
+}
+
+/* Divisiones (Visión, Objetivo, Misión) */
+@media (max-width: 992px) {
+  .row.shadow > div {
+    border-right: none !important;
+    border-bottom: 2px solid #017800;
+    width: 100%;
+  }
+
+  .row.shadow img {
+    width: 80% !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .titulos {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
+  .textos_divisiones {
+    width: 90%;
+    text-align: justify;
+    margin: 0 auto;
+  }
+}
+
+/* Imagen del "Qué es el POE" */
+@media (max-width: 768px) {
+  .texto_que {
+    width: 90% !important;
+    text-align: justify;
+    font-size: 1rem;
+  }
+
+  center img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* ============================= */
+/* Contacto Psicoorientadora XD */
+/* ============================= */
+.position-relative.text-center {
+  position: relative;
+  overflow: hidden;
+}
+
+.position-relative.text-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* para que cubra todo */
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .position-relative.text-center img {
+    min-height: 300px; /* evita que se quede corta */
+  }
+
+  .position-absolute.top-50.start-50.translate-middle {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .titulo_contacto {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .email {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: inline-block;
+  }
+}
+
+/* Footer */
+@media (max-width: 768px) {
+  footer .container {
+    text-align: center;
+  }
+
+  footer .col-md-3,
+  footer .col-md-2 {
+    width: 100%;
+  }
+
+  .titulo_footer {
+    margin-top: 15px;
+  }
+}
+
+/* Imagen "Qué es el POE" */
+.img-poe-responsive {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px; /* límite en pantallas grandes */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .img-poe-responsive {
+    max-width: 90%; /* más ancha en pantallas pequeñas */
+  }
+}
+
+/* ✅ Ajuste para que el fondo Contacto.png cubra todo el texto */
+.section-contacto {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-contacto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px; /* altura mínima para pantallas grandes */
+}
+
+.section-contacto .contenido-contacto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 900px;
+  color: white;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .section-contacto img {
+    min-height: 550px; /* más alto para texto en móvil */
+    object-position: center;
+  }
+
+  .section-contacto .contenido-contacto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+  }
+
+  .section-contacto .email {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-contacto img {
+    min-height: 600px;
+  }
+
+  .section-contacto .titulo_contacto {
+    font-size: 22px;
+  }
+
+  .section-contacto p {
+    font-size: 14px;
+    margin: 10px;
+  }
+}

@@ -51,6 +51,9 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #378b4a;">
                     <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="http://tecnicosuperiorneiva.com.co/">I.E Tecnico</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../index.php">POE</a>
                     </li>
                     <li class="nav-item">
@@ -176,18 +179,26 @@ $contacto = $conexion->query("SELECT contacto_psicoo FROM info_index");
 
     <!--Fin de los post-->
 
-  <!--Inicio Contacto Psicoorientadora-->
-    <div class="position-relative text-center">
+    <!--Inicio Contacto Psicoorientadora-->
+    <div class="section-contacto">
         <img src="../../Imagenes/Contacto.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="contenido-contacto">
             <h2 class="titulo_contacto text-center">DOCUMENTOS NORMATIVOS Y LEGALES</h2>
-            <p class="text-center m-4" style="color: white;">POR MEDIO DE LA CUAL SE CREA Y SE IMPLEMENTA LA CÁTEDRA DE EDUCACIÓN EMOCIONAL EN TODAS LAS INSTITUCIONES EDUCATIVAS DE COLOMBIA EN LOS NIVELES DE PREESCOLAR, BÁSICA Y MEDIA Y SE ADOPTAN OTRAS DISPOSICIONES.</p>
-            <a href="./PDF/Ley_2491_de_2025_Congreso_de_la_República.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
-                LEY 2491 DE 2025 (JULIO 23)
-            </a>
-            <a href="./PDF/Ley_2503_de_2025_Congreso_de_la_República.pdf" class="email d-flex rounded-pill w-75 mx-auto justify-content-center m-5" style="text-decoration: none;">
-                LEY No. 2503 DE 2025 (Julio 28)
-            </a>
+            <p class="text-center m-4" style="color: white;">
+                POR MEDIO DE LA CUAL SE CREA Y SE IMPLEMENTA LA CÁTEDRA DE EDUCACIÓN EMOCIONAL EN TODAS LAS INSTITUCIONES EDUCATIVAS DE COLOMBIA EN LOS NIVELES DE PREESCOLAR, BÁSICA Y MEDIA Y SE ADOPTAN OTRAS DISPOSICIONES.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <a href="./PDF/Ley_2491_de_2025_Congreso_de_la_República.pdf"
+                    class="email d-flex rounded-pill justify-content-center m-2"
+                    style="text-decoration: none;">
+                    LEY 2491 DE 2025 (JULIO 23)
+                </a>
+                <a href="./PDF/Ley_2503_de_2025_Congreso_de_la_República.pdf"
+                    class="email d-flex rounded-pill justify-content-center m-2"
+                    style="text-decoration: none;">
+                    LEY No. 2503 DE 2025 (Julio 28)
+                </a>
+            </div>
         </div>
     </div>
     <!--Fin Contacto Psicoorientadora-->

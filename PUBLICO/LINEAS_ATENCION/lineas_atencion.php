@@ -46,13 +46,16 @@ function img_src_for($valorDB)
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto rounded-pill gap-2" style="font-weight: bold; background-color: #378b4a;">
                     <li class="nav-item">
+                        <a class="nav-link px-4 py-2 textos_navbar" href="http://tecnicosuperiorneiva.com.co/">I.E Tecnico</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../index.php">POE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/ESCUELA DE PADRES/escuela.php">Escuela de Padres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/TALLERES FORMATIVOS/taller.php">Talleres Formativos</a>
+                        <a class="nav-link px-4 py-2 textos_navbar" href="../../PUBLICO/TALLERES FORMATIVOS/taller.php">T. Formativos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-4 py-2 textos_navbar" href="../../PRIVADO/INICIO SESION/inicio.php">Iniciar Sesión</a>
